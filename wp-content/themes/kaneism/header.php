@@ -28,7 +28,7 @@ if (navigator && navigator.serviceWorker) { navigator.serviceWorker.register('/w
 <?php
     // Load critical CSS with transient caching
     $css_transient_key = 'kaneism_critical_css';
-    $css_file = ABSPATH . 'assets/css/dev/kaneism-inline-head' . ((defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? '' : '.min') . '.css';
+    $css_file = ABSPATH . 'assets/css/build/kaneism-inline-head' . ((defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? '' : '.min') . '.css';
     $css_content = get_transient($css_transient_key);
     $css_file_mtime = file_exists($css_file) ? filemtime($css_file) : 0;
     
@@ -51,18 +51,16 @@ if (navigator && navigator.serviceWorker) { navigator.serviceWorker.register('/w
     echo '<style id="critical-injector">' . $css_output . '</style>';
     ?>
 
-<?php /* <link rel="stylesheet" href="/assets/css/build/kaneism-inline-head.min.css" media="screen"> */ ?>
-<link rel="stylesheet" href="/assets/css/dev/kaneism-base-layout.min.css" media="screen">
+<link rel="stylesheet" href="/assets/css/build/kaneism-base-layout.min.css" media="screen">
 <link rel="stylesheet" href="/assets/css/dev/kaneism-global-layout.min.css" as="style" onload="this.rel='stylesheet'">
 <link rel="stylesheet" href="/assets/css/dev/01-theme-clean.min.css" media="screen">
 <link rel="stylesheet" href="/assets/css/dev/kaneism-helpers.min.css" media="print" onload="this.media='screen'">
+<!-- merge -->
+<!-- <link rel="stylesheet" href="/assets/css/dev/bits.min.css" media="screen"> -->
 <?php if ( is_singular('work') ) : ?>
 <link rel="stylesheet" href="/assets/css/build/swiper.min.css" media="print" onload="this.media='screen'">
 <?php endif; ?>
 <noscript><link rel="stylesheet" href="/assets/css/dev/kaneism-global-layout.min.css" media="screen"><link rel="stylesheet" href="/assets/css/dev/kaneism-helpers.min.css" media="screen"></noscript>
-
-<!-- <link rel="stylesheet" href="/assets/css/dev/storefront-styles.min.css" media="screen"> -->
-<link rel="stylesheet" href="/assets/css/dev/bits.min.css" media="screen">
 
 <link rel="manifest" href="/kaneism.json">
 <?php /* favicon */ ?>
@@ -80,8 +78,6 @@ if (navigator && navigator.serviceWorker) { navigator.serviceWorker.register('/w
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Kaneism">
 
-<?php wp_head(); ?>
-
 <?php /* COPYRIGHTS */ ?>
 <meta name="author" content="Kane">
 <meta name="copyright" content="© Kaneism designs. All right reserved. <?php echo date('Y'); ?>">
@@ -89,10 +85,10 @@ if (navigator && navigator.serviceWorker) { navigator.serviceWorker.register('/w
 <meta name="googlebot" content="NOODP">
 <?php if ( is_front_page() ) : ?><link rel="home" title="Home page" href="/"><?php endif ?>
 
+<?php wp_head(); ?>
 </head>
 
 <body <?php body_class('light'); ?> data-off-screen="hidden" id="page-body" data-theme="dark">
-<?php wp_body_open(); ?>
 <a href="#global-header" id="exit-off-canvas" class="exit-offcanvas" aria-controls="global-header"><span class="hide-text">Hide Menu</span></a>
 <?php /* accessibility nav */ ?>
 <a class="quick-links" href="#main-content">Skip to Main Content</a>
@@ -138,9 +134,11 @@ if (navigator && navigator.serviceWorker) { navigator.serviceWorker.register('/w
 				);
             ?>
 	    </nav>
-        <?php if ( class_exists( 'WooCommerce' ) ) : ?>
         <?php /* Site Search */ ?>
+        <?php if ( class_exists( 'WooCommerce' ) ) : ?>
 		<?php get_product_search_form(); ?>
+        <?php else : ?>
+        <?php get_search_form(); ?>
         <?php endif ?>
     </header>
     <?php /* Global Menus */ ?>

@@ -1,0 +1,284 @@
+
+/* Main global Navigation
+---------------------------------------------- */
+.menu-logo{
+    display: none;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+
+    height: 0;
+    left: 2%;
+    position: absolute;
+    width: 45px;
+    opacity: 0; 
+}
+
+// Main global Navigation
+.navigation-global{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    transition: font-size 300ms;
+
+    & li{
+        margin: 0;
+        padding: 0;
+        }
+    & li:first-child{
+        transition: padding-left 300ms;
+    }
+
+    & a {
+        display: block;
+        padding: .7rem 5%;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+    }
+}
+
+// header cart link and total
+.header--cart {
+	position: relative;
+    padding: 1.5rem 5% 1.5rem;
+    width: 60%;
+    font-size: .875rem;
+}
+.cart--label{ display: none;}
+.header--cart .cart--content {
+    position: relative;
+    padding: .4rem .2rem .4rem 2rem;
+    text-decoration: none;
+    display: block;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.header--cart .cart--content::before {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    content: "";
+    font-size: 1.4rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+// small screen cart bubble
+.bubble--ss{
+    position: fixed;
+    top: 17px;
+    right: 55px;
+    z-index: 6;
+    margin-bottom: 0;
+}
+// large screen cart bubble
+.menu-global .cart--bubble{
+    position: relative;
+    width: auto;
+    float: right;
+    margin: 0;
+    padding-top: .3rem;
+    display: none;
+}
+.bubble--contents{
+    position: relative;
+    height: 32px;
+    display: inline-block;
+    text-indent: -9999px;
+    overflow: hidden;
+    width: 32px;
+}
+.bubble--contents .bubble--count {
+	text-indent: 0;
+	display: block;
+	width: 2em;
+	height: 2em;
+	line-height: 2;
+	box-sizing: content-box;
+	font-size: .75em;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 100%;
+    text-align: center;
+}
+
+
+@media (min-width: 48em) { /* 768px */
+
+    /* Main global Navigation
+    ---------------------------------------------- */
+
+    .navigation-global{
+        border-bottom: 0 none;
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        /* Underline From Center */
+        & a {
+            border-bottom: 0 none;
+            padding: .5rem .7rem;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            }
+        & a:before{
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: 51%;
+            right: 51%;
+            bottom: 0;
+            height: 1px;
+            -webkit-transition-property: left, right;
+            transition-property: left, right;
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+            }
+        & a:hover:before, a:focus:before, a:active:before, .is-selected:before, .current-menu-item a:before, .current-page-ancestor a:before, .current_page_parent a:before{
+            left: 0;
+            right: 0;
+        }
+        & a:hover, a:focus, .is-selected, .current-menu-item a, .current-page-ancestor a, .current_page_parent a{ 
+            border-bottom: 0 none;
+        }
+    }
+
+    .is--sticky .navigation-global li:first-child{ padding-left: 1rem; }
+
+    .is--sticky .menu-logo{
+        display: block;
+        height: 30px;
+        }
+        .is--sticky .menu-logo {
+            animation-name: rotateIn;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: both;
+        }
+        @keyframes rotateIn {
+            0% {
+                transform-origin: center center;
+                transform: rotate(-200deg);
+                opacity: 0;
+            }
+        
+            100% {
+                transform-origin: center center;
+                transform: rotate(0);
+                opacity: 1;
+            }
+        }
+        
+    
+    /* Cart in the header */ 
+    .header--cart{
+        float: right;
+        width: auto;
+        font-size: 1rem;
+        padding: 0;
+
+        .cart--content{
+            padding: .6rem .4rem .2rem;
+            display: block;
+            text-decoration: none;
+        }
+        .count{
+            padding-right: .5rem;
+        }
+        
+    }
+    .header--cart .cart--content::after {
+        font-family: "Font Awesome 5 Free";
+        vertical-align: baseline;
+        content: "";
+        line-height: 1.618
+    }
+    .header--cart .cart--content::before {
+        display: none;
+        content: "";
+    }
+
+    .is--sticky .header--cart{
+        display: none;
+    }
+
+    // cart bubble enable
+    .is--sticky .menu-global .cart--bubble{
+        display: block;
+    }
+
+    .is--sticky  .bubble--count {
+        display: block;
+    }
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+    
+    /* Main global Navigation
+    ---------------------------------------------- */
+    .navigation-global{
+        & a {
+            padding: .5rem .8rem;
+            }
+    }
+
+    .is--sticky .navigation-global li:first-child{ padding-left: 0; }
+
+    .is--sticky .menu-logo{
+        left: 1%;
+        top: 5px
+        }
+
+} // E: MQ
+
+//  1280px and up
+@media (min-width: 80em) {
+    
+    /* Main global Navigation
+    ---------------------------------------------- */
+    .navigation-global{
+
+        & a {
+            padding: .8rem 1.1rem .7rem;
+        }
+    }
+    .cart--label{ display: inline; }
+    
+} // E: MQ
+
+// 1440 and up
+@media (min-width: 90em) {
+    
+    /* Main global Navigation
+    ---------------------------------------------- */
+    .is--sticky .menu-logo{
+        height: 35px;
+        }
+
+} // E: MQ
+
+// 1600 and up
+@media (min-width: 100em) {
+    
+} // E: MQ
+
+// 2100 and up
+@media (min-width: 131.25em) {
+    
+} // E: MQ

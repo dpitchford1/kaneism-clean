@@ -1,0 +1,18 @@
+@import 'kaneism-toolbox/toolbox';
+
+    
+/* 0.0 $ Common HTML Base Structure
+====================================================================== */
+    @import "kaneism-base-layout/global-structure"; 
+    
+/* $ 0.1 Global Header / Footer / Grid - small screen and large screen
+====================================================================== */
+    @import "kaneism-base-layout/global-header";
+    @import "kaneism-base-layout/navigation/navigation";
+
+    @import "kaneism-base-layout/header-search";
+    @import "kaneism-base-layout/global-footer";
+
+    @import "kaneism-base-layout/grid-global";
+    //@import "kaneism-global-layout/forms/forms";
+

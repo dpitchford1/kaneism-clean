@@ -1,0 +1,201 @@
+/* Subnav Menu
+---------------------------------------------- */
+.sub-menus{ 
+    //background-color: $bg-primary;
+    //background-color: #fbfbfb;
+    // background: rgb(255,255,255);
+    // background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 50%);  
+    padding-left: 0; 
+    // border-bottom: 1px solid #eee;
+    // border-radius: 2px;
+    margin: 0 0 1.4em;
+    //width: 120%;
+    //overflow-x: auto;
+    //height: 60px;
+}
+.sub-menu-list {
+    font-family: $font-default; 
+    @include rem(font-size, 12px); 
+    overflow: hidden;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    //width: 100%;
+
+
+    li{
+        float: left;
+        margin-bottom: 0;
+        margin-right: 1px;
+    }
+
+    a{
+        padding: 1em .8em;
+        display: block;
+        //background-color: #a1e3ef;
+    }
+    }
+
+
+
+.sub-menu-list a {
+    // background: rgb(255,255,255);
+    // background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 50%); 
+    color: $brand-primary-alt;
+    }
+
+.sub-menu-list .current_page_item a, .sub-menu-list a:hover, .sub-menu-list a:focus {
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(218,252,255,1) 50%);
+    }
+
+.sub-menu-list a:active {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(244,254,255,1) 50%); 
+    }
+
+.sub-menu-list .current_page_item a {
+    //background-color: $brand-primary-alt3;
+    color: $color-black;
+     
+    // background: rgb(255,255,255);
+    // background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(244,254,255,1) 50%); 
+    text-decoration: none;
+    }
+
+.sub-menu-list .current_page_item a:hover {
+    
+    color: $brand-secondary;
+    text-decoration: underline; 
+    }
+
+.submenu-heading{
+    float: left;
+    @include rem(font-size, 14px);
+    line-height: 1;
+    letter-spacing: 1.5px;
+    margin: 1em .6em 0 0;
+    color: #bbb;
+}
+
+
+/* Submenu Modifiers
+---------------------------------------------- */
+
+// turn off parent list item for some sections 
+
+.fyi-menu, .services-repairs-menu{
+    .is-parent-item{
+        display: none;
+    }
+    .sub-menu-list li:nth-child(2):before { padding-right: 0; }
+}
+
+
+// #tab-menu, #tab-menu li{ overflow: hidden; position: relative; }
+// #tab-menu{
+//     border-top: 0 none !important;
+//     border: 1px solid $color-black;
+//     margin: 0 0 1.5em;
+//     }
+// #tab-menu li{ margin: 0; }
+
+// #tab-menu{ padding: .3em; }
+// #tab-menu li{ z-index: 100; }
+
+
+@media (min-width: 48em) { /* 768px */
+
+    /* Utility Menu
+    ---------------------------------------------- */
+    .sub-menu-list {
+    font-family: $font-light; 
+    @include rem(font-size, 14px); 
+    // overflow: hidden;
+    // float: left;
+    // list-style: none;
+    // margin: 0;
+    // padding: 0;
+    // width: 100%;
+    }
+}
+
+
+//  1024px and up
+@media (min-width: 64em) {
+    
+    /* Utility Menu
+    ---------------------------------------------- */
+    // .sub-menus{
+    //     float: left;
+    //     width: 70%;
+    // }
+
+}
+
+//  1280px and up
+@media (min-width: 80em) {
+    
+    /* Utility Menu
+    ---------------------------------------------- */
+   // .fyi-menu{
+   //      float: left;
+   //      background-color: blue;
+   //      width: 100px;
+
+   //      .sub-menu-list{}
+   // }
+    
+    .sub-menu-list {
+        // font-family: $font-default; 
+        // @include rem(font-size, 12px); 
+        // overflow: hidden;
+        // float: left;
+        // list-style: none;
+        // margin: 0;
+        // padding: 0;
+        // width: 100%;
+
+
+        // li{
+        //     float: left;
+        //     margin-bottom: 0;
+        //     margin-right: 1px;
+        // }
+
+        a{
+            padding: 1rem 1.2rem;
+            //display: block;
+            //background-color: #a1e3ef;
+        }
+    }
+    
+}
+
+// 1440 and up
+@media (min-width: 90em) {
+    
+    /* Utility Menu
+    ---------------------------------------------- */
+    //.utility-menu {}
+    
+}
+
+// 1600 and up
+@media (min-width: 100em) {
+    
+    /* Utility Menu
+    ---------------------------------------------- */
+    
+    
+}
+
+// 2100 and up
+@media (min-width: 131.25em) {
+    
+    /* Utility Menu
+    ---------------------------------------------- */
+    
+    
+}

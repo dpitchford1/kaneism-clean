@@ -1,0 +1,289 @@
+// Call the fonts
+
+/* body copy */
+@font-face {
+    font-family: "open";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/assets/fonts/galano.woff2") format("woff2");
+    font-display: swap;
+}
+/* headings -- Serif */
+@font-face {
+    font-family: "lights";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/assets/fonts/copernicus-book.woff2") format("woff2"); 
+    font-display: optional;
+}
+/* font awesome */
+@font-face {
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/assets/fonts/fa/fa-solid-900.woff2") format("woff2"), url("/assets/fonts/fa/fa-solid-900.woff") format("woff");
+    font-display: optional;
+}
+
+
+/* Small screen functionality
+---------------------------------------------- */
+// if JS enabled
+.no-js{
+    // SS header
+    .global-header--ss{
+        display: none;
+        }
+}
+
+.enhanced {
+
+    // position global large header
+    .global-header{ 
+        top: 61px;
+        }
+
+    // Turn off large screen logo
+    .brand-fs{ 
+        display: none;
+    }
+
+    // position of the headers - fixed - add selector to wrappers to activate
+    .is--fixed{
+        position: fixed;
+        }
+}
+
+/* Global Headers
+---------------------------------------------- */
+.global-header, .global-header--ss{
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.15);
+    line-height: 1.15;
+    }
+
+// Small Screen Header
+.global-header--ss{ 
+    min-height: 61px;
+    padding: .275rem 3% .375rem;
+    top: 0;
+    display: flex;
+    z-index: 4;
+    }
+
+// global large header
+.global-header{ 
+    overflow: visible;
+    transform: translateZ(0);
+    transition: all 0.3s ease;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    }
+.global-header[data-nav-slide]{
+    transform: translateZ(0);
+    transition: all 0.3s ease;
+    }
+
+.brand-header{
+    height: auto;
+    transition: all 0.6s ease;
+    order: 2;
+    }
+.navigation-global{
+    order: 1; 
+    }
+
+
+/* Do stuff when the header sticks
+---------------------------------------------- */
+// Adjust drop shadow on scroll - slightly darker
+.enhanced .is--sticky{ box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.45); }
+
+/* Global Header Inner structure
+---------------------------------------------- */
+// General
+.brand{
+    background-repeat: no-repeat;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+    text-indent: -9999em;
+    }
+
+// LOGO - Small screens
+.brand-ss{
+    background-position: 50% 0;
+    background-size: auto 49px;
+    height: 48px;
+    margin: 0 auto;
+    width: 150px;
+    }
+
+// Global logo - large screens
+.brand-fs{
+    background-position: 50% 0;
+    background-size: auto 72px;
+    margin-bottom: 0;
+    }
+
+// Block item within wrapper - does all the work
+.brand-fs .is--logo{
+    min-height: 72px;
+    display: block;
+    border: 1px solid transparent;
+    padding: 1px;
+    }
+.is--logo:focus{ background-color: transparent; border: 1px solid; }
+
+// Dark Mode Switcher
+.theme-switcher{
+    padding: .4rem 0;
+    position: absolute;
+    right: 5%;
+    top: -66px;
+    z-index: 3;
+    }
+
+// Utility Menu wrapper above search    
+.menu-utilities{ 
+    transition: padding 300ms;
+    }
+
+// Global Menu Wrapper
+.menu-global{
+    width: 100%;
+
+    .fluid{ padding-left: 0; padding-right: 0; }
+}
+
+
+
+/* $ Enhanced - media queries
+====================================================================== */
+
+// 768px and up
+@media (min-width: 48em) { /* 768px */
+    
+.enhanced{
+
+    .global-header{
+        top: 0;
+        display: block;
+        }
+
+    .brand-fs{ display: block; }
+
+}
+// Global Menu Wrapper
+.menu-global{
+    .fluid{ padding-left: 5%; padding-right: 5%; }
+}
+
+/* Global Headers
+---------------------------------------------- */
+.global-header--ss{
+    display: none;
+    }
+
+.global-header{
+    border-bottom: 0 none;
+    }
+
+// global large header
+.brand-header{
+    display: block;
+    }
+
+.is--sticky{
+    .brand-header.ov{
+        overflow: hidden;
+    }
+    .brand-header{
+        height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+/* Global Header Inner structure
+---------------------------------------------- */
+.brand-fs{
+    background-position: 0 -5px;
+    background-size: auto 120%;
+    float: left;
+    }
+// Block item within wrapper - does all the work
+.brand-fs .is--logo{
+    min-height: 76px; width: 240px;
+    }
+
+// Inner header structure
+.search-form, .menu-social{
+    float: right;
+    }
+.menu-global{
+    padding-top: 1px;
+    border-bottom: 0 none;
+    font-size: 1.2rem;
+    }
+
+// Dark Mode Switcher
+.theme-switcher{
+    float: right;
+    margin-left: 3%;
+    margin-top: .6rem;
+    padding: .4rem 0 .4rem 2%;
+    position: static;
+    top: 0;
+}
+.menu-utilities{
+    width: auto;
+    }
+
+} // ::End
+
+//  1024px and up
+@media (min-width: 64em) {
+
+/* Global Header Inner structure
+---------------------------------------------- */
+.brand-fs .is--logo{ min-height: 5.5rem; width: 240px; }
+
+// Dark Mode Switcher
+.theme-switcher{
+    margin-left: 3.5%;
+    padding-left: 3.5%;
+}
+
+} // ::End
+
+//  1280px and up
+@media (min-width: 80em) {
+
+/* Global Header Inner structure
+---------------------------------------------- */
+.menu-utilities{
+    padding-top: .6rem
+    }
+
+} // ::End
+
+// 1440 and up
+@media (min-width: 90em) {
+    
+/* Global Header Inner structure
+---------------------------------------------- */
+.brand-fs .is--logo{ min-height: 100px; width: 260px; }
+
+
+} // ::End
+
+// 1600 and up
+@media (min-width: 100em) {
+
+} // ::End
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+} // ::End

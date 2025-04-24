@@ -1,0 +1,101 @@
+/* Enhanced small screen slide in out
+---------------------------------------------- */
+
+/* Enhanced state */
+.enhanced{
+
+	// Global header slide in out
+	.global-header[data-nav-slide*="slide"], .global-header[data-nav-slide*="hidden"]{
+        left: -48em;
+    }
+    .global-header[data-nav-slide*="visible"]{
+        left: 0;
+    }
+
+    // Global Search slide in out
+    /* adjust positioning for search for global header slide in out */
+
+	// when header is closed
+	[data-nav-slide*="hidden"] .search-form{
+	    left: 48em;
+	    }
+	// when header is open
+	[data-nav-slide*="visible"] .search-form{
+	    left: 0;
+	    }
+
+	// Animating for open closed on small screens
+	.search-form[data-search-slide*="slide"], .search-form[data-search-slide*="hidden"]{
+	    top: -100px;
+	}
+	.search-form[data-search-slide*="visible"]{ 
+	    top: 0;
+	}
+
+}
+
+/* Page BG with Navigation Open */
+.enhanced .exit-offcanvas{
+    transform: translateZ(0);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transition: opacity 500ms ease-in-out;
+    backface-visibility: hidden;
+    pointer-events: none;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+	.enhanced .exit-offcanvas {
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px); 
+		}
+}
+
+.enhanced[data-off-canvas="visible"] .exit-offcanvas, .enhanced [data-off-screen="visible"] .exit-offcanvas {
+    cursor: pointer;
+    transition: opacity 300ms ease;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+    z-index: 3;
+    pointer-events: unset;
+}
+
+/* Max width 767px
+---------------------------------------------- */
+
+@media (max-width: 47.938em) {
+	// set scrollbars on off canvas visible - padding of small screen header
+	.enhanced[data-off-canvas="visible"], .enhanced [data-off-screen="visible"]{
+	    overflow: hidden;
+	    padding-right: 14px; 
+	}
+
+	.enhanced[data-off-canvas="visible"] .global-header--ss, .enhanced [data-off-screen="visible"] .global-header--ss{
+	    padding: .275em calc(5.5% + 6px) .375em 3%;
+	}
+
+}
+
+
+/* Min width 768
+---------------------------------------------- */
+
+@media (min-width: 48em) {
+
+	/* Enhanced state */
+	.enhanced{
+
+		// default large screen Header state
+		.global-header[data-nav-slide*="slide"], [data-nav-slide*="slide"] .search-form{
+            left: 0;
+        }
+
+        .search-form[data-search-slide*="slide"]{
+		    top: 0;
+		}
+	}
+}

@@ -1,0 +1,60 @@
+
+ /* $ Reusable Simple Grid setup 
+====================================================================== */
+// 1 column up to 3 columns
+.grid-general:not(.hide-text){
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1.3rem;
+}
+
+// modifier template classes - mobile first, columns are added as the screen size increases
+.grid--2col{
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+}
+.grid--3col{
+    grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+}
+.grid--4col{
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+}
+// .grid--5col{
+//     grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+// }
+
+
+@media (max-width: 23.75em){ /* 380px */
+    
+
+}
+
+@media (max-width: 61.25em) { /* 980px */
+
+
+}
+
+@media (min-width: 61.25em) { /* 980px */
+
+ 
+}
+
+@media (min-width: 80em) { /* 1280 */
+
+}
+
+
+@media (min-width: 120em) { /* 1280 */
+    // .grid--2col{
+    //     grid-template-columns: repeat(2, 1fr);
+    // }
+    // .grid--3col{
+    //     grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+    // }
+    // .grid--4col{
+    //     grid-template-columns: repeat(4, 1fr);
+    // }
+    // .grid--5col{
+    //     grid-template-columns: repeat(5, 1fr);
+    // }
+
+}

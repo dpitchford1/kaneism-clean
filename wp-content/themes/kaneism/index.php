@@ -23,7 +23,7 @@ get_header(); ?>
     endif;
     ?>
 
-</main><!-- #main -->
+</main><?php /* main */ ?>
 
 <?php
 do_action( 'kaneism_sidebar' );

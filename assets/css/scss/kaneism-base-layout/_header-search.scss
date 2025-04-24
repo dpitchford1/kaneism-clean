@@ -1,0 +1,67 @@
+/* Search :: GLOBAL STRUCTURES & WRAPPERS
+---------------------------------------------- */
+.search-form{ 
+    overflow: hidden;
+    padding: 1rem 5%;
+    position: fixed;
+    margin-bottom: 2px;
+    width: 100%;
+    z-index: 5;
+    flex-basis: 100%;
+
+    .search-field{
+        margin-right: 10px;
+        float: none;
+    }
+}
+
+.search-form, .search-form-general{ 
+    // icon
+    .i--search{
+        background-color: transparent;
+        border: 0 none;
+        margin-top: 10px;
+        overflow: hidden;
+        }
+    .i-m{ height: 22px; width: 22px; }
+
+    .text-field[type="text"]{
+        width: 85%;
+        }
+}
+// enable animation only on enhanced
+.enhanced .search-form[data-search-slide]{
+    transform: translateZ(0);
+    transition: all 0.3s ease;
+    }
+
+
+/* GENERAL FORM STYLES
+---------------------------------------------- */
+.search-form .text-field{
+    width: 80%;
+    }
+
+
+// 768px and up
+@media (min-width: 48em) { /* 768px */
+
+.search-form, .search-form-general{ 
+    .i--search{
+        margin-top: 0;
+        }    
+    }
+
+.search-form .text-field{
+    width: auto;
+    }
+
+.search-form{ 
+    box-shadow: 0 0 0 0;
+    padding: 0 .6rem 0 0;
+    position: relative;
+    width: auto;
+    margin-bottom:7px;
+    }
+
+}

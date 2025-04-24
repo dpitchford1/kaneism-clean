@@ -14,27 +14,30 @@ $images = kaneism_get_photo_grid_images($post_id);
 
 // Only display the grid if we have images
 if (!empty($images)) : ?>
-    <div class="photo-grid">
-        <?php foreach ($images as $index => $image) : ?>
-            <div class="photo-grid-item">
-                <?php 
-                // Use wp_get_attachment_image to get srcset with all default WordPress classes
-                // The key is to call this function directly, not wrap it in other functions
-                echo wp_get_attachment_image(
-                    $image['id'],
-                    'large',
-                    false,
-                    array(
-                        'class' => 'photo-grid-image',
-                        'alt' => $image['alt'],
-                        'loading' => ($index === 0) ? 'eager' : 'lazy'
-                    )
-                );
-                ?>
-                <?php if (!empty($image['caption'])) : ?>
-                <div class="photo-grid-caption"><?php echo esc_html($image['caption']); ?></div>
-                <?php endif; ?>
-            </div>
-        <?php endforeach; ?>
-    </div>
+<section class="grid-general grid--3col">
+    <h3 class="hide-text">Listing of Images</h3>
+    <?php foreach ($images as $index => $image) : ?>
+        <article class="photo-grid-item">
+            <figure>
+            <?php 
+            // Use wp_get_attachment_image to get srcset with all default WordPress classes
+            // The key is to call this function directly, not wrap it in other functions
+            echo wp_get_attachment_image(
+                $image['id'],
+                'large',
+                false,
+                array(
+                    'class' => 'photo-grid-image',
+                    'alt' => $image['alt'],
+                    'loading' => ($index === 0) ? 'eager' : 'lazy'
+                )
+            );
+            ?>
+            <?php if (!empty($image['caption'])) : ?>
+            <figcaption><?php echo esc_html($image['caption']); ?></figcaption>
+            <?php endif; ?>
+            </figure>
+        </article>
+    <?php endforeach; ?>
+</section>
 <?php endif; ?> 

@@ -1,0 +1,170 @@
+/* Form Elements */
+/**
+* Remove the margin on controls in Safari.
+*/
+
+/* :where(button, input, select) {
+    margin: 0;
+} */
+
+:where([type="text"], [type="button"], [type="search"], [type="password"], [type="number"], [type="url"], [type="email"], [type="tel"], [type="date"], [type="time"], [type="month"], [type="week"], select, optgroup, textarea) {
+    font-size: 1rem;
+    line-height: 1.15;
+    vertical-align: baseline;
+    border-radius: 0;
+    padding: .6180469716rem;
+    overflow: visible;
+    }
+
+:where([type="file"], [type="color"]) {
+    font-size: 1rem;
+    line-height: 1.15;
+    vertical-align: baseline;
+    border-radius: 0;
+    border: 0;
+    overflow: visible;
+    }
+:where([type="file"]) {
+    background-color: transparent;
+    }
+
+// input[type="number"]:focus, input[type="text"]:focus, input[type="search"]:focus{
+//     outline: 1px solid #7f54b3;
+// }
+
+// :where([type="text"], [type="search"], [type="password"], [type="url"], [type="email"], [type="tel"], textarea) {
+//     padding: .3em .6em;
+//     }
+
+// button:focus, .button.alt:focus, input:focus, textarea:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, select:focus, optgroup:focus{
+//         outline-color: #7f54b3; 
+//     }
+
+
+// :where(select){ padding: initial; }
+:where(optgroup) {
+    font-weight: bold;
+    }
+:where(select) {
+    /* background-color: #fff;  */
+    /* border-radius: 0; */
+    -webkit-appearance: menulist;
+    appearance: menulist;
+    -webkit-box-align: center; 
+    -webkit-rtl-ordering: logical;
+    outline-offset: -2px;
+}
+:where(button, select) {
+    text-transform: none;
+    }
+
+:where(input[type="number"]){
+    text-align: center;
+}
+
+/**
+* Add the correct vertical alignment in Chrome, Edge, and Firefox.
+*/
+
+:where(progress) {
+  vertical-align: baseline;
+}
+
+/**
+* 1. Remove the margin in Firefox and Safari.
+* 3. Change the resize direction in all browsers (opinionated).
+*/
+
+:where(textarea) {
+  margin: 0; /* 1 */
+  resize: vertical; /* 3 */
+}
+
+/**
+* 1. Correct the odd appearance in Chrome, Edge, and Safari.
+* 2. Correct the outline style in Safari.
+*/
+
+:where([type="search" i]) {
+  -webkit-appearance: textfield; /* 1 */
+  appearance: textfield;
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+* Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+* Correct the text style of placeholders in Chrome, Edge, and Safari.
+*/
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+/**
+* Remove the inner padding in Chrome, Edge, and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/**
+* 1. Correct the inability to style upload buttons in iOS and Safari.
+* 2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  appearance: button;
+  font: inherit; /* 2 */
+}
+
+::-ms-reveal,
+::-ms-clear {
+    display: none !important;
+    }
+
+:where([hidden]) {
+    display: none !important;
+}
+
+input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus, select:focus{ 
+    box-shadow: none; 
+    outline: none; 
+    }
+
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+    }
+
+button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+    }
+
+
+
+/* Form Structure
+---------------------------------------------- */
+form{ margin-bottom: 1em;}
+
+fieldset {
+    border: 0;
+    }
+legend {
+    white-space: normal;
+    }
+label{ 
+    display:block; 
+    margin-bottom: .3rem;
+    }

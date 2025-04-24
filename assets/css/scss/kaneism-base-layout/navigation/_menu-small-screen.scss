@@ -1,0 +1,24 @@
+/* Small screen Menu Controls
+---------------------------------------------- */
+// hamburger
+.menu-trigger { color: initial; height: 23px; margin: 14px 0 0; width: 30px; }
+.menu-trigger:active, .menu-trigger:focus{ background: transparent; }
+
+// search icon
+.search-trigger { height: 23px; margin: 14px 0 0; width: 30px; float: right; }
+.search-trigger:active, .search-trigger:focus{ background-color: transparent; }
+
+// close icon
+.global-header--ss .i--close{ background-size: 100% auto; height: 23px; width: 30px; margin-top: 10px; }
+
+
+// 600px and up
+@media (min-width: 37.5em) {
+    
+    .menu-trigger { color: initial; height: 23px; margin: 14px 0 0; width: 30px; }
+
+} // E: MQ
+
+@media (min-width: 48em) { /* 768px */
+
+} // E: MQ

@@ -1,0 +1,88 @@
+/* Utility Menu
+---------------------------------------------- */
+.utility-menu {
+    font-size: .875rem;
+    line-height: 1;
+    list-style-type: none;
+    margin: 3px 0 0;
+    padding: 0;
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(2, 50%);
+
+    li{
+        margin: 0;
+    }
+
+    .i-inline{
+        display: block;
+    }
+
+    a{
+        display: block;
+        padding: .8rem 1rem;
+    }
+}
+
+
+@media (min-width: 48em) { /* 768px */
+
+    /* Utility Menu
+    ---------------------------------------------- */
+    .utility-menu {
+        display: block;
+        margin-bottom: 1vh;
+        overflow: hidden;
+        float: right;
+        width: auto;
+
+        & li{
+            display: inline;
+            float: left;
+            margin-right: .5rem;
+        }
+
+        & li:last-child{ margin-right: 0; }
+
+        a{
+            float: left; 
+            padding: .3rem 0;
+        }
+
+        & li:before             { content: '|'; float: left; line-height: 1; padding-right: .5rem; padding-top: .4rem; }
+        & li:first-child:before { content: ''; padding-right: 0; }
+    }
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+
+} // E: MQ
+
+//  1280px and up
+@media (min-width: 80em) {
+    
+    /* Utility Menu
+    ---------------------------------------------- */
+    // .utility-menu {
+    //     font-size: .875rem;
+    //     }
+    
+} // E: MQ
+
+// 1440 and up
+@media (min-width: 90em) {
+    
+} // E: MQ
+
+// 1600 and up
+@media (min-width: 100em) {
+    
+} // E: MQ
+
+// 2100 and up
+@media (min-width: 131.25em) {
+    
+} // E: MQ

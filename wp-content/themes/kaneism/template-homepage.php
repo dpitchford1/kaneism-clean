@@ -72,7 +72,7 @@ endwhile;
     <?php /* Component 2: Latest Projects */ ?>
     <section class="homepage-section latest-projects">
         <h3 class="sizes-LG"><?php echo esc_html__('Latest Projects', 'kaneism'); ?></h3>
-        <div class="work-grid">
+        <div class="grid-general grid--3col">
             <?php
             // Check if the work post type exists
             if (post_type_exists('work')) {
@@ -90,7 +90,7 @@ endwhile;
                     while ($latest_works->have_posts()) : 
                         $latest_works->the_post();
                         ?>
-                        <article class="kane-work-item" >
+                        <article class="kane-work-item">
                             <a href="<?php the_permalink(); ?>" class="feature-img" tabindex="-1" aria-hidden="true">
                                 <?php if (has_post_thumbnail()) : ?>
                                     <?php the_post_thumbnail('kaneism-img-sm'); ?> 
@@ -120,7 +120,7 @@ endwhile;
     <?php /* Component 3: Featured Projects */ ?>
     <section class="homepage-section featured-projects">
         <h3 class="sizes-LG"><?php echo esc_html__('Featured Projects', 'kaneism'); ?></h3>
-        <div class="work-grid featured">
+        <div class="grid-general grid--3col">
             <?php
             // Check if the work post type exists and if the required function exists
             if (post_type_exists('work')) {

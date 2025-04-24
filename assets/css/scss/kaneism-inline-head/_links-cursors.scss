@@ -1,0 +1,20 @@
+/* Cursors 
+---------------------------------------------- */
+:where(a, label, select, .pointer, button, [type="button"], [type="reset"], [type="color"], [type="submit"], [type="file"], [type="date"], [type="time"],[type="checkbox"],[type="radio"], [type="range"], [role=button], .submit) {
+    cursor: pointer;
+}
+
+
+/* Links
+---------------------------------------------- */
+:where(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a){ 
+	display: inline-block;  
+}
+
+/* Reversed anchors - underlines */
+:where(.ra a){
+    text-decoration: none;
+}
+:where(.ra a:hover){
+    text-decoration: underline;
+}

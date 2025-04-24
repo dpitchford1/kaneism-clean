@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-<main id="main" class="site-main bits-page" role="main">
+<main id="main" class="site-main" role="main">
     <?php //the_title( '<h2 class="entry-title">', '</h2>' ); ?>
     <h2 class="sizes-XLG">Kaneism Bits</h2>
     <?php
@@ -20,7 +20,7 @@ get_header(); ?>
         ?>
         <?php the_content(); ?>
         
-        <!-- Photo grid with srcset -->
+        <?php /* Photo grid with srcset --> template-parts/content-photo-grid.php */ ?>
         <?php kaneism_display_photo_grid(); ?>
         
         <?php
@@ -34,7 +34,7 @@ get_header(); ?>
     endwhile; // End of the loop.
     ?>
 
-</main><!-- #main -->
+</main><?php /* #main */ ?>
 
 <?php
 //do_action( 'kaneism_sidebar' );

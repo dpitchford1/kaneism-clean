@@ -1,0 +1,123 @@
+/* Global Setup
+---------------------------------------------- */
+div, header, footer, aside, nav, section, article, main{ overflow: hidden; position: relative; }
+
+/* Fluid wrapper for main content - identical to site wrapper - fine grained adjustments for responsive breakpoints */
+.fluid{
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 100%;
+    }
+
+/* all purpose wrapper - used for blocks of content */
+.region{ width: 100%; }
+
+/* all purpose wrapper */
+.content-wrapper{
+    overflow: hidden;
+    padding-bottom: 1rem;
+    width: 100%;
+    }
+
+
+/* Body Content
+---------------------------------------------- */
+// pad the top to give room for the header
+.enhanced .body-home{
+    padding-top: 5rem;
+    }
+
+.enhanced .inner-content{
+    padding-top: 5rem;
+    }
+
+/* $ Enhanced - media queries
+====================================================================== */
+// 600px and up
+@media (min-width: 37.5em) { /* 768px */
+
+/* Body Content
+---------------------------------------------- */
+.enhanced .inner-content, .enhanced .body-home{
+    padding-top: 4.5rem;
+    }
+    
+}
+
+// 768px and up
+@media (min-width: 48em) { /* 768px */
+
+    /* Body Content
+    ---------------------------------------------- */
+    .enhanced .inner-content, .enhanced .body-home{
+        padding-top: 9rem;
+        }
+
+    .main-content{ padding: 0 0 1.5rem; }
+
+}
+
+//  1024px and up
+@media (min-width: 64em) {
+
+.enhanced .inner-content, .enhanced .body-home{
+    padding-top: 9.5rem;
+    }
+
+}
+
+//  1280px and up
+@media (min-width: 80em) {
+
+.enhanced .inner-content, .enhanced .body-home{
+    padding-top: 11.5rem;
+    }
+
+}
+
+// 1440 and up
+@media (min-width: 90em) {
+
+.fluid{
+    max-width: 94%;
+    }
+
+.main-content--catalogue{
+    width: 57%;
+    }
+
+.supplementary-content{
+    width: 18%;
+    margin-right: 2%;
+    }
+// .aside{
+//     float: right;
+//     width: 20%;
+//     }
+
+}
+
+// 1600 and up
+@media (min-width: 100em) {
+.fluid{
+    max-width: 95%;
+    }
+
+/* Body Content
+---------------------------------------------- */
+.enhanced .inner-content{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    }
+    
+}
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+.fluid{
+    max-width: 90%;
+    }
+
+}

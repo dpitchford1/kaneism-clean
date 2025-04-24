@@ -1,0 +1,97 @@
+/* General Typography */
+
+/** HEADINGS **/
+:where(h1, h2, h3, h4, h5, h6){  
+    margin: 0 0 2vh 0;
+    letter-spacing: .01ch;
+}
+
+/**
+* Correct the font size and margin on `h1` elements within `section` and
+* `article` contexts in Chrome, Edge, Firefox, and Safari.
+*/
+
+:where(h1) {
+    font-size: 2em;
+}
+
+
+/**
+* 1. Correct the inheritance of border color in Firefox.
+* 2. Add the correct box sizing in Firefox.
+*/
+
+:where(hr) {
+    color: inherit; /* 1 */
+    height: 0; /* 2 */
+    margin: 1.5vh 0;
+    border: 0;
+    border-top: 1px solid;
+    clear: both;
+    overflow: hidden;
+}
+
+/** GENERAL **/
+:where(p) {
+    margin: 0 0 2vh;
+    word-spacing: .3ch;
+}
+/**
+* Add the correct font weight in Chrome, Edge, and Safari.
+*/
+
+:where(b, strong, th, thead, legend) {
+    font-weight: bolder;
+}
+:where(em, i, dfn, cite, caption, q){ font-style: italic; }
+
+/* shared type styles */
+:where(q) { quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/* blockquotes */
+:where(blockquote){ 
+	font-size: 110%;
+	line-height: 1.3; 
+	margin: 0.6667rem 0; 
+	padding: 0 2.2222rem 0.6667rem 0; /* 40px 12px */
+	}
+:where(blockquote p){ margin-top: 0.3333rem; margin-bottom: 0.6667rem; }
+
+/* :where(){} */
+
+:where(address) {
+    margin-bottom: 1rem;
+    font-style: normal;
+    line-height: inherit;
+  }
+
+/**
+* Add the correct font size in all browsers.
+*/
+:where(small, sup, sub){ font-size: 80%; }
+:where(sup, sub){ font-size: 80%; line-height: 0; }
+:where(sup){ vertical-align: super; }
+:where(sub){ vertical-align: sub; }
+
+:where(abbr, acronym){ 
+    font-size: 85%;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+
+/**
+* Add the correct text decoration in Safari.
+*/
+
+:where(abbr[title], acronym[title], dfn[title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+    cursor: help;
+    -webkit-text-decoration-skip-ink: none;
+    text-decoration-skip-ink: none;
+}
+
+:where(mark) {
+    background: none; 
+}
+
