@@ -13,8 +13,55 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?php /* Mobile */ ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="/kaneism.json">
+<?php /* service worker 
+<script>
+if (navigator && navigator.serviceWorker) { navigator.serviceWorker.register('/workerfont.js'); }
+</script>*/ ?>
+<script>var doc = window.document; doc.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'has-js enhanced';</script>
+<!-- <link rel="preload" as="image" href="/assets/img/bg/splat-corner.webp"> -->
+<link rel="preload" href="/assets/fonts/copernicus-book.woff2" as="font" type="font/woff2" crossorigin>
 
-<link rel="stylesheet" href="/assets/css/dev/storefront-styles.min.css" media="screen">
+<script>!function(window,document){"use strict";const doc=document;function setLocalStorageItem(key,value){try{return localStorage.setItem(key,value),!0}catch(e){return console.warn("Unable to save to localStorage:",e),!1}}function toggleTheme(e){e.target.checked?(doc.body.setAttribute("data-theme","dark"),doc.documentElement.classList.add("dark"),doc.documentElement.classList.remove("light"),setLocalStorageItem("theme","dark")):(doc.body.setAttribute("data-theme","light"),doc.documentElement.classList.remove("dark"),doc.documentElement.classList.add("light"),setLocalStorageItem("theme","light"))}function init(){const checkbox=doc.querySelector(".theme-checkbox");if(!checkbox)return void console.warn("Theme switcher checkbox not found, skipping theme switching functionality");doc.documentElement.classList.add("light"),checkbox.addEventListener("change",toggleTheme);if("ontouchstart"in window||navigator.maxTouchPoints>0){const checkboxLabel=doc.querySelector(".theme-checkbox-label");checkboxLabel&&checkboxLabel.addEventListener("click",(function(e){e.stopPropagation()}))}const currentTheme=function(key){try{return localStorage.getItem(key)}catch(e){return console.warn("Unable to access localStorage:",e),null}}("theme");currentTheme&&(doc.body.setAttribute("data-theme",currentTheme),"dark"===currentTheme?(checkbox.checked=!0,doc.documentElement.classList.add("dark"),doc.documentElement.classList.remove("light")):(doc.documentElement.classList.add("light"),doc.documentElement.classList.remove("dark")))}"complete"===document.readyState||"interactive"===document.readyState?setTimeout(init,1):document.addEventListener("DOMContentLoaded",init),window.kaneshop=window.kaneshop||{},window.kaneshop.themer={init:init,toggleTheme:toggleTheme}}(window,document);</script>
+
+<?php /* css */ ?>
+<?php
+    // Load critical CSS with transient caching
+    $css_transient_key = 'kaneism_critical_css';
+    $css_file = ABSPATH . 'assets/css/dev/kaneism-inline-head' . ((defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) ? '' : '.min') . '.css';
+    $css_content = get_transient($css_transient_key);
+    $css_file_mtime = file_exists($css_file) ? filemtime($css_file) : 0;
+    
+    // Check if transient exists and if CSS file has been modified
+    if (false === $css_content || !isset($css_content['mtime']) || $css_content['mtime'] !== $css_file_mtime) {
+        if (file_exists($css_file)) {
+            $css_data = array(
+                'content' => file_get_contents($css_file), // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+                'mtime' => $css_file_mtime
+            );
+            set_transient($css_transient_key, $css_data, WEEK_IN_SECONDS);
+            $css_output = $css_data['content'];
+        } else {
+            $css_output = '/* CSS file not found */';
+        }
+    } else {
+        $css_output = $css_content['content'];
+    }
+    
+    echo '<style id="critical-injector">' . $css_output . '</style>';
+    ?>
+
+<?php /* <link rel="stylesheet" href="/assets/css/build/kaneism-inline-head.min.css" media="screen"> */ ?>
+<link rel="stylesheet" href="/assets/css/dev/kaneism-base-layout.min.css" media="screen">
+<link rel="stylesheet" href="/assets/css/dev/kaneism-global-layout.min.css" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="/assets/css/dev/01-theme-clean.min.css" media="screen">
+<link rel="stylesheet" href="/assets/css/dev/kaneism-helpers.min.css" media="print" onload="this.media='screen'">
+<?php if ( is_singular('work') ) : ?>
+<link rel="stylesheet" href="/assets/css/build/swiper.min.css" media="print" onload="this.media='screen'">
+<?php endif; ?>
+<noscript><link rel="stylesheet" href="/assets/css/dev/kaneism-global-layout.min.css" media="screen"><link rel="stylesheet" href="/assets/css/dev/kaneism-helpers.min.css" media="screen"></noscript>
+
+<!-- <link rel="stylesheet" href="/assets/css/dev/storefront-styles.min.css" media="screen"> -->
 <link rel="stylesheet" href="/assets/css/dev/bits.min.css" media="screen">
 
 <link rel="manifest" href="/kaneism.json">
@@ -44,7 +91,7 @@
 
 </head>
 
-<body <?php body_class(); ?> data-off-screen="hidden" id="page-body" data-theme="dark">
+<body <?php body_class('light'); ?> data-off-screen="hidden" id="page-body" data-theme="dark">
 <?php wp_body_open(); ?>
 <a href="#global-header" id="exit-off-canvas" class="exit-offcanvas" aria-controls="global-header"><span class="hide-text">Hide Menu</span></a>
 <?php /* accessibility nav */ ?>
@@ -59,12 +106,79 @@
 <?php endif; ?>
 <?php endif; ?>
 
+<?php /* Header Start */ ?>
+<div class="region is--fixed global-header" data-nav-slide="slide" id="global-header">
+	<header class="brand-header fluid ov cf" role="banner">
+		<?php if ( is_front_page() ) : ?>
+			<h1 class="brand brand-fs" id="logo" itemscope itemtype="http://schema.org/Organization"><span class="is--logo">Kaneism Design</span></h1>
+		<?php else : ?>
+			<h1 class="brand brand-fs" id="logo" itemscope itemtype="http://schema.org/Organization"><a class="is--logo" href="/" rel="home">Kaneism Design</a></h1>
+		<?php endif ?>
+		<?php /* Theme Switcher */ ?>
+		<div class="theme-switcher">
+			<div class="theme-toggle theme-toggle--small">
+				<input class="theme-checkbox" id="b" type="checkbox">
+				<label class="theme-label" for="b">
+					<p class="theme-toggle--label">Dark Mode</p>
+					<span class="theme-toggle--switch" data-checked="On" data-unchecked="Off"></span>
+				</label>
+			</div>
+        </div>
+        <?php /* Utility Nav */ ?>
+	    <nav class="menu-utilities cf" role="navigation" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+	        <p class="hide-text">Submenu:</p>
+		    <?php 
+				wp_nav_menu( 
+					array(
+						'theme_location'  => 'utility',
+						'menu_class' => 'utility-menu',
+						'menu_id' => 'utility-menu',
+						'container' => false
+					)
+				);
+            ?>
+	    </nav>
+        <?php if ( class_exists( 'WooCommerce' ) ) : ?>
+        <?php /* Site Search */ ?>
+		<?php get_product_search_form(); ?>
+        <?php endif ?>
+    </header>
+    <?php /* Global Menus */ ?>
+    <div class="menu-global">
+		<div class="fluid cf" role="navigation" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+		    <h2 class="hide-text">Main Menu</h2>
+		    <div class="menu-logo"></div>
+		    <?php 
+				wp_nav_menu( 
+					array(
+						'theme_location'  => 'primary',
+						'menu_class' => 'navigation-global',
+						'menu_id' => 'primary-menu',
+						'container' => 'ul'
+					)
+				);
+			?>
+            <?php if ( class_exists( 'WooCommerce' ) ) : ?>
+		    <h3 class="hide-text">Your Cart</h3>
+            <p class="cart--bubble"><a class="bubble--contents <?php if (is_page('cart')) { echo 'is--selected'; } ?>" href="/cart/">Cart <span class="bubble--count"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?></span>
+			</a></p>
+            <div class="header--cart">
+                <a class="cart--content <?php if (is_page('cart')) { echo 'is--selected'; } ?>" href="<?php echo wc_get_cart_url(); ?>" title="View your shopping cart"><span class="cart--label">Cart:</span> <span class="count"><?php echo sprintf ( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count() ), WC()->cart->get_cart_contents_count() ); ?> – <?php echo WC()->cart->get_cart_total(); ?></span></a>
+            </div>
+            <?php endif ?>
+		</div>
+	</div>
+</div>
+<?php /* Header End */ ?>
+<hr class="hide-divider">
+<div id="page" class="hfeed fluid inner-content">
+
 <?php do_action( 'kaneism_before_site' ); ?>
 
-<div id="page" class="hfeed site">
+<!-- <div id="page" class="hfeed site"> -->
 	<?php do_action( 'kaneism_before_header' ); ?>
 
-	<header id="masthead" class="site-header" role="banner">
+	<!-- <header id="masthead" class="site-header" role="banner"> -->
 
 		<?php
 		/**
@@ -82,10 +196,11 @@
 		 * @hooked kaneism_header_cart                      - 60
 		 * @hooked kaneism_primary_navigation_wrapper_close - 68
 		 */
-		do_action( 'kaneism_header' );
+		//do_action( 'kaneism_header' );
 		?>
 
-	</header><!-- #masthead -->
+	<!-- </header> -->
+    <!-- #masthead -->
 
 	<?php
 	/**
@@ -97,8 +212,8 @@
 	do_action( 'kaneism_before_content' );
 	?>
 
-	<div id="content" class="site-content" tabindex="-1">
-		<div class="col-full">
+	<!-- <div id="content" class="site-content" tabindex="-1">
+		<div class="col-full"> -->
 
 		<?php
 		do_action( 'kaneism_content_top' );

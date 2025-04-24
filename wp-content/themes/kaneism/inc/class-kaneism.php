@@ -87,7 +87,8 @@ if ( ! class_exists( 'Kaneism' ) ) :
 					'kaneism_register_nav_menus',
 					array(
 						'primary'   => __( 'Primary Menu', 'kaneism' ),
-						'secondary' => __( 'Secondary Menu', 'kaneism' )
+						'secondary' => __( 'Secondary Menu', 'kaneism' ),
+                        'utility'   => __( 'Utility Menu', 'kaneism' )
 					)
 				)
 			);

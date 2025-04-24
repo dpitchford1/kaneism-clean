@@ -31,7 +31,7 @@ get_header();
 
 	<?php
 		$term = get_queried_object();
-		echo '<h2 class="h-lgt sizes-M w-ul">' . esc_html($term->name) . '- taxonomy-work_category.php</h2>';
+		echo '<h2 class="sizes-XLG w-ul">' . esc_html($term->name) . '</h2>';
 		if (!empty($term->description)) {
 			echo '<p class="work-archive-description hide-text">' . wp_kses_post($term->description) . '</p>';
 		}
@@ -85,7 +85,7 @@ get_header();
 			
 			<div class="feature-body">
 				<h3 class="feature-label">featured:</h3>
-				<h4 class="sizes-S"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+				<h4 class="sizes-LG"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 				<?php 
 				if (has_excerpt()) {
 					the_excerpt();
@@ -127,7 +127,7 @@ get_header();
 							<?php the_post_thumbnail('medium_large'); ?>
 						<?php endif; ?>
 					</a>
-					<h3 class="sizes-S"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<h3 class="sizes-L"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 					<?php if (has_excerpt()) : ?>
 						<div><?php the_excerpt(); ?></div>
 					<?php endif; ?>
@@ -151,7 +151,7 @@ get_header();
 			?>
 		</div>
 		<?php else : ?>
-			<p class="work-no-results"><?php _e('Add some content and categorize it to see it here.', 'work'); ?></p>
+			<p class="work-no-results"><?php _e('Nothing to see here yet. Add some content to see it.', 'work'); ?></p>
 		<?php endif; ?>
 	</section>
 

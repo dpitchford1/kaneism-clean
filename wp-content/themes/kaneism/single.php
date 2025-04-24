@@ -7,24 +7,19 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<main id="main" class="site-main" role="main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+<?php
+while ( have_posts() ) :
+    the_post();
 
-			do_action( 'kaneism_single_post_before' );
+    do_action( 'kaneism_single_post_before' );
+    get_template_part( 'content', 'single' );
+    do_action( 'kaneism_single_post_after' );
 
-			get_template_part( 'content', 'single' );
-
-			do_action( 'kaneism_single_post_after' );
-
-		endwhile; // End of the loop.
-		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+endwhile; // End of the loop.
+?>
+</main><?php /* #main */ ?>
 
 <?php
 do_action( 'kaneism_sidebar' );

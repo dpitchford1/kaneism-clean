@@ -12,7 +12,7 @@
 get_header(); ?>
 
 <main id="main" class="site-main bits-test-page" role="main">
-    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+    <?php the_title( '<h2 class="sizes-XLG">', '</h2>' ); ?>
     
     <?php
     while ( have_posts() ) :

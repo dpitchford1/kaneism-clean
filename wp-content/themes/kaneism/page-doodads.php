@@ -11,7 +11,7 @@ get_header(); ?>
 
 <main id="main" class="site-main bits-page" role="main">
     <?php // the_title( '<h2 class="sizes-LG">', '</h2>' ); ?>
-    <h2 class="sizes-LG">Kaneism Doodads</h2>
+    <h2 class="sizes-XLG">Kaneism Doodads</h2>
     <?php
     while ( have_posts() ) :
         the_post();
@@ -58,38 +58,6 @@ get_header(); ?>
     ?>
 
 </main><!-- #main -->
-
-<style>
-    .bits-photo-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
-        gap: 3px 1px;
-        margin-top: 30px;
-    }
-
-    .bits-photo-item {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .bits-photo {
-        width: 100%;
-        height: auto;
-        display: block;
-        transition: transform 0.3s ease;
-    }
-
-    .bits-photo-link:hover .bits-photo {
-        transform: scale(1.03);
-    }
-
-    @media (max-width: 767px) {
-        .bits-photo-grid {
-            grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-            gap: 3px 0;
-        }
-    }
-</style>
 
 <?php
 //do_action( 'kaneism_sidebar' );

@@ -18,7 +18,7 @@ get_header();
 
 <main id="main" class="site-main" role="main">
 	<section class="region">
-	    <h2 class="sizes-S pushed"><span class="feature-label">Project:</span> <span class=""><?php echo esc_html(get_the_title()); ?></span></h2>
+	    <h2 class="sizes-XLG pushed"><span class="feature-label">Project:</span> <span class=""><?php echo esc_html(get_the_title()); ?></span></h2>
 
     <?php while (have_posts()) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>">
@@ -64,7 +64,7 @@ get_header();
         </article>
 
         <aside class="project--details" role="complimentary">
-            <h3 class="sizes-S">Project Details:</h3>
+            <h3 class="sizes-LG">Project Details:</h3>
             <div class="details--wrap">
             <?php
             // Get description if function exists
@@ -138,7 +138,7 @@ get_header();
     if ($related_query->have_posts()) : 
         ?>
         <section class="kane-related-works">
-            <h3 class="sizes-S">Related Projects</h3>
+            <h3 class="sizes-LG">Related Projects</h3>
             <div class="work-grid">
                 <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
                     <article class="kane-work-item feature is--promo">
@@ -158,7 +158,7 @@ get_header();
                                 ?>
                             <?php endif; ?>
                         </a>
-                        <h4 class="sizes-S"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                        <h4 class="sizes-L"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                     <?php if (has_excerpt()) : ?>
                         <div><?php the_excerpt(); ?></div>
                     <?php endif; ?>

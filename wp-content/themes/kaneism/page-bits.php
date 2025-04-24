@@ -11,7 +11,7 @@ get_header(); ?>
 
 <main id="main" class="site-main bits-page" role="main">
     <?php //the_title( '<h2 class="entry-title">', '</h2>' ); ?>
-    <h2 class="sizes-LG">Kaneism Bits</h2>
+    <h2 class="sizes-XLG">Kaneism Bits</h2>
     <?php
     while ( have_posts() ) :
         the_post();

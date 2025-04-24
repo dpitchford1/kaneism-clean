@@ -44,7 +44,7 @@ get_header();
          */
         do_action('work_before_archive_title');
         ?>
-        <h2 class="h-lgt sizes-M w-ul"><?php echo esc_html__('Work', 'work'); ?> archive-work.php</h2>
+        <h2 class="sizes-XLG w-ul"><?php echo esc_html__('Work', 'work'); ?> </h2>
         <?php
         /**
          * work_after_archive_title hook
@@ -55,7 +55,7 @@ get_header();
 
     <?php if (have_posts()) : ?>
         <section class="list-of-features" id="murals">
-            <h3 class="hide-text">Work</h3>
+            <h3 class="hide-text">Listing of Projects</h3>
             <?php
             /**
              * work_before_loop hook
@@ -113,7 +113,7 @@ get_header();
                 
                 <div class="feature-body">
                     <h3 class="feature-label">featured:</h3>
-                    <h4 class="sizes-S" itemprop="headline"><a href="<?php the_permalink(); ?>" itemprop="url"><?php the_title(); ?></a></h4>
+                    <h4 class="sizes-LG" itemprop="headline"><a href="<?php the_permalink(); ?>" itemprop="url"><?php the_title(); ?></a></h4>
                     <?php 
                     if (has_excerpt()) {
                         the_excerpt();
@@ -165,7 +165,7 @@ get_header();
                                 ?>
                             <?php endif; ?>
                         </a>
-                        <h3 class="sizes-S" itemprop="headline"><a href="<?php the_permalink(); ?>" itemprop="url"><?php the_title(); ?></a></h3>
+                        <h3 class="sizes-L" itemprop="headline"><a href="<?php the_permalink(); ?>" itemprop="url"><?php the_title(); ?></a></h3>
                         <?php if (has_excerpt()) : ?>
                             <div itemprop="description"><?php the_excerpt(); ?></div>
                         <?php endif; ?>
