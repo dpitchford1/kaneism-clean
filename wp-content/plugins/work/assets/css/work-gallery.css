@@ -1,0 +1,82 @@
+/**
+ * Work Gallery Styles
+ */
+
+/* Gallery wrapper */
+.work-gallery-wrapper {
+    margin: 40px 0;
+    max-width: 100%;
+}
+
+/* Swiper container */
+.work-gallery-swiper {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Swiper slides */
+.work-gallery-swiper .swiper-slide {
+    text-align: center;
+    background: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Images inside slides */
+.work-gallery-swiper .swiper-slide img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Navigation buttons */
+.work-gallery-swiper .swiper-button-next,
+.work-gallery-swiper .swiper-button-prev {
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+.work-gallery-swiper .swiper-button-next:after,
+.work-gallery-swiper .swiper-button-prev:after {
+    font-size: 20px;
+}
+
+/* Pagination */
+.work-gallery-swiper .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #333;
+    opacity: 0.5;
+}
+
+.work-gallery-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .work-gallery-swiper .swiper-button-next,
+    .work-gallery-swiper .swiper-button-prev {
+        padding: 20px;
+        width: 15px;
+        height: 15px;
+    }
+    
+    .work-gallery-swiper .swiper-button-next:after,
+    .work-gallery-swiper .swiper-button-prev:after {
+        font-size: 15px;
+    }
+    
+    .work-gallery-swiper .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+    }
+} 

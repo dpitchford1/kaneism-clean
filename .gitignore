@@ -16,21 +16,41 @@
 /readme.html
 /wp-*.php
 /xmlrpc.php
+/wp-content/media-folders
 
 # Configuration
 wp-config.php
 
 # Example themes
 /wp-content/themes/twenty*/
+/wp-content/themes/kaneism/assets/
+/wp-content/themes/kaneism/languages/
+**/nux/
+**/jetpack/
+**/customizer/
 
 # Example plugin
-/wp-content/plugins/hello.php
+/wp-content/plugins/classic-editor/
+/wp-content/plugins/contact-form-7/
+/wp-content/plugins/media-folders/
+/wp-content/plugins/wordpress-importer/
+/wp-content/plugins/wp-sweep/
+/wp-content/plugins/woocommerce/
 
 # Uploads
 /wp-content/uploads/
 
 # Log files
 *.log
+*.DS_Store
+.gitignore
+.repomix
+*.code-workspace
+
+/assets/css/dev/
+/assets/fonts/
+/assets/img/logos/
+/docs/
 
 # htaccess
 /.htaccess
