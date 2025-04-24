@@ -1,0 +1,136 @@
+/* List - No Bullets
+---------------------------------------------- */
+
+/* gets rid of bullets */
+.no-bullet{
+    list-style: none; 
+    list-style-image: none; 
+    margin-left: 0;
+    padding-left: 0; 
+    }
+/* gets rid of bullets on child ul */
+.no-bullet .no-bullet{
+    margin-left: 15px !important; 
+    padding-left: 10px; 
+    }                   
+
+
+/* List - Inline display, set margin, fix boxmodel
+---------------------------------------------- */
+.inline-list{ 
+    margin: 0;
+    padding-left: 0;
+    overflow: hidden;
+    }                                           
+.inline-list li{
+    float: left;
+    margin: 0 .6rem 0 0;
+    list-style: none outside none;
+    } 
+// .inline-list li:first-child{}
+.inline-list li:last-child{ margin-right: 0; }
+.inline-list a{
+    display: block;
+    float: left;
+    margin: 0;
+    }
+
+
+/* Create a list of keywords by adding a single class of keywords to a <ul>:*/
+.keywords       { list-style:none; margin:0 0 1.5rem; }
+.keywords li    { display:inline; text-transform:lowercase; }
+.keywords li:first-of-type{ text-transform:capitalize; }
+.keywords li:after{ content:", "; }
+.keywords li:last-of-type:after{ content:""; }
+
+
+/* List - Q&A = <dl class="content-listing">
+---------------------------------------------- */
+//.content-listing{}
+.content-listing dt{ font-size: 1.25rem; margin-bottom: .6rem; letter-spacing: -1px; line-height: 1.2; }
+.content-listing dt:nth-child(n+2){ margin-top: 2rem; }
+.content-listing dd{ font-size: .875rem; margin-bottom: 1rem; }
+
+.content-listing ol, .content-listing ul{ margin-bottom: 0; padding-top: .5rem; }
+
+.content-listing ol .alpha-list, .content-listing ul .alpha-list{ margin-bottom: 1.2rem; padding-top: 0; }
+
+
+// /* List - plain content list pattern with '|' as separator
+// ---------------------------------------------- */
+.content-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    list-style: none;
+    }
+
+.content-list li {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    }
+
+.content-list li:before{ 
+    color: red; 
+    content: '|'; 
+    padding: 0 .7rem;  
+    }
+.content-list li:first-child:before { content: ''; padding: 0; }
+
+
+// 600px and up
+@media (min-width: 37.5em) {
+
+} // E: MQ
+
+
+// 768px and up
+@media (min-width: 48em) {
+
+} // E: MQ
+
+
+// 920px and up
+@media (min-width: 57.500em) {
+
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+
+
+} // E: MQ
+
+
+//  1280px and up
+@media (min-width: 80em) {
+
+
+} // E: MQ
+
+
+// 1440 and up
+@media (min-width: 90em) {
+
+
+} // E: MQ
+
+
+// 1600 and up
+@media (min-width: 100em) {
+
+
+} // E: MQ
+
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+
+} // E: MQ

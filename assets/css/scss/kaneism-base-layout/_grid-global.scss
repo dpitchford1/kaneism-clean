@@ -10,51 +10,96 @@
 
 // modifier template classes - mobile first, columns are added as the screen size increases
 .grid--2col{
-    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    grid-template-columns: repeat(2, 1fr);
 }
 .grid--3col{
-    grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+    grid-template-columns: repeat(1, 1fr);
 }
 .grid--4col{
-    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+    grid-template-columns: repeat(1, 1fr);
 }
 // .grid--5col{
 //     grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
 // }
 
 
-@media (max-width: 23.75em){ /* 380px */
-    
-
-}
-
-@media (max-width: 61.25em) { /* 980px */
 
 
-}
+// 600px and up
+@media (min-width: 37.5em) {
 
-@media (min-width: 61.25em) { /* 980px */
-
- 
-}
-
-@media (min-width: 80em) { /* 1280 */
-
-}
+} // E: MQ
 
 
-@media (min-width: 120em) { /* 1280 */
-    // .grid--2col{
-    //     grid-template-columns: repeat(2, 1fr);
-    // }
-    // .grid--3col{
-    //     grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
-    // }
-    // .grid--4col{
-    //     grid-template-columns: repeat(4, 1fr);
-    // }
-    // .grid--5col{
-    //     grid-template-columns: repeat(5, 1fr);
-    // }
+// 768px and up
+@media (min-width: 48em) {
 
-}
+    .grid--4col{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+} // E: MQ
+
+// 920px and up
+@media (min-width: 57.500em) {
+
+    .grid--3col{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+
+} // E: MQ
+
+
+//  1280px and up
+@media (min-width: 80em) {
+
+    .grid--3col{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .grid--4col{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+} // E: MQ
+
+
+// 1440 and up
+@media (min-width: 90em) {
+
+} // E: MQ
+
+
+// 1600 and up
+@media (min-width: 100em) {
+
+} // E: MQ
+
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+    .grid--3col{
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+} // E: MQ
+
+
+
+// .grid--2col{
+//     grid-template-columns: repeat(2, 1fr);
+// }
+
+// .grid--4col{
+//     grid-template-columns: repeat(4, 1fr);
+// }
+// .grid--5col{
+//     grid-template-columns: repeat(5, 1fr);
+// }
+

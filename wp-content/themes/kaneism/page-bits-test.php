@@ -11,7 +11,7 @@
 
 get_header(); ?>
 
-<main id="main" class="site-main bits-test-page" role="main">
+<main id="main-content" class="site-main bits-test-page" role="main">
     <?php the_title( '<h2 class="sizes-XLG">', '</h2>' ); ?>
     
     <?php

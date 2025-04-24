@@ -20,7 +20,7 @@ do_action('work_before_category_header');
 get_header();
 
 ?>
-<main id="main" class="site-main" role="main">
+<main id="main-content" class="site-main" role="main">
 <?php if (function_exists('work_breadcrumb')) : ?>
     <?php work_breadcrumb(); ?>
 <?php endif; ?>

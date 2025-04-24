@@ -1,0 +1,175 @@
+/* TYPE 
+---------------------------------------------- */
+
+// .wfl    { font-family: $font-light; font-weight: normal; } 
+// .wfr    { font-family: $font-reg; font-weight: normal; }
+// .wfsb   { font-family: $font-semibold; font-weight: normal; }
+// .wfb    { font-family: $font-bold; font-weight: normal; margin-top: 0; }
+
+/* Reverse the heading color 
+---------------------------------------------- */
+// .h-reverse{
+//     color: red;
+//     }
+// .dark .h-reverse{
+//     color: red;
+//     }
+
+// .heading{
+//     @include theme() {
+//         color: theme-get('color-heading-alpha');
+//     }
+// }
+
+// Random utility to change the font family
+// .title{
+//     font-family: $font-lights;
+//     }
+
+/* Heading sizes setup
+---------------------------------------------- */
+.sizes-XLG{  
+    font-size: clamp(1.1rem, calc(1rem + 1vw), 2.1rem);
+    //text-shadow: 2px 1px 2px #ccc;
+    line-height: 1.3;
+}
+.sizes-LG{ 
+    font-size: clamp(1.1rem, calc(1rem + 1vw), 1.8rem);
+    line-height: 1.2;
+}
+.sizes-L{ 
+    font-size: clamp(1rem, calc(1rem + 1vw), 1.5rem);
+    margin-bottom: .8rem; 
+    line-height: 1.2; 
+}
+
+.sizes-M{ 
+    font-size: clamp(1rem, calc(1rem + 1vw), 1.25rem);
+    line-height: 1.2;
+}
+
+.sizes-S{ 
+    font-size: clamp(1rem, calc(1rem + 1vw), 1.1rem);
+    line-height: 1.1; 
+    margin-bottom: .9rem; 
+}
+.sizes-SM{ 
+    line-height: 1.1; 
+    margin-bottom: .7rem; 
+}
+.sizes-SM-alt{  
+    line-height: normal; 
+}
+.sizes-XSM{ 
+    font-size: calc(12px + (32 - 22) * ((100vw - 300px) / (1900 - 300)));
+    line-height: 1.1; 
+    margin-bottom: .7rem; 
+}
+
+/* Heading Styling modifiers and helpers
+---------------------------------------------- */
+/* center and uppercase */
+.uc-center{
+    text-transform: uppercase;
+    text-align: center;
+    }
+
+/* just uppercase */
+.uc{ text-transform: uppercase; }
+
+/* with an underline */
+.has--ul{ 
+    padding-bottom: .2rem; 
+    margin-bottom: 3vh; 
+}
+
+.is--author{
+    font-style: italic;
+    margin: 0;
+    padding-right: 4px
+}
+
+.sm-text{
+    font-size: .875rem;
+    letter-spacing: .3px;
+}
+
+
+/* Messaging & Copy
+---------------------------------------------- */
+// .copy{}
+// .copy-size-LG {  }
+
+// .copy-mega  { @include rem(font-size, 26px); line-height: 1.2; }
+// .copy-XLG   { @include rem(font-size, 22px); line-height: 1.2; }
+// .copy-LG    { @include rem(font-size, 19px); line-height: 1.3; @include rem(margin-bottom, 30px); }
+// .copy-L     { @include rem(font-size, 18px); line-height: 1.4; }
+// .copy-M     { @include rem(font-size, 16px); }
+// .copy-S     { @include rem(font-size, 14px); }
+
+
+/* legal footnotes */
+// .footnotes{ @include rem(font-size, 11px); padding-top: 2.5rem; }
+// .footnote-basic{ border-top: 1px solid #ccc; @include rem(font-size, 11px); padding-top: 1rem; margin-top: 1.5rem; }
+// .footnote-sm{ @include rem(font-size, 11px); }
+
+
+@media (max-width:51.250em){
+
+/* Headings & Titles
+---------------------------------------------- */
+
+}
+
+
+// 600px and up
+@media (min-width: 37.5em) {
+
+} // E: MQ
+
+
+// 768px and up
+@media (min-width: 48em) {
+
+} // E: MQ
+
+
+// 920px and up
+@media (min-width: 57.500em) {
+
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+
+
+} // E: MQ
+
+
+//  1280px and up
+@media (min-width: 80em) {
+
+
+} // E: MQ
+
+
+// 1440 and up
+@media (min-width: 90em) {
+
+} // E: MQ
+
+
+// 1600 and up
+@media (min-width: 100em) {
+
+
+} // E: MQ
+
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+
+} // E: MQ

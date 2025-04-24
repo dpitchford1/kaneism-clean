@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-<main id="main" class="site-main" role="main">
+<main id="main-content" class="site-main" role="main">
     <h2 class="sizes-XLG">The Goods</h2>
 <?php
 // Display the page content

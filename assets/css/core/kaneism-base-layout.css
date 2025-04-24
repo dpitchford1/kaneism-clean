@@ -98,7 +98,7 @@ div, header, footer, aside, nav, section, article, main {
 ====================================================================== */
 /* body copy */
 @font-face {
-  font-family: "open";
+  font-family: "body";
   font-style: normal;
   font-weight: normal;
   src: url("/assets/fonts/galano.woff2") format("woff2");
@@ -878,19 +878,37 @@ div, header, footer, aside, nav, section, article, main {
 }
 
 .grid--2col {
-  grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .grid--3col {
-  grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+  grid-template-columns: repeat(1, 1fr);
 }
 
 .grid--4col {
-  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+  grid-template-columns: repeat(1, 1fr);
 }
 
-@media (max-width: 23.75em) { /* 380px */ }
-@media (max-width: 61.25em) { /* 980px */ }
-@media (min-width: 61.25em) { /* 980px */ }
-@media (min-width: 80em) { /* 1280 */ }
-@media (min-width: 120em) { /* 1280 */ }/*# sourceMappingURL=kaneism-base-layout.css.map */
+@media (min-width: 48em) {
+  .grid--4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 57.5em) {
+  .grid--3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 80em) {
+  .grid--3col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid--4col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 131.25em) {
+  .grid--3col {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}/*# sourceMappingURL=kaneism-base-layout.css.map */

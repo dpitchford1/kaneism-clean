@@ -29,7 +29,7 @@ get_header();
 <?php endif; ?>
        
 
-<main id="main" class="site-main" role="main">
+<main id="main-content" class="site-main" role="main">
     <?php
     /**
      * work_before_archive_content hook

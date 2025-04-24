@@ -16,7 +16,7 @@ get_header();
     <?php work_category_navigation(); ?>
 <?php endif; ?>
 
-<main id="main" class="site-main" role="main">
+<main id="main-content" class="site-main" role="main">
 	<section class="region">
 	    <h2 class="sizes-XLG pushed"><span class="feature-label">Project:</span> <span class=""><?php echo esc_html(get_the_title()); ?></span></h2>
 

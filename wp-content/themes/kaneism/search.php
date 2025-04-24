@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-<main id="main" class="site-main" role="main">
+<main id="main-content" class="site-main" role="main">
 
 <?php if ( have_posts() ) : ?>
     <h2 class="sizes-XLG"><?php printf( esc_attr__( 'Search Results for: %s', 'kaneism' ), '<span>' . get_search_query() . '</span>' );?></h2>

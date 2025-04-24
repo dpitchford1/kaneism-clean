@@ -20,7 +20,7 @@ $kaneism_unique_id = wp_unique_id( 'search-form-' );
 
 $kaneism_aria_label = ! empty( $args['aria_label'] ) ? 'aria-label="' . esc_attr( $args['aria_label'] ) . '"' : '';
 ?>
-<form role="search" <?php echo $kaneism_aria_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above. ?> method="get" class="search-form cf" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+<form id="searchform" role="search" <?php echo $kaneism_aria_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above. ?> method="get" class="search-form cf" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 <fieldset class="fieldset">
 	<legend class="hide-text">What are you looking for today?</legend>
 	<label class="hide-text" for="<?php echo esc_attr( $kaneism_unique_id ); ?>"><?php _e( 'Search&hellip;', 'kaneism' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></label>

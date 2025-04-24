@@ -52,7 +52,7 @@ if (navigator && navigator.serviceWorker) { navigator.serviceWorker.register('/w
     ?>
 
 <link rel="stylesheet" href="/assets/css/build/kaneism-base-layout.min.css" media="screen">
-<link rel="stylesheet" href="/assets/css/dev/kaneism-global-layout.min.css" as="style" onload="this.rel='stylesheet'">
+<link rel="stylesheet" href="/assets/css/build/kaneism-global-layout.min.css" as="style" onload="this.rel='stylesheet'">
 <link rel="stylesheet" href="/assets/css/dev/01-theme-clean.min.css" media="screen">
 <link rel="stylesheet" href="/assets/css/dev/kaneism-helpers.min.css" media="print" onload="this.media='screen'">
 <!-- merge -->

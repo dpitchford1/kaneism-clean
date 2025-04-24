@@ -1,0 +1,99 @@
+/* Start with Small screen layout */ 
+.table--general{
+    width: 100%;
+}
+
+/* turn off head */
+.table--general thead, .table--general th {
+    display: none
+}
+
+/* turn on data head labels */ 
+.table--general td[data-title]::before {
+    content: attr(data-title) ": ";
+    font-weight: 600;
+    float: left
+}
+.table--general tr{
+    display: block;
+}
+
+.table--general td {
+    display: block;
+    text-align: right;
+    clear: both
+}
+.table--general td, .table--general th {
+    padding: .875rem .875rem 0;
+}
+
+  // 600px and up
+@media (min-width: 37.5em) {
+
+} // E: MQ
+
+
+// 768px and up
+@media (min-width: 48em) {
+
+    /* turn off head */
+    .table--general thead {
+        display: table-header-group;
+        text-align: left;
+    }
+    .table--general th {
+        display: table-cell;
+        padding: .875rem .875rem;
+    }
+    .table--general tr {
+        display: table-row;
+    }
+    .table--general td {
+        display: table-cell;
+        text-align: left;
+        padding: .875rem .875rem;
+    }
+
+    .table--general td[data-title]::before {
+        content: attr(data-title) " ";
+        display: none;
+    }
+
+} // E: MQ
+
+
+// 920px and up
+@media (min-width: 57.500em) {
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+
+} // E: MQ
+
+
+//  1280px and up
+@media (min-width: 80em) {
+
+} // E: MQ
+
+
+// 1440 and up
+@media (min-width: 90em) {
+
+} // E: MQ
+
+
+// 1600 and up
+@media (min-width: 100em) {
+
+} // E: MQ
+
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+
+} // E: MQ

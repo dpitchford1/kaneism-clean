@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-<main id="main" class="site-main" role="main">
+<main id="main-content" class="site-main" role="main">
     <?php // the_title( '<h2 class="sizes-LG">', '</h2>' ); ?>
     <h2 class="sizes-XLG">Kaneism Doodads</h2>
     <?php

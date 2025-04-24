@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-<main id="main" class="site-main" role="main">
+<main id="main-content" class="site-main" role="main">
     <h2 class="sizes-XLG">Oops! Oh snap...</h2>
 
     <section class="error-404 not-found">

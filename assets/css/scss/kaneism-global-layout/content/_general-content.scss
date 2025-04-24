@@ -1,0 +1,157 @@
+/** Global Content Styles
+ * @description General content styles for the site.
+ * @author Kaneism
+ * @since 1.0.0
+ * @version 1.0.0
+ * @see https://kaneism.com/
+ */
+
+
+/** Listing of Features 
+ * @description A big feature, followed by a listing of the rest
+**/
+
+.list-of-features{
+    width: 100%;
+}
+.feature-img{
+    display: block;
+    border: solid 4px;
+    margin-bottom: .4rem;
+    padding: 1px;
+}
+
+/* Feature and Promos ------------------------ */
+.list-of-features .is--mainFeature{
+    margin-bottom: 4vh;
+    padding-bottom: 2vh;
+    display: grid;
+    }
+
+.list-of-features .is--promo{
+    margin: 0 0 1.3rem 0;
+    padding-bottom: .4rem;
+    width: 100%;
+    }
+.list-of-features .is--promo:last-child{
+    border-bottom: 0 none;
+    }
+
+.is--promo{
+    .sizes-S{
+        margin-bottom: .5rem;
+    }
+}
+
+
+
+
+.size-featured-large{
+    margin-bottom: 1rem;
+}
+.term-description{
+    display: none;
+}
+
+  // 600px and up
+@media (min-width: 37.5em) {
+
+
+
+} // E: MQ
+
+
+// 768px and up
+@media (min-width: 48em) {
+
+    /* Listing of features ------------------------ */
+    .list-of-features .is--promo{
+        border-bottom: 0 none;
+        }
+
+} // E: MQ
+
+
+// 920px and up
+@media (min-width: 57.500em) {
+
+
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+
+    /* Listing of features ------------------------ */
+    .list-of-features .is--mainFeature{
+        grid-template-columns: 55% auto;
+        column-gap: 2rem;
+    }
+
+    .feature-body{
+        padding-top: 2vh;
+    }
+
+
+    .size-featured-large{
+        margin-bottom: 2rem;
+    }
+
+} // E: MQ
+
+
+//  1280px and up
+@media (min-width: 80em) {
+
+    /* Listing of features ------------------------ */
+    .feature-img{
+        border-width: 6px;
+        margin-bottom: .6rem;
+    }
+
+} // E: MQ
+
+
+// 1440 and up
+@media (min-width: 90em) {
+
+    /* Listing of features ------------------------ */
+    .list-of-features .is--mainFeature{
+        grid-template-columns: 65% auto;
+        column-gap: 5rem;
+        padding-bottom: 4vh;
+    }
+    .feature-body{
+        padding-top: 4vh;
+    }
+
+    .feature-img{
+        border-width: 8px;
+        margin-bottom: .9rem;
+    }
+    
+
+} // E: MQ
+
+
+// 1600 and up
+@media (min-width: 100em) {
+
+    /* Listing of features ------------------------ */
+    .list-of-features .is--mainFeature{
+        grid-template-columns: 60% auto;
+        
+    }
+    .feature-body{
+        padding-top: 6vh;
+    }
+
+} // E: MQ
+
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+
+} // E: MQ

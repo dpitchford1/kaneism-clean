@@ -1,0 +1,77 @@
+/* Global Breadcrumb
+---------------------------------------------- */
+.breadcrumb-global{
+    margin-bottom: 4vh;
+    font-size: .875rem;
+}
+.breadcrumb-global span:first-child .crumb-link::before, .breadcrumb-global li:first-child .crumb-link::before {
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    line-height: inherit;
+    content: "";
+    margin-right: .5407911001em
+}
+
+.breadcrumb-global .breadcrumb-separator {
+    text-indent: -9999px;
+    position: relative;
+    display: inline-block;
+    padding: 0 .8535260698em
+}
+
+.breadcrumb-global .breadcrumb-separator::after {
+    font-family: "Font Awesome 5 Free";
+    content: "";
+    text-indent: 0;
+    line-height: initial;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em;
+    height: 1em;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    opacity: .25
+}
+
+
+// 600px and up
+@media (min-width: 37.5em) {
+
+}
+
+// 768px and up
+@media (min-width: 48em) {
+
+}
+
+// 920px and up
+@media (min-width: 57.500em) {
+
+}
+
+//  1024px and up
+@media (min-width: 64em) {
+
+}
+
+//  1280px and up
+@media (min-width: 80em) {
+
+}
+
+// 1440 and up
+@media (min-width: 90em) {
+
+}
+
+// 1600 and up
+@media (min-width: 100em) {
+
+
+}
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+}

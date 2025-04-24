@@ -1,0 +1,41 @@
+/* Layout Selectors
+---------------------------------------------- */
+
+/* overflow */
+.ov{ overflow: visible; }
+.oh{ overflow: hidden; }
+
+
+/* Images
+---------------------------------------------- */
+// .img--centre		{ display: block; margin:0 auto; }
+// .img--left  		{ float: left; margin: 0 7px 0 0; }     /* Float image LEFT and give it some margin */
+// .img--right 		{ float: right; margin: 0 0 0 10px; }   /* Float image to the RIGHT and give it some margin */
+
+
+/* display and visibility
+---------------------------------------------- */
+.is--block          { display: block; }   	/*displays as block, turns ON*/
+.is--inline         { display: inline; }           		/*displays as block, turns ON*/
+.is--inline-bl      { display: inline-block; }          /*displays as block, turns ON*/
+.is--hidden         { display: none !important; }      	/*displays as hidden, turns OFF*/
+.is--visible		{ display: block !important; }
+.is--invisible 		{ visibility: hidden; }
+
+
+/* Misc
+---------------------------------------------- */
+// .has--spinner{
+//     background: transparent url('/images/preloader-animation.gif') no-repeat 0 0;
+// 	}
+.no--bg          { background: 0 none !important; }  /*Removes Background*/
+.no--border      { border: 0 none !important; }      /*Removes Border*/
+
+
+/* margins */
+.no--m  { margin-bottom: 0 !important; }
+.xsm--m { margin-bottom: 0.625rem; }
+.sm--m  { margin-bottom: 0.9375rem; }
+.med--m { margin-bottom: 1.25rem; }
+.lg--m  { margin-bottom: 1.5625rem; }
+.xlg--m { margin-bottom: 1.875rem; }
