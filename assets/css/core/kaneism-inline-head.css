@@ -90,12 +90,296 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
   clear: both;
 }
 
+/* body copy */
+@font-face {
+  font-family: "body";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/galano.woff2") format("woff2");
+  font-display: swap;
+}
+/* headings -- Serif */
+@font-face {
+  font-family: "fancy";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/copernicus-book.woff2") format("woff2");
+  font-display: optional;
+}
+:where(:root) {
+  font-size: 1rem;
+  font-family: "body", Verdana, "Helvetica Neue", Arial, sans-serif;
+}
+
+html.light {
+  background-color: #fefefe;
+}
+
+html.dark {
+  background-color: #1d1d28;
+}
+
+.light body {
+  color: #5a5a5a;
+}
+.dark body {
+  color: #bdbdbd;
+}
+
+/* General Typography
+---------------------------------------------- */
+/** HEADINGS **/
+:where(h1, h2, h3, h4, h5, h6) {
+  font-family: "fancy", "Helvetica", Arial, sans-serif;
+  font-weight: normal;
+}
+.dark :where(h1, h2, h3, h4, h5, h6) {
+  color: #d3d2ff;
+}
+
+/* Links
+---------------------------------------------- */
+:where(a) {
+  background: transparent;
+}
+.light :where(a) {
+  color: #56005b;
+}
+.dark :where(a) {
+  color: #b0aeff;
+}
+
+:where(a:hover) {
+  outline: none;
+  text-decoration: none;
+}
+
+.light a:hover:not(.menu-global a:hover), .light a:focus:not(.menu-global a:focus), .light .current-menu-item a {
+  color: #bb5800;
+}
+.dark a:hover:not(.menu-global a:hover), .dark a:focus:not(.menu-global a:focus), .dark .current-menu-item a {
+  color: #01f3d8;
+}
+
+:where(a:focus) {
+  text-decoration: underline;
+  outline: none;
+}
+
+:where(a:active) {
+  color: inherit;
+  background-color: transparent;
+  outline: none;
+}
+
+/** HEADING LINKS **/
+:where(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
+  text-decoration: none;
+}
+
+:where(h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hover, h4 a:focus, h5 a:hover, h5 a:focus, h6 a:hover, h6 a:focus) {
+  text-decoration: underline;
+}
+
+/* Call out colour */
+.light :where(.cc) {
+  color: #bb5800;
+}
+.dark :where(.cc) {
+  color: #01f3d8;
+}
+
+:where(.cc:hover) {
+  text-decoration: none;
+}
+
+:where(.cc:focus) {
+  outline: none;
+  text-decoration: underline;
+}
+
+/* Tables
+---------------------------------------------- */
+.light :where(th) {
+  background-color: #f8f8f8;
+  color: currentColor;
+  border-bottom: 1px dotted #56005b;
+}
+.dark :where(th) {
+  background-color: #262631;
+  color: currentColor;
+  border-bottom: 1px dotted #b0aeff;
+}
+
+:where(th summary) {
+  font-weight: normal;
+}
+
+:where(caption) {
+  color: currentColor;
+}
+
+/* Media
+---------------------------------------------- */
+:where(img) {
+  color: inherit;
+}
+
+:where(figcaption) {
+  font-weight: normal;
+  color: inherit;
+}
+
+/* Forms
+---------------------------------------------- */
+:where([type=text], [type=button], [type=search], [type=password], [type=number], [type=url], [type=email], [type=tel], [type=date], [type=time], [type=month], [type=week], select, optgroup, textarea) {
+  font-family: "fancy", "Helvetica", Arial, sans-serif;
+  border: 1px solid;
+  outline: 1px solid transparent;
+  color: rgb(45, 40, 40);
+}
+.light :where([type=text], [type=button], [type=search], [type=password], [type=number], [type=url], [type=email], [type=tel], [type=date], [type=time], [type=month], [type=week], select, optgroup, textarea) {
+  border-color: #dbdbdb;
+}
+.dark :where([type=text], [type=button], [type=search], [type=password], [type=number], [type=url], [type=email], [type=tel], [type=date], [type=time], [type=month], [type=week], select, optgroup, textarea) {
+  border-color: #b0aeff;
+}
+
+.light :where(input, optgroup, select, textarea) {
+  background-color: #fefefe;
+}
+.dark :where(input, optgroup, select, textarea) {
+  background-color: #1d1d28;
+}
+
+.dark :where(input, textarea) {
+  caret-color: #01f3d8;
+  color: #bdbdbd;
+}
+
+:where(button:focus, .button.alt:focus, input:focus, textarea:focus, select:focus, optgroup:focus, [type=checkbox]:focus, [type=radio]:focus) {
+  box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.4);
+}
+
+.light input:focus:not(.search-form input:focus), .light textarea:focus {
+  border-color: #1d1d28;
+}
+.dark input:focus:not(.search-form input:focus), .dark textarea:focus {
+  border-color: #d3d2ff;
+}
+
+/* Colors for form validity */
+.light input:invalid, .light textarea:invalid, .light [aria-invalid=true] {
+  border-color: red;
+}
+.dark input:invalid, .dark textarea:invalid, .dark [aria-invalid=true] {
+  border-color: red;
+}
+
+/* PLACEHOLDER STYLING
+---------------------------------------------- */
+input::-moz-placeholder {
+  font-style: italic;
+}
+input::placeholder {
+  font-style: italic;
+}
+.light input::-moz-placeholder {
+  color: #5a5a5a;
+}
+.light input::placeholder {
+  color: #5a5a5a;
+}
+.dark input::-moz-placeholder {
+  color: #bdbdbd;
+}
+.dark input::placeholder {
+  color: #bdbdbd;
+}
+
+input:focus::-moz-placeholder {
+  opacity: 0.2;
+}
+
+input:focus::placeholder {
+  opacity: 0.2;
+}
+
+legend {
+  color: inherit;
+}
+
+label {
+  font-family: inherit;
+}
+
+/* Buttons
+---------------------------------------------- */
+:where(button, [type=button i], [type=reset i], [type=submit i]) {
+  color: red;
+}
+
+:where(button:disabled, [type=button i]:disabled, [type=reset i]:disabled, [type=submit i]:disabled) {
+  background-color: red;
+  color: red;
+}
+
+/* Interactive
+---------------------------------------------- */
+:where(.hide-text:focus) {
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+}
+.light :where(.hide-text:focus) {
+  background-color: #fff;
+}
+.dark :where(.hide-text:focus) {
+  background-color: #000;
+}
+
+:where(.quick-links:focus) {
+  outline: 1px solid #000;
+  text-decoration: none;
+}
+.light :where(.quick-links:focus) {
+  background-color: #fff;
+}
+.dark :where(.quick-links:focus) {
+  background-color: #000;
+}
+
+.exit-offcanvas {
+  opacity: 0;
+}
+.light .exit-offcanvas {
+  background: #56005b;
+}
+.dark .exit-offcanvas {
+  background: #b0aeff;
+}
+
+[data-off-canvas=visible] .exit-offcanvas, [data-off-screen=visible] .exit-offcanvas {
+  opacity: 0.5;
+}
+
+@media (min-width: 80em) {
+  body {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: 0 2rem;
+  }
+  .light body {
+    background-image: url("/assets/img/bg/splat-main-light.svg");
+  }
+  .dark body {
+    background-image: url("/assets/img/bg/splat-main-dark.svg");
+  }
+}
 /* 1.4 General Typography & Headings
 ====================================================================== */
 /* General Typography */
 /** HEADINGS **/
 :where(h1, h2, h3, h4, h5, h6) {
-  margin: 0 0 2vh 0;
+  margin: 0 0 1.2vh 0;
   letter-spacing: 0.01ch;
 }
 
@@ -752,4 +1036,4 @@ summary {
   .enhanced .search-form[data-search-slide*=slide] {
     top: 0;
   }
-}/*# sourceMappingURL=kaneism-inline-head.css.map */
+}

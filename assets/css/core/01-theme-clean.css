@@ -1,0 +1,789 @@
+/* THEME TEMPLATE USES
+---------------------------------------------- */
+/* Global Headers
+---------------------------------------------- */
+.global-header--ss {
+  border-bottom: 1px solid;
+  border-top: 2px solid;
+}
+.light .global-header--ss {
+  border-bottom-color: #fff;
+}
+.dark .global-header--ss {
+  border-bottom-color: #000;
+}
+.light .global-header--ss {
+  background-color: #f8f8f8;
+  border-top-color: #56005b;
+}
+.dark .global-header--ss {
+  background-color: #262631;
+  border-top-color: #b0aeff;
+}
+
+/* Global Header Structure
+---------------------------------------------- */
+.global-header, .global-header--ss {
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.dark .global-header, .dark .global-header--ss {
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.45);
+}
+
+.light .global-header {
+  background-color: #fefefe;
+}
+.dark .global-header {
+  background-color: #1d1d28;
+}
+
+/* Do stuff when the header sticks
+---------------------------------------------- */
+.enhanced .is--sticky {
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.45);
+}
+
+.enhanced.dark .is--sticky {
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.85);
+}
+
+/* Global Menu Wrapper
+---------------------------------------------- */
+.light .menu-global {
+  background-color: #f8f8f8;
+  border-bottom: 1px dotted #56005b;
+}
+.dark .menu-global {
+  background-color: #262631;
+  border-bottom: 1px dotted #b0aeff;
+}
+
+/* Global Header Inner structure
+---------------------------------------------- */
+.light .brand {
+  background-image: url("/assets/img/logos/logo-dark.svg");
+}
+.dark .brand {
+  background-image: url("/assets/img/logos/logo-light.svg");
+}
+
+.is--logo:focus {
+  border-color: currentColor;
+}
+
+/* Main global Navigation
+---------------------------------------------- */
+.light .menu-logo {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MzAiIGhlaWdodD0iNTMwIiB2aWV3Qm94PSIzMC40NCA2MDkuMTQgNTMwIDUzMCI+PHBhdGggZmlsbD0iIzMwMyIgZD0iTTQ4Mi43NiA2ODYuODNjLTUwLjAzLTUwLjAzLTExNi41NS03Ny41OS0xODcuMzEtNzcuNTlzLTEzNy4yOCAyNy41NS0xODcuMzEgNzcuNTlDNTguMSA3MzYuODYgMzAuNTUgODAzLjM4IDMwLjU1IDg3NC4xNHMyNy41NSAxMzcuMjggNzcuNTkgMTg3LjMxYzUwLjAzIDUwLjAzIDExNi41NSA3Ny41OSAxODcuMzEgNzcuNTlzMTM3LjI4LTI3LjU1IDE4Ny4zMS03Ny41OWM1MC4wMy01MC4wMyA3Ny41OS0xMTYuNTUgNzcuNTktMTg3LjMxLS4wMS03MC43Ni0yNy41Ni0xMzcuMjgtNzcuNTktMTg3LjMxem0tMzYzLjA3IDM2My4wNmMtNDYuOTUtNDYuOTUtNzIuOC0xMDkuMzYtNzIuOC0xNzUuNzUgMC02NS42NyAyNS4zMS0xMjcuNDQgNzEuMjktMTc0LjIgMS4yMyAxMS42NSAxMS42IDE5LjE1IDExLjYgMTkuMTUgNjAuOTkgNTcuMDIgOTkuMTMgMTE1LjMgMTIyLjU3IDE2MS43NC0yLjMgMy4zOC05LjEzIDE0LjQ2LTUuNDIgMjEuNDYgMCAwIDUuODMgOS45MyAxOC42MSA2Ljc5IDE2Ljg5IDM5LjM3IDIxLjY3IDY1IDIxLjY3IDY1IDkuMjYgMjAuMTMgMjEuNDEgMTIuODEgMjEuNDIgMTIuOCAxMy4zLTYuNzEgOS4yNi0yMC43NCA5LjI2LTIwLjc0LTYuMDYtMjUuMDctMTQuMTMtNDkuMjctMjMuNDMtNzIuMjYgMjEuMTEtMTIuMDEgNTQuNjctMzEuMzkgNzYuMTEtNDUuMjQgMCAwLTI2Ljc4IDQ5LjU1LTI4Ljg1IDE1OC40LTIxLjM1LTMuODMtNDYuMDYtNy43MS03NC42MS0xMS40OSAwIDAtNjYuODUtMTAuMjQtNjguNzQgNi45OSAwIDAtMTAgMTQuOTIgNTAuNSAyMS4yNSAwIDAgNDQuNDggNi44MSA5MyAxNy4xLjQ1IDE2LjUzIDEuNDYgMzQuMTcgMy4xNiA1Mi45OSAwIDAgLjczIDE0LjYxIDguMzQgMjIuMDRhMjUwLjI3NiAyNTAuMjc2IDAgMCAxLTU3LjkzIDYuNzdjLTY2LjM4IDAtMTI4LjgtMjUuODUtMTc1Ljc1LTcyLjh6bTI2MC43NyA0MS4yOHMtMi4xMy0xNi41OC0zLjE1LTQyLjIxYzguMjUgMi4wMiAxNi4zMyA0LjEyIDI0LjAzIDYuMjggMCAwIDI4LjUyIDguNTYgNTEuOTggOC45OSAwIDAgLjg5LjA0IDIuMjctLjAyLTIyLjk2IDE5LjQxLTQ4Ljg5IDM0LjI5LTc2LjcxIDQ0LjE4IDEuNTMtNC4xMiAyLjMyLTkuNjggMS41OC0xNy4yMnptOTEuOTktNDIuNTdjLS41LTMuMy0yLjQxLTYuNDUtNy4zOC04LjU0IDAgMC0yMC44Ny0xMS45LTg4LjIyLTI2LjE4LjctNTIuODYgOC4xMy0xMjIuMzcgMzcuMzMtMTczLjc1IDAgMCAxNy43MS0yNC43IDIuODktNDAuNTQgMCAwLTExLjI0LTE0LjgyLTM1Ljc2LTEuMDIgMCAwLTYxLjMxIDM4LjMyLTgwLjcyIDUxLjA5IDAgMCAxNy44OC02Ni43NiAxNi44Ni04Ni44NiAwIDAgMy4wNy0yNC4xOS0xNC44Mi0yMC45NSAwIDAtMjAuNiAxLjg4LTIwLjk1IDIwLjk1IDAgMCAuNiAzNC4xNS0xMi40MyA3Ni41NC00OC4xOC05Mi42Ny0xMDcuNjMtMTU1LjA0LTEwNy42My0xNTUuMDQtNS40Mi01LjE4LTEwLjM0LTguMS0xNC43Mi05LjUgNDIuNjgtMzEuOTQgOTQuMjgtNDkuMjIgMTQ4LjU0LTQ5LjIyIDY2LjM5IDAgMTI4LjggMjUuODUgMTc1Ljc1IDcyLjggNDYuOTQgNDYuOTQgNzIuOCAxMDkuMzYgNzIuOCAxNzUuNzUgMCA2NS44LTI1LjQgMTI3LjY4LTcxLjU0IDE3NC40N3oiLz48Y2lyY2xlIGN4PSIyMDUuNDIiIGN5PSI5NDMuNjMiIHI9IjIwLjk1IiBmaWxsPSIjMzAzIi8+PGNpcmNsZSBjeD0iNDI0Ljc4IiBjeT0iOTY1Ljg2IiByPSIyMC4xOCIgZmlsbD0iIzMwMyIvPjwvc3ZnPg==");
+}
+.dark .menu-logo {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MzAiIGhlaWdodD0iNTMwIiB2aWV3Qm94PSIzMC40NCA2MDkuMTQgNTMwIDUzMCI+PHBhdGggZmlsbD0iI0VDRUNFQyIgZD0iTTQ4Mi43NiA2ODYuODNjLTUwLjAzLTUwLjAzLTExNi41NS03Ny41OS0xODcuMzEtNzcuNTlzLTEzNy4yOCAyNy41NS0xODcuMzEgNzcuNTktNzcuNTkgMTE2LjU1LTc3LjU5IDE4Ny4zMSAyNy41NSAxMzcuMjggNzcuNTkgMTg3LjMxYzUwLjAzIDUwLjAzIDExNi41NSA3Ny41OSAxODcuMzEgNzcuNTlzMTM3LjI4LTI3LjU1IDE4Ny4zMS03Ny41OWM1MC4wMy01MC4wMyA3Ny41OS0xMTYuNTUgNzcuNTktMTg3LjMxLS4wMS03MC43Ni0yNy41Ni0xMzcuMjgtNzcuNTktMTg3LjMxem0tMzYzLjA3IDM2My4wNmMtNDYuOTQtNDYuOTUtNzIuOC0xMDkuMzYtNzIuOC0xNzUuNzUgMC02NS42NyAyNS4zMS0xMjcuNDQgNzEuMjktMTc0LjIgMS4yMyAxMS42NSAxMS42IDE5LjE1IDExLjYgMTkuMTUgNjAuOTkgNTcuMDIgOTkuMTMgMTE1LjMgMTIyLjU3IDE2MS43NC0yLjMgMy4zOC05LjEzIDE0LjQ2LTUuNDIgMjEuNDYgMCAwIDUuODMgOS45MyAxOC42MSA2Ljc5IDE2Ljg5IDM5LjM3IDIxLjY3IDY1IDIxLjY3IDY1IDkuMjYgMjAuMTMgMjEuNDEgMTIuODEgMjEuNDIgMTIuOCAxMy4zLTYuNzEgOS4yNi0yMC43NCA5LjI2LTIwLjc0LTYuMDYtMjUuMDctMTQuMTQtNDkuMjctMjMuNDMtNzIuMjYgMjEuMTEtMTIuMDEgNTQuNjctMzEuMzkgNzYuMTEtNDUuMjQgMCAwLTI2Ljc4IDQ5LjU1LTI4Ljg1IDE1OC40LTIxLjM1LTMuODMtNDYuMDYtNy43MS03NC42MS0xMS40OSAwIDAtNjYuODUtMTAuMjQtNjguNzQgNi45OSAwIDAtMTAgMTQuOTIgNTAuNSAyMS4yNSAwIDAgNDQuNDggNi44MSA5MyAxNy4xLjQ1IDE2LjUzIDEuNDYgMzQuMTcgMy4xNiA1Mi45OSAwIDAgLjczIDE0LjYxIDguMzQgMjIuMDRhMjUwLjI3NiAyNTAuMjc2IDAgMCAxLTU3LjkzIDYuNzdjLTY2LjM4IDAtMTI4LjgtMjUuODUtMTc1Ljc1LTcyLjh6bTI2MC43NyA0MS4yOHMtMi4xMy0xNi41OC0zLjE1LTQyLjIxYzguMjUgMi4wMiAxNi4zMyA0LjEyIDI0LjAzIDYuMjggMCAwIDI4LjUyIDguNTYgNTEuOTggOC45OSAwIDAgLjg5LjA0IDIuMjctLjAyLTIyLjk2IDE5LjQxLTQ4Ljg5IDM0LjI5LTc2LjcyIDQ0LjE4IDEuNTQtNC4xMiAyLjMzLTkuNjggMS41OS0xNy4yMnptOTEuOTktNDIuNTdjLS41LTMuMy0yLjQxLTYuNDUtNy4zOC04LjU0IDAgMC0yMC44Ny0xMS45LTg4LjIyLTI2LjE4LjctNTIuODYgOC4xMy0xMjIuMzcgMzcuMzMtMTczLjc1IDAgMCAxNy43MS0yNC43IDIuODktNDAuNTQgMCAwLTExLjI0LTE0LjgyLTM1Ljc2LTEuMDIgMCAwLTYxLjMxIDM4LjMyLTgwLjczIDUxLjA5IDAgMCAxNy44OC02Ni43NiAxNi44Ni04Ni44NiAwIDAgMy4wNy0yNC4xOS0xNC44Mi0yMC45NSAwIDAtMjAuNiAxLjg4LTIwLjk1IDIwLjk1IDAgMCAuNiAzNC4xNS0xMi40MyA3Ni41NC00OC4xOC05Mi42Ny0xMDcuNjMtMTU1LjA0LTEwNy42My0xNTUuMDQtNS40Mi01LjE4LTEwLjM0LTguMS0xNC43Mi05LjUgNDIuNjgtMzEuOTQgOTQuMjgtNDkuMjIgMTQ4LjU0LTQ5LjIyIDY2LjM5IDAgMTI4LjgxIDI1Ljg1IDE3NS43NSA3Mi44IDQ2Ljk0IDQ2Ljk0IDcyLjggMTA5LjM2IDcyLjggMTc1Ljc1LjAxIDY1LjgtMjUuMzkgMTI3LjY4LTcxLjUzIDE3NC40N3oiLz48Y2lyY2xlIGN4PSIyMDUuNDIiIGN5PSI5NDMuNjMiIHI9IjIwLjk1IiBmaWxsPSIjRUNFQ0VDIi8+PGNpcmNsZSBjeD0iNDI0Ljc4IiBjeT0iOTY1Ljg2IiByPSIyMC4xOCIgZmlsbD0iI0VDRUNFQyIvPjwvc3ZnPg==");
+}
+
+/* Utility Menu
+---------------------------------------------- */
+.utility-menu .current-menu-item a {
+  text-decoration: none;
+}
+
+/* GLOBAL STRUCTURES & WRAPPERS
+---------------------------------------------- */
+.search-form {
+  border-bottom: 1px solid;
+}
+.light .search-form {
+  background-color: #f8f8f8;
+  border-bottom-color: #fefefe;
+}
+.dark .search-form {
+  background-color: #262631;
+  border-bottom-color: #1d1d28;
+}
+
+/* Main global Navigation
+---------------------------------------------- */
+.navigation-global a {
+  border-bottom: 1px solid;
+}
+.light .navigation-global a {
+  border-bottom-color: #fff;
+}
+.dark .navigation-global a {
+  border-bottom-color: #000;
+}
+.navigation-global a:hover, .navigation-global a:focus, .navigation-global .is-selected, .navigation-global .current-menu-item a, .navigation-global .current-page-ancestor a, .navigation-global .current_page_parent a {
+  text-decoration: none;
+}
+.light .navigation-global a:hover, .light .navigation-global a:focus, .light .navigation-global .is-selected, .light .navigation-global .current-menu-item a, .light .navigation-global .current-page-ancestor a, .light .navigation-global .current_page_parent a {
+  background-color: #fff;
+  border-bottom-color: #000;
+  color: #bb5800;
+}
+.dark .navigation-global a:hover, .dark .navigation-global a:focus, .dark .navigation-global .is-selected, .dark .navigation-global .current-menu-item a, .dark .navigation-global .current-page-ancestor a, .dark .navigation-global .current_page_parent a {
+  background-color: #000;
+  border-bottom-color: #01f3d8;
+  color: #01f3d8;
+}
+.navigation-global a:active {
+  background-color: #f1f1f1;
+}
+
+.light .header--cart .is--selected, .light .cart--content:hover, .light .cart--content:focus {
+  color: #bb5800;
+}
+.dark .header--cart .is--selected, .dark .cart--content:hover, .dark .cart--content:focus {
+  color: #01f3d8;
+}
+
+.light .bubble--contents .bubble--count {
+  border: 1px solid #F1B33B;
+  background-color: #dbdbdb;
+  color: #56005b;
+}
+.dark .bubble--contents .bubble--count {
+  border: 1px solid #b0aeff;
+  background-color: #1d1d28;
+  color: #01f3d8;
+}
+
+.bubble--contents:hover .bubble--count, .bubble--contents:focus .bubble--count {
+  background-color: red;
+}
+
+.is--selected .bubble--count {
+  background-color: red;
+}
+
+@media (min-width: 37.5em) {
+  .light .brand {
+    background-image: url("/assets/img/logos/logo-lite.svg");
+  }
+  .dark .brand {
+    background-image: url("/assets/img/logos/logo-global.svg");
+  }
+}
+@media (min-width: 48em) {
+  .global-header {
+    border-top: 3px solid;
+  }
+  .light .global-header {
+    border-color: #56005b;
+  }
+  .dark .global-header {
+    border-color: #b0aeff;
+  }
+  .light .theme-switcher {
+    border-color: #56005b;
+  }
+  .dark .theme-switcher {
+    border-color: #b0aeff;
+  }
+  .search-form {
+    border: 1px solid;
+  }
+  .light .search-form {
+    border-color: #dbdbdb;
+    background-color: transparent;
+  }
+  .dark .search-form {
+    border-color: #b0aeff;
+    background-color: transparent;
+  }
+  .search-form .search-field {
+    border: transparent;
+  }
+  .search-form .search-field:focus {
+    outline: none;
+  }
+  /* Main global Navigation
+  ---------------------------------------------- */
+  .navigation-global {
+    /* Underline From Center */
+  }
+  .light .navigation-global a:before {
+    background: #000;
+  }
+  .dark .navigation-global a:before {
+    background: #01f3d8;
+  }
+}
+@media (min-width: 64em) {
+  /* Main global Navigation
+     ---------------------------------------------- */
+}
+/* Footer General
+---------------------------------------------- */
+/* Global Footers
+---------------------------------------------- */
+.global-footer {
+  border-top: 1px solid;
+}
+.light .global-footer {
+  border-top-color: #dbdbdb;
+  background-color: #f8f8f8;
+}
+.dark .global-footer {
+  border-top-color: #b0aeff;
+  background-color: #262631;
+}
+
+.light .global-footer {
+  mix-blend-mode: multiply;
+}
+
+.dark .global-footer {
+  mix-blend-mode: screen;
+}
+
+/* Footer Branding
+---------------------------------------------- */
+.light .footer-logo {
+  background-image: url("/assets/img/logos/logo-lite.svg");
+}
+.dark .footer-logo {
+  background-image: url("/assets/img/logos/logo-global.svg");
+}
+
+/* Footer Type
+---------------------------------------------- */
+/* Content General
+---------------------------------------------- */
+/* Tables
+---------------------------------------------- */
+.product-remove .remove::before {
+  color: inherit;
+}
+
+.summary--table tr {
+  border-bottom: 1px solid;
+}
+.light .summary--table tr {
+  border-bottom-color: #f8f8f8;
+}
+.dark .summary--table tr {
+  border-bottom-color: #262631;
+}
+
+.actions .coupon {
+  border-bottom: 1px solid red;
+}
+
+.required {
+  color: red;
+}
+
+/* Breadcrumb
+---------------------------------------------- */
+.breadcrumb-global .breadcrumb-separator::after {
+  opacity: 0.25;
+}
+
+@media (min-width: 48em) {
+  .table--general thead tr {
+    background-color: red;
+  }
+  .light .table--general thead tr {
+    background-color: red;
+  }
+  .dark .table--general thead tr {
+    background-color: red;
+  }
+  .cart--totals th {
+    background-color: red;
+  }
+  .light .cart--totals th {
+    background-color: red;
+    color: red;
+  }
+  .dark .cart--totals th {
+    background-color: red;
+    color: red;
+  }
+}
+/* Forms
+---------------------------------------------- */
+/* Theme Toggler Component
+---------------------------------------------- */
+.theme-toggle--switch {
+  border-radius: 2px;
+  transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
+  background: red;
+}
+
+.theme-toggle--switch:before {
+  color: red;
+}
+
+.theme-toggle--switch:after {
+  border-radius: 1px;
+  background: red;
+  color: red;
+}
+
+.theme-checkbox:hover ~ .theme-label, .theme-checkbox:focus ~ .theme-label {
+  color: red;
+}
+
+.theme-checkbox:focus ~ .theme-label .theme-toggle--switch, .theme-checkbox:hover ~ .theme-label .theme-toggle--switch {
+  background-color: red;
+}
+
+.theme-checkbox:focus ~ .theme-label .theme-toggle--switch:after, .theme-checkbox:hover ~ .theme-label .theme-toggle--switch:after {
+  color: red;
+}
+
+.theme-checkbox:checked ~ .theme-label .theme-toggle--switch {
+  background-color: red;
+}
+.light .theme-checkbox:checked ~ .theme-label .theme-toggle--switch {
+  background-color: red;
+}
+.dark .theme-checkbox:checked ~ .theme-label .theme-toggle--switch {
+  background-color: red;
+}
+
+.theme-checkbox:checked ~ .theme-label .theme-toggle--switch:after {
+  color: red;
+}
+
+.theme-checkbox:checked ~ .theme-label:hover {
+  color: red;
+}
+
+.theme-checkbox:checked:focus ~ .theme-label .theme-toggle--switch, .theme-checkbox:checked:hover ~ .theme-label .theme-toggle--switch {
+  background-color: red;
+}
+
+.theme-checkbox:checked:focus ~ .theme-label .theme-toggle--switch:after, .theme-checkbox:checked:hover ~ .theme-label .theme-toggle--switch:after {
+  color: red;
+}
+
+/* Buttons
+---------------------------------------------- */
+.loading::after {
+  color: initial;
+}
+
+.button {
+  background-color: red;
+}
+.button:hover, .button:focus {
+  background-color: red;
+}
+.button:active {
+  background-color: red;
+}
+.button.loading {
+  color: red;
+}
+.light .button {
+  color: red;
+}
+.dark .button {
+  color: red;
+}
+.button:hover {
+  color: initial;
+}
+
+.dark a.button {
+  color: red;
+}
+
+.dark a.button.alt {
+  color: red;
+}
+
+.button.alt {
+  background-color: red;
+  color: red;
+}
+.button.alt:hover, .button.alt:focus {
+  background-color: red;
+  color: red;
+}
+
+.button--primary {
+  background-color: red;
+  border: 1px solid red;
+}
+
+.button--primary:hover {
+  background-color: red;
+}
+
+/* FANCY SELECT MENU STYLES
+---------------------------------------------- */
+.fancy-select, .facetwp-type-dropdown {
+  border: 1px solid red;
+  background-color: red;
+}
+.fancy-select:after, .facetwp-type-dropdown:after {
+  color: red;
+}
+.fancy-select:hover, .facetwp-type-dropdown:hover {
+  border-color: red;
+}
+.fancy-select:focus, .fancy-select:active, .facetwp-type-dropdown:focus, .facetwp-type-dropdown:active {
+  box-shadow: 0 0 1px 1px rgba(180, 222, 250, 0.85);
+}
+
+.error .fancy-select, .error .controls select.date {
+  border-color: lime;
+}
+
+.fancy-select:after, .facetwp-type-dropdown:after {
+  color: red;
+}
+
+/* Hover style - tricky because we're clipping the overflow */
+/* Focus style */
+.fancy-select select:-moz-focusring {
+  text-shadow: 0 0 0 red;
+}
+
+/* Form Elements
+---------------------------------------------- */
+.woocommerce-invalid .input-text {
+  box-shadow: inset 2px 0 0 #e2401c;
+}
+
+.woocommerce-validated .input-text {
+  box-shadow: inset 2px 0 0 #0f834d;
+}
+
+.legend-visible {
+  color: red;
+}
+
+.general-form .controls .date {
+  border: 1px solid #cacdce;
+}
+
+@media (min-width: 48em) {
+  .theme-switcher {
+    border-left-width: 1px;
+    border-left-color: red;
+  }
+}
+/* Shop Content
+---------------------------------------------- */
+/* Accordion Tabs
+---------------------------------------------- */
+.wc-tabs {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.wc-tabs li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.wc-tabs a:focus, .wc-tabs a:active {
+  background-color: transparent;
+}
+
+.wc-tabs .active a:focus, .wc-tabs .active a:active {
+  background-color: transparent;
+}
+
+/* Gallery
+---------------------------------------------- */
+.woocommerce-product-gallery__image img {
+  border: 1px solid #bbb;
+}
+
+.woocommerce-product-gallery__trigger {
+  background-color: red;
+  color: red;
+}
+
+.woocommerce-product-gallery__trigger:hover {
+  background-color: red;
+  border-color: red;
+  color: red;
+}
+
+.woocommerce-product-gallery .zoomImg {
+  background-color: red;
+}
+
+/* Notices
+---------------------------------------------- */
+.notice, .cart-empty {
+  color: red;
+}
+.notice :not(.button), .cart-empty :not(.button) {
+  color: red;
+}
+.notice :not(.button):hover, .cart-empty :not(.button):hover {
+  color: red;
+}
+
+.woocommerce-message {
+  background-color: #0f834d;
+}
+
+.woocommerce-info {
+  background-color: #3d9cd2;
+}
+
+.woocommerce-error {
+  background-color: #e2401c;
+}
+
+.notice::before, .cart-empty::before {
+  color: red;
+}
+
+.woocommerce-info.woocommerce-no-products-found {
+  background-color: rgba(0, 0, 0, 0);
+  color: inherit;
+}
+
+.notice .button {
+  background-color: transparent;
+  color: red;
+}
+.notice .button:active {
+  background-color: transparent;
+}
+
+.notice .button:hover {
+  background: none;
+  color: red;
+}
+
+.notice pre {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Pagination and Sorting
+---------------------------------------------- */
+.kaneism-sorting {
+  border-top: 1px solid;
+  border-top-color: #ddd;
+}
+
+.pagination, .woocommerce-pagination {
+  border-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid;
+}
+
+.page-numbers .page-numbers {
+  background-color: rgba(0, 0, 0, 0.025);
+  color: red;
+}
+
+.page-numbers .current, .page-numbers.current:hover {
+  background-color: red;
+  border-color: red;
+  color: red;
+}
+
+.page-numbers .dots {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.page-numbers .page-numbers:hover:not(.current) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Cart
+---------------------------------------------- */
+.cart-tables thead {
+  background-color: red;
+}
+
+.cart_item {
+  border-color: #eee;
+}
+
+.product-remove .remove::before {
+  color: inherit;
+}
+
+/* Products
+---------------------------------------------- */
+.products .woocommerce-LoopProduct-link {
+  border-color: #eaeaea;
+}
+
+.dark .woocommerce-LoopProduct-link {
+  border-color: #000;
+}
+
+.onsale {
+  background-color: red;
+  color: red;
+}
+
+.products--related {
+  border-top-color: red;
+  border-top: 1px solid;
+}
+
+.product_meta {
+  border-top-color: red;
+  border-top: 1px solid;
+}
+
+.stock.in-stock {
+  color: #0f834d;
+}
+
+.stock.out-of-stock {
+  color: #e2401c;
+}
+
+/* Checkout
+---------------------------------------------- */
+.checkout .payment_methods li {
+  background-color: red;
+}
+
+.checkout .place-order {
+  background-color: red;
+}
+
+.woocommerce-checkout-review-order-table th {
+  background-color: red;
+}
+
+/* Order Confirmation
+---------------------------------------------- */
+.order--details {
+  background-color: red;
+}
+
+.order--details::before,
+.order--details::after {
+  background: -webkit-linear-gradient(transparent 0, transparent 0), -webkit-linear-gradient(135deg, red 33.33%, transparent 33.33%), -webkit-linear-gradient(45deg, red 33.33%, transparent 33.33%);
+}
+
+.order--details li {
+  border-color: #e3e3e3;
+  border-bottom: 1px dotted;
+}
+
+.woocommerce-table--order-details {
+  background-color: red;
+}
+
+.woocommerce-table--order-details th,
+.woocommerce-table--order-details tfoot {
+  background-color: red;
+}
+
+/* Work
+---------------------------------------------- */
+.feature-img {
+  border: solid 4px;
+}
+.light .feature-img {
+  border-color: #dbdbdb;
+}
+.dark .feature-img {
+  border-color: #b0aeff;
+}
+
+/* Feature and Promos ------------------------ */
+.list-of-features .is--mainFeature {
+  border-bottom: 3px solid;
+}
+.light .list-of-features .is--mainFeature {
+  border-color: #dbdbdb;
+}
+.dark .list-of-features .is--mainFeature {
+  border-color: #b0aeff;
+}
+
+.dark .is--mainFeature {
+  border-bottom: 4px solid;
+}
+
+.list-of-features .is--promo {
+  border-bottom: 1px dotted;
+}
+.light .list-of-features .is--promo {
+  border-color: #dbdbdb;
+}
+.dark .list-of-features .is--promo {
+  border-color: #b0aeff;
+}
+
+.light .feature-label {
+  color: #bb5800;
+}
+.dark .feature-label {
+  color: #01f3d8;
+}
+
+/* Project Details Table
+------------------------ */
+.project-details th, .project-details td {
+  border-top: 1px solid;
+}
+.light .project-details th, .light .project-details td {
+  border-top-color: #f8f8f8;
+}
+.dark .project-details th, .dark .project-details td {
+  border-top-color: #262631;
+}
+
+.light .project-details th:nth-child(odd), .light .project-details td:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+.dark .project-details th:nth-child(odd), .dark .project-details td:nth-child(odd) {
+  background-color: #262631;
+}
+
+.kane-related-works {
+  border-top: 1px solid;
+}
+.light .kane-related-works {
+  border-top-color: #dbdbdb;
+}
+.dark .kane-related-works {
+  border-top-color: #b0aeff;
+}
+
+@media (min-width: 57.5em) {
+  /* Project Details Table
+  ------------------------ */
+  .project-details {
+    border-top: 3px solid;
+  }
+  .light .project-details {
+    border-top-color: #d3d2ff;
+  }
+  .dark .project-details {
+    border-top-color: #1d1d28;
+  }
+  .project-details th, .project-details td {
+    border-top: 0 none;
+  }
+  .project-details tbody td {
+    border-bottom: 1px solid;
+  }
+  .light .project-details tbody td {
+    border-bottom-color: #d3d2ff;
+  }
+  .dark .project-details tbody td {
+    border-bottom-color: #1d1d28;
+  }
+  .project-details td:nth-child(odd) {
+    background-color: transparent;
+  }
+}
+@media (min-width: 64em) {
+  /* Project Details Table
+  ---------------------------------------------- */
+  .project-details .h-lgt {
+    color: lime;
+    /* float: left; */
+  }
+  .project-details caption {
+    color: red;
+  }
+}

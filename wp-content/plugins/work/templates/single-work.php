@@ -18,7 +18,7 @@ get_header();
 
 <main id="main-content" class="site-main" role="main">
 	<section class="region">
-	    <h2 class="sizes-XLG pushed"><span class="feature-label">Project:</span> <span class=""><?php echo esc_html(get_the_title()); ?></span></h2>
+	    <h2 class="sizes-XLG"><span class="feature-label">Project:</span> <span class=""><?php echo esc_html(get_the_title()); ?></span></h2>
 
     <?php while (have_posts()) : the_post(); ?>
         <article id="post-<?php the_ID(); ?>">
@@ -85,7 +85,7 @@ get_header();
                 // Only display table if we have details
                 if (!empty($project_details)) :
                 ?>
-                <table class="project-details">
+                <table class="table--general project--table">
                     <caption>Details for <?php echo esc_html(get_the_title()); ?></caption>
                     <thead>
                         <tr>
@@ -97,7 +97,7 @@ get_header();
                     <tbody>
                         <tr>
                             <?php foreach ($project_details as $detail) : ?>
-                            <td data-th="<?php echo esc_attr($detail['label']); ?>"><?php echo esc_html($detail['value']); ?></td>
+                            <td data-title="<?php echo esc_attr($detail['label']); ?>"><?php echo esc_html($detail['value']); ?></td>
                             <?php endforeach; ?>
                         </tr>
                     </tbody>

@@ -1,0 +1,278 @@
+/* Forms
+---------------------------------------------- */
+
+/* Theme Toggler Component
+---------------------------------------------- */
+.theme-toggle--switch {
+    border-radius: 2px;
+    transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
+    background: red;
+}
+
+.theme-toggle--switch:before {
+    //color: $color-white;
+    color: red;
+}
+
+.theme-toggle--switch:after {
+    border-radius: 1px;
+    //background: white;
+    background: red;
+    //color: $color-bg-d;
+    color: red;
+}
+
+.theme-checkbox:hover~.theme-label, .theme-checkbox:focus~.theme-label {
+    //color: $color-access;
+    color: red;
+}
+
+.theme-checkbox:focus~.theme-label .theme-toggle--switch, .theme-checkbox:hover~.theme-label .theme-toggle--switch {
+    //background-color: $color-callout;
+    background-color: red;
+}
+
+.theme-checkbox:focus~.theme-label .theme-toggle--switch:after, .theme-checkbox:hover~.theme-label .theme-toggle--switch:after {
+    //color: $color-callout;
+    color: red;
+}
+
+.theme-checkbox:checked~.theme-label .theme-toggle--switch {
+    //background-color: $color-callout;
+    background-color: red;
+    @include theme() {
+        //background-color: theme-get('color-accent');
+        background-color: red;
+    }
+}
+
+.theme-checkbox:checked~.theme-label .theme-toggle--switch:after {
+    //color: $color-callout;
+    color: red;
+}
+
+.theme-checkbox:checked~.theme-label:hover {
+    //color: $color-access;
+    color: red;
+}
+
+.theme-checkbox:checked:focus~.theme-label .theme-toggle--switch, .theme-checkbox:checked:hover~.theme-label .theme-toggle--switch {
+    //background-color: $color-access;
+    background-color: red;
+}
+
+.theme-checkbox:checked:focus~.theme-label .theme-toggle--switch:after, .theme-checkbox:checked:hover~.theme-label .theme-toggle--switch:after {
+    //color: $color-access;
+    color: red;
+}
+
+/* Buttons
+---------------------------------------------- */
+.loading::after {
+    color: initial;
+}
+
+.button, .button.alt {
+    //color: inherit;
+}
+
+.button {
+    //background-color: $color-bg-primary;
+    background-color: red;
+
+    &:hover, &:focus {
+        //background-color: $color-bg-secondary;
+        background-color: red;
+    }
+
+    &:active { 
+        //background-color: $color-bg-primary;
+        background-color: red;
+    }
+
+    &.loading { 
+        //color: $color-bg-secondary;
+        color: red;
+    }
+
+    @include theme() {
+        //color: theme-get('$color-accent');
+        color: red;
+    }
+
+    &:hover {
+        color: initial;
+    }
+}
+
+.dark a.button {
+    //color: $color-accent;
+    color: red;
+}
+
+.dark a.button.alt {
+    //color: #eee;
+    color: red;
+}
+
+.button.alt {
+    //background-color: $color-accent;
+    background-color: red;
+    //color: $color-bg-primary;
+    color: red;
+
+    &:hover, &:focus {
+        //background-color: $brand-primary;
+        background-color: red;
+        //color: $color-bg-primary;
+        color: red;
+    }
+}
+
+.button--primary {
+    //background-color: $brand-primary-alt4;
+    background-color: red;
+    //border: 1px solid #aaa;
+    border: 1px solid red;
+}
+
+.button--primary:hover {
+    //background-color: $color-white;
+    background-color: red;
+}
+
+
+/* FANCY SELECT MENU STYLES
+---------------------------------------------- */
+.fancy-select, .facetwp-type-dropdown {
+    // border: 1px solid #cacdce;
+    // background-color: $color-white;
+    border: 1px solid red;
+    background-color: red;
+
+    select {
+        //color: red;
+    }
+
+    &:after {
+        //color: #bbb;
+        color: red;
+    }
+
+    &:hover {
+        //border-color: #434a4f;
+        border-color: red;
+    }
+
+    &:focus, &:active {
+        box-shadow: 0 0 1px 1px rgba(180,222,250, .85);
+    }
+}
+
+.error .fancy-select, .error .controls select.date {
+    //border-color: #dd3829;
+    border-color: lime;
+}
+
+.fancy-select:after, .facetwp-type-dropdown:after {
+    //color: #bbb;
+    color: red;
+}
+
+/* Hover style - tricky because we're clipping the overflow */
+// .fancy-select:hover, .facetwp-type-dropdown:hover {
+//     border-color: #434a4f;
+// }
+
+/* Focus style */
+// .fancy-select select:focus, .facetwp-type-dropdown:focus, .fancy-select select:active {
+//     outline: none;
+//     border: none;
+//     box-shadow: 0 0 1px 1px rgba(180,222,250, .85);
+// }
+
+.fancy-select select:-moz-focusring {
+    text-shadow: 0 0 0 red;
+}
+
+/* Form Elements
+---------------------------------------------- */
+.woocommerce-invalid .input-text {
+    box-shadow: inset 2px 0 0 #e2401c;
+}
+
+.woocommerce-validated .input-text {
+    box-shadow: inset 2px 0 0 #0f834d;
+}
+
+.legend-visible{ 
+    color: red;
+}
+
+.general-form .controls .date {
+    border: 1px solid #cacdce;
+}
+
+// 480px and up
+@media (min-width: 30em) {
+
+
+} // E: MQ
+
+// 600px and up
+@media (min-width: 37.5em) {
+	
+	
+
+} // E: MQ
+
+
+// 768px and up
+@media (min-width: 48em) {
+    .theme-switcher {
+        border-left-width: 1px;
+        border-left-color: red;  // Assuming this was theme-related
+    }
+} // E: MQ
+
+
+// 920px and up
+@media (min-width: 57.500em) {
+
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+
+
+} // E: MQ
+
+
+//  1280px and up
+@media (min-width: 80em) {
+
+
+} // E: MQ
+
+
+// 1440 and up
+@media (min-width: 90em) {
+
+
+} // E: MQ
+
+
+// 1600 and up
+@media (min-width: 100em) {
+
+
+} // E: MQ
+
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+
+} // E: MQ

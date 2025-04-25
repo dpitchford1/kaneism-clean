@@ -1,21 +1,4 @@
 // Call the fonts
-
-/* body copy */
-@font-face {
-    font-family: "body";
-    font-style: normal;
-    font-weight: normal;
-    src: url("/assets/fonts/galano.woff2") format("woff2");
-    font-display: swap;
-}
-/* headings -- Serif */
-@font-face {
-    font-family: "lights";
-    font-style: normal;
-    font-weight: normal;
-    src: url("/assets/fonts/copernicus-book.woff2") format("woff2"); 
-    font-display: optional;
-}
 /* font awesome */
 @font-face {
     font-family: "Font Awesome 5 Free";

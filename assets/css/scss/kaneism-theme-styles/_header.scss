@@ -1,0 +1,255 @@
+/* Global Headers
+---------------------------------------------- */
+// Small Screen Header
+.global-header--ss{
+    border-bottom: 1px solid;
+    @include theme() {
+        border-bottom-color: theme-get('swatch-default');
+    }
+
+    border-top: 2px solid;
+
+    @include theme() {
+        background-color: theme-get('swatch-secondary');
+        border-top-color: theme-get('swatch-accent');
+    }
+}
+
+/* Global Header Structure
+---------------------------------------------- */
+.global-header, .global-header--ss{
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.15);
+}
+.dark .global-header, .dark .global-header--ss{
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.45);
+}
+
+// global large header
+.global-header{ 
+    //background-color: $color-white;
+    @include theme() {
+        background-color: theme-get('swatch-primary');
+    }
+}
+
+/* Do stuff when the header sticks
+---------------------------------------------- */
+// Adjust drop shadow on scroll - slightly darker
+.enhanced .is--sticky{ 
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.45); 
+}
+.enhanced.dark .is--sticky{ 
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.85); 
+}
+
+/* Global Menu Wrapper
+---------------------------------------------- */
+.menu-global{
+    @include theme() {
+        background-color: theme-get('swatch-secondary');
+        border-bottom: 1px dotted theme-get('dotted-borders');
+    }
+}
+
+/* Global Header Inner structure
+---------------------------------------------- */
+// General
+.brand{
+    @include theme() {
+        background-image: theme-get('logo-ss');
+    }
+}
+
+.is--logo:focus{ 
+    border-color: currentColor; 
+}
+
+/* Main global Navigation
+---------------------------------------------- */
+.menu-logo{
+    @include theme() {
+        background-image: theme-get('logo-icon');
+    } 
+}
+
+/* Utility Menu
+---------------------------------------------- */
+.utility-menu .current-menu-item {
+    a{
+        text-decoration: none;
+    }
+    // a:hover, a:focus, .current_page_item a, .current-menu-item a{
+    //     text-decoration: underline;
+    // }
+}
+
+/* GLOBAL STRUCTURES & WRAPPERS
+---------------------------------------------- */
+.search-form{ 
+    border-bottom: 1px solid;
+    //box-shadow: 0 0 4px 0 rgba(0,0,0,0.65);
+
+    @include theme() {
+        background-color: theme-get('swatch-secondary');
+        border-bottom-color: theme-get('swatch-primary');
+    }
+}
+
+/* Main global Navigation
+---------------------------------------------- */
+.navigation-global{
+
+    & a {
+        border-bottom: 1px solid;
+
+        @include theme() {
+            border-bottom-color: theme-get('swatch-default');
+        }
+    }
+
+    & a:hover, a:focus, .is-selected, .current-menu-item a, .current-page-ancestor a, .current_page_parent a{  
+        text-decoration: none;
+
+        @include theme() {
+            background-color: theme-get('swatch-default');
+            border-bottom-color: theme-get('bling-primary');
+            color: theme-get('swatch-link-hovers');
+        }
+    }
+
+    & a:active{ background-color: #f1f1f1; }
+
+}
+
+// header cart link and total
+.header--cart .is--selected, .cart--content:hover, .cart--content:focus{
+    @include theme() {
+        color: theme-get('swatch-link-hovers');
+    }
+}
+
+.bubble--contents .bubble--count {
+	@include theme() {
+        border: 1px solid theme-get('cart-bubble-border');
+        background-color: theme-get('cart-bubble-bg');
+        color: theme-get('cart-bubble-link');
+    }
+}
+.bubble--contents:hover .bubble--count, .bubble--contents:focus .bubble--count {
+	//background-color: $bling;
+    background-color: red;
+}
+.is--selected .bubble--count{
+    //background-color: $bling;
+    background-color: red;
+}
+
+
+// 480px and up
+@media (min-width: 30em) {
+
+} // E: MQ
+
+// 600px and up
+@media (min-width: 37.5em) {
+	
+	.brand{
+        @include theme() {
+            background-image: theme-get('logo');
+        }
+    }
+
+} // E: MQ
+
+
+// 768px and up
+@media (min-width: 48em) {
+
+    // global large header
+    .global-header{ 
+        border-top: 3px solid;
+        @include theme() {
+            border-color: theme-get('swatch-accent');
+        }
+    }
+    
+
+    // Dark Mode Switcher
+    .theme-switcher{
+        @include theme() {
+            border-color: theme-get('dotted-borders');
+        }
+    }
+
+    // Search
+    .search-form{ 
+        border: 1px solid;
+        @include theme() {
+            border-color: theme-get('ui-accent');
+            background-color: $transparent;
+        }
+
+        .search-field{
+            border: transparent;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+
+    /* Main global Navigation
+    ---------------------------------------------- */
+    .navigation-global{
+        /* Underline From Center */
+        & a:before{
+            //background: $bling--dark;
+        @include theme() {
+            background: theme-get('bling-primary');
+        }
+    }
+    }
+
+} // E: MQ
+
+
+// 920px and up
+@media (min-width: 57.500em) {
+
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+
+	/* Main global Navigation
+    ---------------------------------------------- */
+
+} // E: MQ
+
+
+//  1280px and up
+@media (min-width: 80em) {
+
+} // E: MQ
+
+
+// 1440 and up
+@media (min-width: 90em) {
+
+
+} // E: MQ
+
+
+// 1600 and up
+@media (min-width: 100em) {
+
+
+} // E: MQ
+
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+
+} // E: MQ

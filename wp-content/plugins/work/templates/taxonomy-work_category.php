@@ -10,6 +10,9 @@ if (!defined('WPINC')) {
     die;
 }
 
+// Get the current term object
+$term = get_queried_object();
+
 /**
  * work_before_category_header hook
  * 
@@ -18,8 +21,29 @@ if (!defined('WPINC')) {
 do_action('work_before_category_header');
 
 get_header();
-
 ?>
+
+<?php
+// if ($term && $term->slug === 'canvases') {
+//     include plugin_dir_path(__FILE__) . 'gallery-listing.php';
+// } elseif ($term && $term->slug === 'designs') {
+//     include plugin_dir_path(__FILE__) . 'design-listing.php';
+// } else {
+    // Default markup for all other categories (no need to echo, just write HTML/PHP as usual)
+    ?>
+    <!-- <section class="list-of-features" id="murals"> -->
+        <!-- ...existing default content... -->
+    <!-- </section> -->
+    <?php
+//}
+?>
+
+<!-- if ($term && $term->slug === 'canvases') {
+    get_template_part('path/to/gallery-listing');
+} else {
+    // ...default content...
+} -->
+
 <main id="main-content" class="site-main" role="main">
 <?php if (function_exists('work_breadcrumb')) : ?>
     <?php work_breadcrumb(); ?>
@@ -30,13 +54,24 @@ get_header();
 <?php endif; ?>
 
 	<?php
-		$term = get_queried_object();
 		echo '<h2 class="sizes-XLG w-ul">' . esc_html($term->name) . '</h2>';
 		if (!empty($term->description)) {
 			echo '<p class="work-archive-description hide-text">' . wp_kses_post($term->description) . '</p>';
 		}
 	?>
-
+    <?php
+    // Conditional template loading for specific categories
+    if ($term && $term->slug === 'canvases') {
+        include plugin_dir_path(__FILE__) . 'gallery-listing.php';
+        return;
+    } elseif ($term && $term->slug === 'designs') {
+        include plugin_dir_path(__FILE__) . 'design-listing.php';
+        return;
+    } else {
+        // Default content for other categories
+        echo '<p class="work-archive-description hide-text">' . esc_html__('Browse our projects below.', 'work') . '</p>';
+    }
+    ?>
 	<section class="list-of-features" id="murals">
 		<h3 class="hide-text">Browse Projects</h3>
 		<?php if (have_posts()) : ?>
@@ -122,6 +157,7 @@ get_header();
 			while ($regular_query->have_posts()) : $regular_query->the_post();
 			?>
 				<article role="article" class="feature is--promo">
+                <h3>tax doc</h3>
 					<a href="<?php the_permalink(); ?>" class="feature-img img--isPromo" tabindex="-1" aria-hidden="true">
 						<?php if (has_post_thumbnail()) : ?>
 							<?php the_post_thumbnail('medium_large'); ?>
@@ -169,4 +205,4 @@ get_footer();
 /**
  * work_after_category_footer hook
  */
-do_action('work_after_category_footer'); 
+do_action('work_after_category_footer');

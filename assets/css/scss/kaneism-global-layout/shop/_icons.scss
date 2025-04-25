@@ -130,3 +130,143 @@
     text-rendering: auto;
     line-height: 1
 }
+
+@keyframes fa-spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+.widget_search form:not(.wp-block-search)::before,
+.widget_product_search form:not(.wp-block-search)::before {
+    
+    
+    font-family: "Font Awesome 5 Free";
+    line-height: inherit;
+    vertical-align: baseline;
+    content: "";
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    line-height: 1
+}
+
+.widget_search form:not(.wp-block-search) input[type=text],
+.widget_search form:not(.wp-block-search) input[type=search],
+.widget_product_search form:not(.wp-block-search) input[type=text],
+.widget_product_search form:not(.wp-block-search) input[type=search] {
+    padding-left: 2.617924em
+}
+
+.single-product .pswp__button {
+    background-color: rgba(0, 0, 0, 0)
+}
+
+
+.woocommerce-password-strength::after {
+    font-family: "Font Awesome 5 Free";
+    line-height: inherit;
+    vertical-align: baseline;
+    content: "";
+    margin-left: .5407911001em
+}
+
+.woocommerce-password-strength.strong::after {
+    content: ""
+}
+
+.woocommerce-password-strength.good::after {
+    content: ""
+}
+
+.single-product div.product .component_selections .clear_component_options::before {
+    font-family: "Font Awesome 5 Free";
+    line-height: inherit;
+    vertical-align: baseline;
+    content: "";
+    margin-right: .5407911001em
+}
+
+.cart .mnm_table_item .mnm_table_item_indent::before,
+.shop_table .mnm_table_item .mnm_table_item_indent::before {
+    font-family: "Font Awesome 5 Free";
+    line-height: inherit;
+    vertical-align: baseline;
+    content: "";
+    transform: rotate(90deg);
+    margin-right: .3819820591em;
+    opacity: .25
+}
+
+a#variations_clear::before {
+    font-family: "Font Awesome 5 Free";
+    line-height: inherit;
+    vertical-align: baseline;
+    content: "";
+    margin-right: .5407911001em
+}
+
+.wl-add-link::before {
+    font-family: "Font Awesome 5 Free";
+    line-height: inherit;
+    vertical-align: baseline;
+    content: "";
+    margin-right: .5407911001em
+}
+
+.button.wl-create-new::before {
+    font-family: "Font Awesome 5 Free";
+    line-height: inherit;
+    vertical-align: baseline;
+    content: "";
+    margin-right: .5407911001em
+}
+
+@media(min-width: 768px) {
+
+    .addresses header.title a {
+        display: block;
+        width: 1em;
+        height: 1em;
+        text-indent: -9999px;
+        position: relative;
+        padding: .875em;
+        margin-top: .6180469716em
+    }
+
+    .addresses header.title a::before {
+        font-family: "Font Awesome 5 Free";
+        line-height: inherit;
+        vertical-align: baseline;
+        content: "";
+        line-height: 1.618;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        text-indent: 0
+    }
+}
+
+/* Global UI Icons
+---------------------------------------------- */
+.blockUI::before {
+    font-family: "Font Awesome 5 Free";
+    content: "";
+    animation: fa-spin .75s linear infinite;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px
+}
+
+.wc_request_button_is_disabled .blockUI {
+    cursor: not-allowed !important
+}
+
+.wc_request_button_is_disabled .blockUI::before {
+    content: none
+}

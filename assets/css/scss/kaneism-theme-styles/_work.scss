@@ -1,0 +1,160 @@
+/* Work
+---------------------------------------------- */
+.feature-img{
+    border: solid 4px;
+    @include theme() {
+        border-color: theme-get('ui-accent');
+    }
+}
+
+/* Feature and Promos ------------------------ */
+.list-of-features .is--mainFeature{
+    //border-bottom: 4px solid #eaeaea;
+    @include theme() {
+        border-color: theme-get('ui-accent');
+    }
+    border-bottom: 3px solid;
+    }
+.dark .is--mainFeature{
+    //border-bottom: 4px solid #000;
+    border-bottom: 4px solid;
+    }
+
+.list-of-features .is--promo{
+    border-bottom: 1px dotted;
+    @include theme() {
+        border-color: theme-get('ui-accent');
+    }
+    }
+
+.feature-label{
+    @include theme() {
+        color: theme-get('callouts');
+    }
+    }
+
+/* Project Details Table
+------------------------ */
+.project-details th, .project-details td {
+    border-top: 1px solid;
+    @include theme() {
+        border-top-color: theme-get('swatch-secondary');
+    }
+}
+.project-details th:nth-child(odd), .project-details td:nth-child(odd) {
+    @include theme() {
+        background-color: theme-get('swatch-secondary');
+    }
+}
+
+.kane-related-works{
+    border-top: 1px solid;
+    @include theme() {
+        border-top-color: theme-get('ui-accent');
+    }
+}
+
+
+
+// 480px and up
+@media (min-width: 30em) {
+
+
+} // E: MQ
+
+// 600px and up
+@media (min-width: 37.5em) {
+	
+	
+
+} // E: MQ
+
+
+// 768px and up
+@media (min-width: 48em) {
+
+} // E: MQ
+
+
+// 920px and up
+@media (min-width: 57.500em) {
+
+/* Project Details Table
+------------------------ */
+
+    .project-details{
+        border-top: 3px solid;
+        @include theme() {
+            border-top-color: theme-get('ui-borders');
+        }
+    }
+    .project-details th, .project-details td {
+        border-top: 0 none;
+    }
+    .project-details tbody td{
+        border-bottom: 1px solid;
+        @include theme() {
+            border-bottom-color: theme-get('ui-borders');
+        }
+    }
+    
+    .project-details td:nth-child(odd) {
+        background-color: transparent;
+    }
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+
+    /* Project Details Table
+    ---------------------------------------------- */
+    .project-details .h-lgt{
+        //color: #940000;
+        color: lime;
+        /* float: left; */
+        }
+
+    // .project-details th{
+    //     border-right: 1px solid;
+    //     @include theme() {
+    //         //border-right-color: #fff;
+    //         border-right-color: theme-get('swatch-secondary');
+    //     }
+        
+    //     }
+    .project-details caption{
+        //color: #fff;
+        color: red;
+        }
+
+} // E: MQ
+
+
+//  1280px and up
+@media (min-width: 80em) {
+
+
+} // E: MQ
+
+
+// 1440 and up
+@media (min-width: 90em) {
+
+
+} // E: MQ
+
+
+// 1600 and up
+@media (min-width: 100em) {
+
+
+} // E: MQ
+
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+
+} // E: MQ

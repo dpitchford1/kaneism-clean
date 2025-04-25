@@ -1,0 +1,109 @@
+/* Footer General
+---------------------------------------------- */
+/* Global Footers
+---------------------------------------------- */
+.global-footer{
+    border-top: 1px solid;
+    @include theme() {
+        border-top-color: theme-get('ui-accent');
+        background-color: theme-get('swatch-secondary');
+    }
+}
+.light .global-footer{
+    mix-blend-mode: multiply;
+}
+.dark .global-footer{
+    mix-blend-mode: screen;
+}
+
+/* Footer Branding
+---------------------------------------------- */
+.footer-logo{
+    @include theme() {
+        background-image: theme-get('logo');
+    }
+}
+
+/* Footer Type
+---------------------------------------------- */
+// .footer--heading{
+
+//     @include theme() {
+//         color: theme-get('color-white');
+//     }
+// }
+// .footer-lists{
+//     a:active, a:focus{
+//         background-color: $color-white;
+//     }
+//     .current-menu-item a{
+//        color: $color-callout;
+//     }
+// }
+// .js-BackToTop{
+//     &:focus{
+//         background-color: $color-white;
+//     }
+// }
+
+
+// 480px and up
+@media (min-width: 30em) {
+
+
+} // E: MQ
+
+// 600px and up
+@media (min-width: 37.5em) {
+	
+	
+
+} // E: MQ
+
+
+// 768px and up
+@media (min-width: 48em) {
+
+} // E: MQ
+
+
+// 920px and up
+@media (min-width: 57.500em) {
+
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+
+
+} // E: MQ
+
+
+//  1280px and up
+@media (min-width: 80em) {
+
+
+} // E: MQ
+
+
+// 1440 and up
+@media (min-width: 90em) {
+
+
+} // E: MQ
+
+
+// 1600 and up
+@media (min-width: 100em) {
+
+
+} // E: MQ
+
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+
+} // E: MQ

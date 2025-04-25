@@ -23,43 +23,65 @@ $work_plugin_url = plugin_dir_url(dirname(__FILE__));
  * Enqueue scripts and styles for the frontend
  */
 function work_enqueue_scripts() {
-    // Only enqueue on single work post
-    if (!is_singular('work')) {
+    // Get the plugin directory URL
+    $plugin_url = plugin_dir_url(dirname(__FILE__));
+
+    // Load on single work post
+    if (is_singular('work')) {
+        // Get the current post ID
+        $post_id = get_the_ID();
+        
+        // Check if this post has gallery images
+        $has_gallery = false;
+        if (function_exists('work_get_gallery_images')) {
+            $gallery_images = work_get_gallery_images($post_id);
+            $has_gallery = !empty($gallery_images);
+        }
+        
+        // Only load gallery scripts if we have images
+        if ($has_gallery) {
+            // Enqueue local Swiper library
+            wp_enqueue_script(
+                'swiper-js',
+                $plugin_url . 'assets/js/resources/swiper.min.js',
+                array(),
+                defined('WORK_VERSION') ? WORK_VERSION : '1.0',
+                true
+            );
+            
+            // Enqueue Work gallery script
+            wp_enqueue_script(
+                'work-gallery',
+                $plugin_url . 'assets/js/work-gallery.min.js',
+                array('swiper-js'), // Depend on Swiper
+                defined('WORK_VERSION') ? WORK_VERSION : '1.0',
+                true // Load in footer
+            );
+        }
         return;
     }
-    
-    // Get the current post ID
-    $post_id = get_the_ID();
-    
-    // Check if this post has gallery images
-    $has_gallery = false;
-    if (function_exists('work_get_gallery_images')) {
-        $gallery_images = work_get_gallery_images($post_id);
-        $has_gallery = !empty($gallery_images);
-    }
-    
-    // Only load gallery scripts if we have images
-    if ($has_gallery) {
-        // Get the plugin directory URL
-        $plugin_url = plugin_dir_url(dirname(__FILE__));
-        
-        // Enqueue local Swiper library
-        wp_enqueue_script(
-            'swiper-js',
-            $plugin_url . 'assets/js/resources/swiper.min.js',
-            array(),
-            defined('WORK_VERSION') ? WORK_VERSION : '1.0',
-            true
-        );
-        
-        // Enqueue Work gallery script
-        wp_enqueue_script(
-            'work-gallery',
-            $plugin_url . 'assets/js/work-gallery.min.js',
-            array('swiper-js'), // Depend on Swiper
-            defined('WORK_VERSION') ? WORK_VERSION : '1.0',
-            true // Load in footer
-        );
+
+    // Load on "canvases" category archive (taxonomy-work_category.php with canvases)
+    if (is_tax('work_category')) {
+        $term = get_queried_object();
+        if ($term && $term->slug === 'canvases') {
+            // Enqueue Swiper
+            wp_enqueue_script(
+                'swiper-js',
+                $plugin_url . 'assets/js/resources/swiper.min.js',
+                array(),
+                defined('WORK_VERSION') ? WORK_VERSION : '1.0',
+                true
+            );
+            // Enqueue gallery-listing.js
+            wp_enqueue_script(
+                'work-gallery-listing',
+                $plugin_url . 'assets/js/gallery-listing.js',
+                array('swiper-js'),
+                defined('WORK_VERSION') ? WORK_VERSION : '1.0',
+                true
+            );
+        }
     }
 }
 add_action('wp_enqueue_scripts', 'work_enqueue_scripts');
@@ -672,5 +694,6 @@ function work_ajax_get_navigation() {
     echo $navigation_html;
     exit;
 }
+
 // add_action('wp_ajax_get_work_navigation', 'work_ajax_get_navigation');
 // add_action('wp_ajax_nopriv_get_work_navigation', 'work_ajax_get_navigation');

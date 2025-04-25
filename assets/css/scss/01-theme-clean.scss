@@ -1,0 +1,21 @@
+@import 'kaneism-toolbox/_toolbox.scss';
+
+/* THEME TEMPLATE USES
+---------------------------------------------- */
+// @include theme() {
+//     color: theme-get('color-text');
+//     background-color: theme-get('bg'); 
+// }
+
+// [data-theme='dark'] :where(h1, h2, h3, h4, h5, h6){
+//     color: red; 
+// }
+
+//@import "kaneism-theme-styles/globals";
+
+@import "kaneism-theme-styles/header";
+@import "kaneism-theme-styles/footer";
+@import "kaneism-theme-styles/content";
+@import "kaneism-theme-styles/forms";
+@import "kaneism-theme-styles/shop";
+@import "kaneism-theme-styles/work";

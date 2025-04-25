@@ -14,7 +14,7 @@ $images = kaneism_get_photo_grid_images($post_id);
 
 // Only display the grid if we have images
 if (!empty($images)) : ?>
-<section class="grid-general grid--3col">
+<section class="grid-general grid--3col tight--grid">
     <h3 class="hide-text">Listing of Images</h3>
     <?php foreach ($images as $index => $image) : ?>
         <article class="photo-grid-item">

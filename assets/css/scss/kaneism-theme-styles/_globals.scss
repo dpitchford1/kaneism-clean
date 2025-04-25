@@ -1,0 +1,312 @@
+
+//  Globals
+
+// Inline head
+// _website-setup.scss
+:where(:root) {
+    font-size: 1rem;
+    font-family: $font-default;
+}
+html.light{
+    background-color: $swatch-primary--light;
+}
+html.dark{
+    background-color: $swatch-primary--dark;
+}
+body{
+    @include theme() {
+        color: theme-get('swatch-text');
+        //background-color: theme-get('swatch-primary'); 
+    }
+}
+
+/* General Typography
+---------------------------------------------- */
+/** HEADINGS **/
+:where(h1, h2, h3, h4, h5, h6){ 
+    font-family: $font-light; 
+    font-weight: normal;  
+
+    @include theme() {
+        color: theme-get('headings'); 
+    } 
+}
+// :where(h1, h2, h3, h4, h5, h6), .navigation-global{ 
+//     @include theme() {
+//         color: theme-get('swatch-links'); 
+//     } 
+// }
+
+
+
+/* Links
+---------------------------------------------- */
+:where(a){ 
+	background: transparent;
+
+	@include theme() {
+	    color: theme-get('swatch-links'); 
+	}
+}
+
+:where(a:hover){  
+	outline: none; 
+	text-decoration: none;
+}
+a:hover:not(.menu-global a:hover), a:focus:not(.menu-global a:focus), .current-menu-item a {
+    @include theme() { 
+        color: theme-get('swatch-link-hovers');
+    }
+}
+:where(a:focus){ 
+	text-decoration: underline; 
+	outline: none;
+}
+:where(a:active){ 
+    color: inherit; 
+	background-color: transparent; 
+	outline: none; 
+}
+
+/** HEADING LINKS **/
+:where(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a){ 
+	text-decoration: none; 
+}
+:where(h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus, h3 a:hover, h3 a:focus, h4 a:hover, h4 a:focus, h5 a:hover, h5 a:focus, h6 a:hover, h6 a:focus){ 
+    text-decoration: underline;
+}
+
+/* Call out colour */
+:where(.cc){ 
+	@include theme() {
+	    color: theme-get('callouts'); 
+	} 
+}
+:where(.cc:hover){ text-decoration: none; }
+:where(.cc:focus){ outline: none; text-decoration: underline; } 
+
+/* Tables
+---------------------------------------------- */
+:where(th){ 
+    //color: $color-accent; 
+    
+    @include theme() {
+        background-color: theme-get('swatch-secondary');
+        color: currentColor;
+        border-bottom: 1px dotted theme-get('dotted-borders');
+    }
+}
+
+:where(th summary){ font-weight: normal; }
+
+:where(caption) {
+    color: currentColor;
+}
+
+/* Media
+---------------------------------------------- */
+:where(img){ color: inherit; }
+
+:where(figcaption){
+    font-weight: normal; 
+    color: inherit; 
+    }
+
+/* Forms
+---------------------------------------------- */
+:where([type="text"], [type="button"], [type="search"], [type="password"], [type="number"], [type="url"], [type="email"], [type="tel"], [type="date"], [type="time"], [type="month"], [type="week"], select, optgroup, textarea) {
+    font-family: $font-light;
+    border: 1px solid;
+    @include theme() {
+        border-color: theme-get('form-borders');
+    }
+    outline: 1px solid transparent;
+    color: rgb(45, 40, 40);
+}
+
+:where(input, optgroup, select, textarea) {
+    @include theme() {
+        background-color: theme-get('swatch-primary');
+    }
+}
+// change the cursor color only
+.dark :where(input, textarea) {
+    caret-color:  $bling--dark;
+    color: $swatch-base--dark;
+    }
+
+
+:where(button:focus, .button.alt:focus, input:focus, textarea:focus, select:focus, optgroup:focus, [type="checkbox"]:focus, [type="radio"]:focus){ 
+    box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.40);
+}
+input:focus:not(.search-form input:focus), textarea:focus{
+    @include theme() { 
+        border-color: theme-get('ui-selected-focus');
+    }
+    //box-shadow: inset 0px 1px 2px 0px rgba(41, 248, 82, 0.4);
+    //border-color:#000;
+}
+
+/* Colors for form validity */
+// input:required{ background-color: $color-white; }
+// input:required:focus {
+//     border: 1px solid red;
+//     outline: none;
+//     }
+// input:valid, textarea:valid     { 
+//     background-color: $color-white; 
+//     @include theme() {
+//         background-color: theme-get('color-black');
+//         }
+// }
+input:invalid, textarea:invalid, [aria-invalid="true"] {  
+    @include theme() {
+        border-color: red;
+        }
+}
+
+/* PLACEHOLDER STYLING
+---------------------------------------------- */
+input::placeholder {
+    @include theme() {
+        color: theme-get('form-placeholder');
+        }
+    font-style: italic;
+    }
+input:focus::placeholder {
+    
+    opacity: .2;
+    // @include theme() {
+    //     color: theme-get('color-text-d');
+    //     color: red;
+    //     }
+    
+    }
+
+legend {
+    color: inherit;
+    }
+label{ 
+    font-family: inherit;
+    }
+
+/* Buttons
+---------------------------------------------- */
+:where(button, [type="button" i], [type="reset" i], [type="submit" i]){
+    //color: $link-color;
+    color: red;
+}
+:where(button:disabled, [type="button" i]:disabled, [type="reset" i]:disabled, [type="submit" i]:disabled){
+    //background-color: #eee
+    background-color: red;
+    //color: #ccc;
+    color: red;
+}
+
+/* Interactive
+---------------------------------------------- */
+// :where(dialog) {
+//     border: solid;
+//     @include theme() {
+//         background-color: theme-get('swatch-default');
+//         color: theme-get('swatch-text');
+//         }
+// }
+:where(.hide-text:focus){
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    @include theme() {
+        background-color: theme-get('swatch-default');
+        }
+}
+:where(.quick-links:focus){
+    outline: 1px solid #000;
+    text-decoration: none;
+    @include theme() {
+        background-color: theme-get('swatch-default');
+        }
+}
+
+//::selection{ background:#ddd; color:#333; text-shadow:none; }
+
+
+.exit-offcanvas{
+    opacity: 0;
+    @include theme() {
+        background: theme-get('swatch-accent');
+        }
+}
+[data-off-canvas="visible"] .exit-offcanvas, [data-off-screen="visible"] .exit-offcanvas {
+    opacity: 0.5;
+}
+
+
+
+// 480px and up
+@media (min-width: 30em) {
+
+
+} // E: MQ
+
+// 600px and up
+@media (min-width: 37.5em) {
+	
+	
+
+} // E: MQ
+
+
+// 768px and up
+@media (min-width: 48em) {
+
+} // E: MQ
+
+
+// 920px and up
+@media (min-width: 57.500em) {
+
+
+} // E: MQ
+
+
+//  1024px and up
+@media (min-width: 64em) {
+
+
+} // E: MQ
+
+
+//  1280px and up
+@media (min-width: 80em) {
+
+    body{
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: 0 2rem;
+
+        @include theme() {
+            background-image: theme-get('bg-splat'); 
+        }
+    }
+
+} // E: MQ
+
+
+// 1440 and up
+@media (min-width: 90em) {
+
+
+} // E: MQ
+
+
+// 1600 and up
+@media (min-width: 100em) {
+
+
+} // E: MQ
+
+
+// 2100 and up
+@media (min-width: 131.25em) {
+
+
+} // E: MQ
