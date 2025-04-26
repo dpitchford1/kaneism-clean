@@ -3,67 +3,88 @@
 
 /* Theme Toggler Component
 ---------------------------------------------- */
+// Main BG
 .theme-toggle--switch {
     border-radius: 2px;
     transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
-    background: red;
-}
-
-.theme-toggle--switch:before {
-    //color: $color-white;
-    color: red;
-}
-
-.theme-toggle--switch:after {
-    border-radius: 1px;
-    //background: white;
-    background: red;
-    //color: $color-bg-d;
-    color: red;
-}
-
-.theme-checkbox:hover~.theme-label, .theme-checkbox:focus~.theme-label {
-    //color: $color-access;
-    color: red;
-}
-
-.theme-checkbox:focus~.theme-label .theme-toggle--switch, .theme-checkbox:hover~.theme-label .theme-toggle--switch {
-    //background-color: $color-callout;
-    background-color: red;
-}
-
-.theme-checkbox:focus~.theme-label .theme-toggle--switch:after, .theme-checkbox:hover~.theme-label .theme-toggle--switch:after {
-    //color: $color-callout;
-    color: red;
-}
-
-.theme-checkbox:checked~.theme-label .theme-toggle--switch {
-    //background-color: $color-callout;
-    background-color: red;
     @include theme() {
-        //background-color: theme-get('color-accent');
-        background-color: red;
+        background-color: theme-get('swatch-accent');
     }
 }
 
+// off state on button text
+.theme-toggle--switch:before {
+    @include theme() {
+        color: theme-get('swatch-text');
+    }
+}
+
+// off state off button BG and text
+.theme-toggle--switch:after {
+    border-radius: 1px;
+    @include theme() {
+        background-color: theme-get('ui-accent');
+        color: theme-get('swatch-links');
+    }
+}
+
+// Dark Mode label hover
+.theme-checkbox:hover~.theme-label, .theme-checkbox:focus~.theme-label {
+    @include theme() {
+        color: theme-get('swatch-text');
+    }
+}
+
+// switcher hover BG - focused
+.theme-checkbox:focus~.theme-label .theme-toggle--switch, .theme-checkbox:hover~.theme-label .theme-toggle--switch {
+    @include theme() {
+        //background-color: theme-get('ui-accent');
+        background-color: lime;
+    }
+}
+
+// switcher hover text - 
+.theme-checkbox:focus~.theme-label .theme-toggle--switch:after, .theme-checkbox:hover~.theme-label .theme-toggle--switch:after {
+
+    @include theme() {
+        color: theme-get('ui-accent');
+        //background-color: red;
+    }
+}
+
+// switcher hover - on button text
+.theme-checkbox:checked~.theme-label .theme-toggle--switch {
+    //background-color: $color-callout;
+    //background-color: red;
+    @include theme() {
+        background-color: theme-get('ui-accent');
+        //background-color: red;
+    }
+}
+// switcher I don't know
 .theme-checkbox:checked~.theme-label .theme-toggle--switch:after {
     //color: $color-callout;
-    color: red;
+    //color: red;
+    @include theme() {
+        color: yellow;
+        //background-color: red;
+    }
 }
-
+// switcher - dark mode label hover
 .theme-checkbox:checked~.theme-label:hover {
     //color: $color-access;
-    color: red;
+    color: pink;
 }
 
+// switcher dark mode BG hover focus
 .theme-checkbox:checked:focus~.theme-label .theme-toggle--switch, .theme-checkbox:checked:hover~.theme-label .theme-toggle--switch {
     //background-color: $color-access;
-    background-color: red;
+    background-color: rgb(218, 19, 236);
 }
-
+// dark mode text hover focus - on button
 .theme-checkbox:checked:focus~.theme-label .theme-toggle--switch:after, .theme-checkbox:checked:hover~.theme-label .theme-toggle--switch:after {
     //color: $color-access;
-    color: red;
+    color: blue;
 }
 
 /* Buttons

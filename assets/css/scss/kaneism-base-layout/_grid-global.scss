@@ -26,6 +26,12 @@
 .grid-general:not(.hide-text).tight--grid{gap: 1px 2px}
 
 
+// related tweak
+.related--wrap{
+    padding-top: 3vh;
+    margin-top: 4vh;
+}
+
 // 600px and up
 @media (min-width: 37.5em) {
 

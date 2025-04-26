@@ -122,6 +122,8 @@ $themes: (
         // FORMS
         'form-borders': $ui-accent--light,
         'form-placeholder': $swatch-base--light,
+        'disabled-text': $swatch-base--light,
+        'disabled-bg': $ui-accent--light,
     ),
 
     'dark': (
@@ -167,6 +169,8 @@ $themes: (
 
         'form-borders': $ui-accent--dark,
         'form-placeholder': $swatch-base--dark,
+        'disabled-text': $swatch-base--dark,
+        'disabled-bg': $ui-accent--dark,
 
     )
 );

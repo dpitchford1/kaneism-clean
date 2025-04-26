@@ -28,14 +28,14 @@ endwhile;
 
     <?php /* Component 1: Latest Shop Items */ ?>
     <?php if (class_exists('WooCommerce')) : ?>
-    <section class="homepage-section latest-shop">
+    <section class="homepage--section latest--shop">
         <h3 class="sizes-LG"><?php echo esc_html__('Latest from the Shop', 'kaneism'); ?></h3>
-        <div class="products-grid">
+        <div class="grid-general grid--3col tight--grid">
             <?php
             // Get latest products
             $args = array(
                 'post_type'      => 'product',
-                'posts_per_page' => 4,
+                'posts_per_page' => 3,
                 'orderby'        => 'date',
                 'order'          => 'DESC',
             );
@@ -70,7 +70,7 @@ endwhile;
     <?php endif; ?>
 
     <?php /* Component 2: Latest Projects */ ?>
-    <section class="homepage-section latest-projects">
+    <section class="region homepage--section">
         <h3 class="sizes-LG"><?php echo esc_html__('Latest Projects', 'kaneism'); ?></h3>
         <div class="grid-general grid--3col">
             <?php
@@ -118,7 +118,7 @@ endwhile;
     </section>
 
     <?php /* Component 3: Featured Projects */ ?>
-    <section class="homepage-section featured-projects">
+    <section class="region homepage--section">
         <h3 class="sizes-LG"><?php echo esc_html__('Featured Projects', 'kaneism'); ?></h3>
         <div class="grid-general grid--3col">
             <?php

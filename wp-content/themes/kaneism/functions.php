@@ -61,8 +61,8 @@ if ( class_exists( 'Jetpack' ) ) {
 }
 
 if ( kaneism_is_woocommerce_activated() ) {
-	$kaneism->woocommerce            = require 'inc/woocommerce/class-kaneism-woocommerce.php';
-	$kaneism->woocommerce_customizer = require 'inc/woocommerce/class-kaneism-woocommerce-customizer.php';
+	//$kaneism->woocommerce            = require 'inc/woocommerce/class-kaneism-woocommerce.php';
+	//$kaneism->woocommerce_customizer = require 'inc/woocommerce/class-kaneism-woocommerce-customizer.php';
 
 	require 'inc/woocommerce/class-kaneism-woocommerce-adjacent-products.php';
 

@@ -175,8 +175,6 @@ if ( ! class_exists( 'cleanup' ) ) :
             wp_dequeue_script('wc-add-to-cart');
 
             
-
-            
         }
 
         
@@ -273,6 +271,8 @@ function disable_cardo_font( $theme_json ) {
     }
     return $theme_json;
 }
+
+add_filter('wp_img_tag_add_auto_sizes', '__return_false');
 
 return new cleanup();
 

@@ -125,8 +125,11 @@
   border-bottom-color: #01f3d8;
   color: #01f3d8;
 }
-.navigation-global a:active {
-  background-color: #f1f1f1;
+.light .navigation-global a:active {
+  background-color: #dbdbdb;
+}
+.dark .navigation-global a:active {
+  background-color: #b0aeff;
 }
 
 .light .header--cart .is--selected, .light .cart--content:hover, .light .cart--content:focus {
@@ -145,14 +148,6 @@
   border: 1px solid #b0aeff;
   background-color: #1d1d28;
   color: #01f3d8;
-}
-
-.bubble--contents:hover .bubble--count, .bubble--contents:focus .bubble--count {
-  background-color: red;
-}
-
-.is--selected .bubble--count {
-  background-color: red;
 }
 
 @media (min-width: 37.5em) {
@@ -280,24 +275,18 @@
 }
 
 @media (min-width: 48em) {
-  .table--general thead tr {
-    background-color: red;
-  }
   .light .table--general thead tr {
-    background-color: red;
+    background-color: #f8f8f8;
   }
   .dark .table--general thead tr {
-    background-color: red;
-  }
-  .cart--totals th {
-    background-color: red;
+    background-color: #262631;
   }
   .light .cart--totals th {
-    background-color: red;
+    background-color: #f8f8f8;
     color: red;
   }
   .dark .cart--totals th {
-    background-color: red;
+    background-color: #262631;
     color: red;
   }
 }
@@ -308,55 +297,78 @@
 .theme-toggle--switch {
   border-radius: 2px;
   transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
-  background: red;
+}
+.light .theme-toggle--switch {
+  background-color: #56005b;
+}
+.dark .theme-toggle--switch {
+  background-color: #b0aeff;
 }
 
-.theme-toggle--switch:before {
-  color: red;
+.light .theme-toggle--switch:before {
+  color: #5a5a5a;
+}
+.dark .theme-toggle--switch:before {
+  color: #bdbdbd;
 }
 
 .theme-toggle--switch:after {
   border-radius: 1px;
-  background: red;
-  color: red;
+}
+.light .theme-toggle--switch:after {
+  background-color: #dbdbdb;
+  color: #56005b;
+}
+.dark .theme-toggle--switch:after {
+  background-color: #b0aeff;
+  color: #b0aeff;
 }
 
-.theme-checkbox:hover ~ .theme-label, .theme-checkbox:focus ~ .theme-label {
-  color: red;
+.light .theme-checkbox:hover ~ .theme-label, .light .theme-checkbox:focus ~ .theme-label {
+  color: #5a5a5a;
+}
+.dark .theme-checkbox:hover ~ .theme-label, .dark .theme-checkbox:focus ~ .theme-label {
+  color: #bdbdbd;
 }
 
-.theme-checkbox:focus ~ .theme-label .theme-toggle--switch, .theme-checkbox:hover ~ .theme-label .theme-toggle--switch {
-  background-color: red;
+.light .theme-checkbox:focus ~ .theme-label .theme-toggle--switch, .light .theme-checkbox:hover ~ .theme-label .theme-toggle--switch {
+  background-color: lime;
+}
+.dark .theme-checkbox:focus ~ .theme-label .theme-toggle--switch, .dark .theme-checkbox:hover ~ .theme-label .theme-toggle--switch {
+  background-color: lime;
 }
 
-.theme-checkbox:focus ~ .theme-label .theme-toggle--switch:after, .theme-checkbox:hover ~ .theme-label .theme-toggle--switch:after {
-  color: red;
+.light .theme-checkbox:focus ~ .theme-label .theme-toggle--switch:after, .light .theme-checkbox:hover ~ .theme-label .theme-toggle--switch:after {
+  color: #dbdbdb;
+}
+.dark .theme-checkbox:focus ~ .theme-label .theme-toggle--switch:after, .dark .theme-checkbox:hover ~ .theme-label .theme-toggle--switch:after {
+  color: #b0aeff;
 }
 
-.theme-checkbox:checked ~ .theme-label .theme-toggle--switch {
-  background-color: red;
-}
 .light .theme-checkbox:checked ~ .theme-label .theme-toggle--switch {
-  background-color: red;
+  background-color: #dbdbdb;
 }
 .dark .theme-checkbox:checked ~ .theme-label .theme-toggle--switch {
-  background-color: red;
+  background-color: #b0aeff;
 }
 
-.theme-checkbox:checked ~ .theme-label .theme-toggle--switch:after {
-  color: red;
+.light .theme-checkbox:checked ~ .theme-label .theme-toggle--switch:after {
+  color: yellow;
+}
+.dark .theme-checkbox:checked ~ .theme-label .theme-toggle--switch:after {
+  color: yellow;
 }
 
 .theme-checkbox:checked ~ .theme-label:hover {
-  color: red;
+  color: pink;
 }
 
 .theme-checkbox:checked:focus ~ .theme-label .theme-toggle--switch, .theme-checkbox:checked:hover ~ .theme-label .theme-toggle--switch {
-  background-color: red;
+  background-color: rgb(218, 19, 236);
 }
 
 .theme-checkbox:checked:focus ~ .theme-label .theme-toggle--switch:after, .theme-checkbox:checked:hover ~ .theme-label .theme-toggle--switch:after {
-  color: red;
+  color: blue;
 }
 
 /* Buttons

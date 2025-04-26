@@ -156,13 +156,14 @@ function work_category_navigation() {
     }
     
     // Start the category navigation
-    echo '<nav class="work-category-navigation" aria-label="' . esc_attr__('Work Categories', 'work') . '">';
-    echo '<ul class="work-category-menu inline-list">';
+    echo '<nav class="subnav--global" aria-label="' . esc_attr__('Work Categories', 'work') . '">';
+    echo '<ul class="subnav--menu inline-list">';
     
     // Add "All" link
     $all_class = (!is_tax('work_category') && !is_singular('work')) ? ' class="current-cat"' : '';
+    $all_a_class = $all_class ? ' class="nav--selected"' : '';
     echo '<li' . $all_class . '>';
-    echo '<a href="' . esc_url(get_post_type_archive_link('work')) . '">' . __('All Work', 'work') . '</a>';
+    echo '<a href="' . esc_url(get_post_type_archive_link('work')) . '"' . $all_a_class . '>' . __('All Work', 'work') . '</a>';
     echo '</li>';
     
     // Add category links (hierarchical)
@@ -171,18 +172,21 @@ function work_category_navigation() {
         $is_current = ($current_term_id === $category->term_id);
         $is_parent = in_array($category->term_id, $current_parents);
         $class = '';
+        $a_class = '';
         
         if ($is_current) {
             $class = ' class="current-cat"';
+            $a_class = ' class="nav--selected"';
         } elseif ($is_parent) {
             $class = ' class="current-parent-cat"';
+            $a_class = ' class="current-parent-page"';
         }
         
         echo '<li' . $class . '>';
         
         // Build the category URL with correct structure
         $category_url = home_url('/work/' . $category->slug . '/');
-        echo '<a href="' . esc_url($category_url) . '">' . esc_html($category->name) . '</a>';
+        echo '<a href="' . esc_url($category_url) . '"' . $a_class . '>' . esc_html($category->name) . '</a>';
         
         // Get child categories
         $children = get_terms(array(
@@ -194,13 +198,14 @@ function work_category_navigation() {
         // Only display child categories if this is the current category, a parent of the current,
         // or we're on a child page
         if (!empty($children) && !is_wp_error($children) && ($is_current || $is_parent || in_array($current_term_id, wp_list_pluck($children, 'term_id')))) {
-            echo '<ul class="work-subcategories">';
+            echo '<ul class="subnav--menu inline-list">';
             foreach ($children as $child) {
                 $child_class = ($current_term_id === $child->term_id) ? ' class="current-cat"' : '';
+                $child_a_class = $child_class ? ' class="nav--selected"' : '';
                 echo '<li' . $child_class . '>';
                 // Build the correct URL for subcategories
                 $child_url = home_url('/work/' . $category->slug . '/' . $child->slug . '/');
-                echo '<a href="' . esc_url($child_url) . '">' . esc_html($child->name) . '</a>';
+                echo '<a href="' . esc_url($child_url) . '"' . $child_a_class . '>' . esc_html($child->name) . '</a>';
                 
                 // Get grandchild categories (if needed - uncomment for deeper hierarchy)
                 $grandchildren = get_terms(array(
@@ -214,10 +219,11 @@ function work_category_navigation() {
                     echo '<ul class="work-grandchild-categories">';
                     foreach ($grandchildren as $grandchild) {
                         $grandchild_class = ($current_term_id === $grandchild->term_id) ? ' class="current-cat"' : '';
+                        $grandchild_a_class = $grandchild_class ? ' class="nav--selected"' : '';
                         echo '<li' . $grandchild_class . '>';
                         // Build the correct URL for deeper subcategories
                         $grandchild_url = home_url('/work/' . $category->slug . '/' . $child->slug . '/' . $grandchild->slug . '/');
-                        echo '<a href="' . esc_url($grandchild_url) . '">' . esc_html($grandchild->name) . '</a>';
+                        echo '<a href="' . esc_url($grandchild_url) . '"' . $grandchild_a_class . '>' . esc_html($grandchild->name) . '</a>';
                         echo '</li>';
                     }
                     echo '</ul>';
@@ -486,4 +492,4 @@ function work_breadcrumb_schema() {
 }
 
 // Hook the breadcrumb schema function to wp_footer
-add_action('wp_footer', 'work_breadcrumb_schema'); 
+add_action('wp_footer', 'work_breadcrumb_schema');

@@ -117,7 +117,12 @@
         }
     }
 
-    & a:active{ background-color: #f1f1f1; }
+    & a:active{ 
+        //background-color: #f1f1f1;
+        @include theme() {
+            background-color: theme-get('ui-accent');
+        }
+    }
 
 }
 
@@ -137,11 +142,17 @@
 }
 .bubble--contents:hover .bubble--count, .bubble--contents:focus .bubble--count {
 	//background-color: $bling;
-    background-color: red;
+    //background-color: red;
+    @include theme() {
+        background-color: theme-get('bling');
+    }
 }
 .is--selected .bubble--count{
     //background-color: $bling;
-    background-color: red;
+    //background-color: red;
+    @include theme() {
+        background-color: theme-get('bling');
+    }
 }
 
 

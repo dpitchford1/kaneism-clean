@@ -878,6 +878,11 @@ div, header, footer, aside, nav, section, article, main {
   gap: 1px 2px;
 }
 
+.related--wrap {
+  padding-top: 3vh;
+  margin-top: 4vh;
+}
+
 @media (min-width: 48em) {
   .grid--4col {
     grid-template-columns: repeat(2, 1fr);

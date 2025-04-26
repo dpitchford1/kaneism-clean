@@ -107,9 +107,7 @@ if ( ! function_exists( 'kaneism_product_search' ) ) {
 	function kaneism_product_search() {
 		if ( kaneism_is_woocommerce_activated() ) {
 			?>
-			<div class="site-search">
-				<?php the_widget( 'WC_Widget_Product_Search', 'title=' ); ?>
-			</div>
+			<?php the_widget( 'WC_Widget_Product_Search', 'title=' ); ?>
 			<?php
 		}
 	}

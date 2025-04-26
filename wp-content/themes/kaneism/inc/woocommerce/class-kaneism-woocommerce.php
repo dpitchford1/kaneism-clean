@@ -33,11 +33,11 @@ if ( ! class_exists( 'Kaneism_WooCommerce' ) ) :
 			// Integrations.
 			add_action( 'kaneism_woocommerce_setup', array( $this, 'setup_integrations' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'woocommerce_integrations_scripts' ), 99 );
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_customizer_css' ), 140 );
+			//add_action( 'wp_enqueue_scripts', array( $this, 'add_customizer_css' ), 140 );
 
 			// Instead of loading Core CSS files, we only register the font families.
-			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
-			add_filter( 'wp_enqueue_scripts', array( $this, 'add_core_fonts' ), 130 );
+			//add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+			//add_filter( 'wp_enqueue_scripts', array( $this, 'add_core_fonts' ), 130 );
 		}
 
 		/**

@@ -63,27 +63,26 @@ get_header();
         <?php endif; ?>
         </article>
 
+        <?php
+        // Get project details if function exists
+        $project_details = array();
+        if (function_exists('work_get_project_details')) {
+            $project_details = work_get_project_details();
+        }
+        if (!empty($project_details)) :
+        ?>
         <aside class="project--details" role="complimentary">
             <h3 class="sizes-LG">Project Details:</h3>
             <div class="details--wrap">
-            <?php
-            // Get description if function exists
-            if (function_exists('work_get_description')) {
-                echo '<div class="long-desc">' . wp_kses_post(work_get_description()) . '</div>';
-            } else {
-                echo '<div class="long-desc">';
-                the_content();
-                echo '</div>';
-            }
-            ?>
-            
-            <?php
-            // Get project details if function exists
-            if (function_exists('work_get_project_details')) {
-                $project_details = work_get_project_details();
-                
-                // Only display table if we have details
-                if (!empty($project_details)) :
+                <?php
+                // Get description if function exists
+                if (function_exists('work_get_description')) {
+                    echo '<div class="long-desc">' . wp_kses_post(work_get_description()) . '</div>';
+                } else {
+                    echo '<div class="long-desc">';
+                    the_content();
+                    echo '</div>';
+                }
                 ?>
                 <table class="table--general project--table">
                     <caption>Details for <?php echo esc_html(get_the_title()); ?></caption>
@@ -102,10 +101,9 @@ get_header();
                         </tr>
                     </tbody>
                 </table>
-                <?php endif; ?>
-            <?php } ?>
             </div>
         </aside>
+        <?php endif; ?>
     <?php endwhile; ?>
 
 	</section>
@@ -137,9 +135,9 @@ get_header();
 		
     if ($related_query->have_posts()) : 
         ?>
-        <section class="kane-related-works">
-            <h3 class="sizes-LG">Related Projects</h3>
-            <div class="work-grid">
+        <section class="region related--wrap">
+            <h3 class="sizes-L">Related Projects</h3>
+            <div class="grid-general grid--3col">
                 <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
                     <article class="kane-work-item feature is--promo">
                         <a href="<?php the_permalink(); ?>" class="feature-img img--isPromo" tabindex="-1" aria-hidden="true">
@@ -158,7 +156,7 @@ get_header();
                                 ?>
                             <?php endif; ?>
                         </a>
-                        <h4 class="sizes-L"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                        <h4 class="sizes-M"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                     <?php if (has_excerpt()) : ?>
                         <div><?php the_excerpt(); ?></div>
                     <?php endif; ?>

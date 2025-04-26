@@ -194,13 +194,16 @@ label{
 ---------------------------------------------- */
 :where(button, [type="button" i], [type="reset" i], [type="submit" i]){
     //color: $link-color;
-    color: red;
+    @include theme() {
+        color: theme-get('ui-accent');
+        }
 }
 :where(button:disabled, [type="button" i]:disabled, [type="reset" i]:disabled, [type="submit" i]:disabled){
-    //background-color: #eee
-    background-color: red;
-    //color: #ccc;
-    color: red;
+
+    @include theme() {
+        color: theme-get('disabled-text');
+        background-color: theme-get('disabled-bg');
+        }
 }
 
 /* Interactive

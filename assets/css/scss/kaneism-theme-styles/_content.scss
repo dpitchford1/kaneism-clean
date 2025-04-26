@@ -65,20 +65,14 @@
 // 768px and up
 @media (min-width: 48em) {
     .table--general thead tr {
-        //background-color: $color-bg-primary;
-        background-color: red;
         @include theme() {
-            //background-color: theme-get('color-black');
-            background-color: red;
+            background-color: theme-get('swatch-secondary');
         }
     }
     
     .cart--totals th {
-        //background-color: $color-bg-primary;
-        background-color: red;
         @include theme() {
-            //background-color: theme-get('color-black');
-            background-color: red;
+            background-color: theme-get('swatch-secondary');
             //color: theme-get('color-heading-gamma-d');
             color: red;
         }

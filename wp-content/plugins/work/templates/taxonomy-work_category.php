@@ -140,7 +140,7 @@ get_header();
 			
 		<?php if (!empty($regular_posts)) : ?>
 
-		<div class="work-grid">
+		<div class="grid-general grid--3col">
 			<?php
 			// Query regular posts
 			$regular_query = new WP_Query(array(
@@ -156,17 +156,18 @@ get_header();
 			
 			while ($regular_query->have_posts()) : $regular_query->the_post();
 			?>
-				<article role="article" class="feature is--promo">
-                <h3>tax doc</h3>
+				<article role="article" class="feature is--promo" itemscope itemtype="http://schema.org/Article">
 					<a href="<?php the_permalink(); ?>" class="feature-img img--isPromo" tabindex="-1" aria-hidden="true">
 						<?php if (has_post_thumbnail()) : ?>
 							<?php the_post_thumbnail('medium_large'); ?>
 						<?php endif; ?>
 					</a>
-					<h3 class="sizes-L"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<h3 class="sizes-L" itemprop="headline"><a href="<?php the_permalink(); ?> "itemprop="url"><?php the_title(); ?></a></h3>
 					<?php if (has_excerpt()) : ?>
-						<div><?php the_excerpt(); ?></div>
+						<div itemprop="description"><?php the_excerpt(); ?></div>
 					<?php endif; ?>
+                    <meta itemprop="datePublished" content="<?php echo get_the_date('Y-m-d'); ?>">
+                    <span itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="Kaneism"></span>
 				</article>
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>

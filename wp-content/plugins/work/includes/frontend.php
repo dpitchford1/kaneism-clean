@@ -76,7 +76,7 @@ function work_enqueue_scripts() {
             // Enqueue gallery-listing.js
             wp_enqueue_script(
                 'work-gallery-listing',
-                $plugin_url . 'assets/js/gallery-listing.js',
+                $plugin_url . 'assets/js/gallery-listing.min.js',
                 array('swiper-js'),
                 defined('WORK_VERSION') ? WORK_VERSION : '1.0',
                 true

@@ -130,7 +130,7 @@ get_header();
             </article>
             <?php endif; ?>
             
-            <div class="work-grid">
+            <div class="grid-general grid--3col">
                 <?php
                 // Get all posts, exclude the featured post
                 $args = array(

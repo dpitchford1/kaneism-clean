@@ -22,7 +22,7 @@ if (navigator && navigator.serviceWorker) { navigator.serviceWorker.register('/w
 <!-- <link rel="preload" as="image" href="/assets/img/bg/splat-corner.webp"> -->
 <link rel="preload" href="/assets/fonts/copernicus-book.woff2" as="font" type="font/woff2" crossorigin>
 
-<script>!function(window,document){"use strict";const doc=document;function setLocalStorageItem(key,value){try{return localStorage.setItem(key,value),!0}catch(e){return console.warn("Unable to save to localStorage:",e),!1}}function toggleTheme(e){e.target.checked?(doc.body.setAttribute("data-theme","dark"),doc.documentElement.classList.add("dark"),doc.documentElement.classList.remove("light"),setLocalStorageItem("theme","dark")):(doc.body.setAttribute("data-theme","light"),doc.documentElement.classList.remove("dark"),doc.documentElement.classList.add("light"),setLocalStorageItem("theme","light"))}function init(){const checkbox=doc.querySelector(".theme-checkbox");if(!checkbox)return void console.warn("Theme switcher checkbox not found, skipping theme switching functionality");doc.documentElement.classList.add("light"),checkbox.addEventListener("change",toggleTheme);if("ontouchstart"in window||navigator.maxTouchPoints>0){const checkboxLabel=doc.querySelector(".theme-checkbox-label");checkboxLabel&&checkboxLabel.addEventListener("click",(function(e){e.stopPropagation()}))}const currentTheme=function(key){try{return localStorage.getItem(key)}catch(e){return console.warn("Unable to access localStorage:",e),null}}("theme");currentTheme&&(doc.body.setAttribute("data-theme",currentTheme),"dark"===currentTheme?(checkbox.checked=!0,doc.documentElement.classList.add("dark"),doc.documentElement.classList.remove("light")):(doc.documentElement.classList.add("light"),doc.documentElement.classList.remove("dark")))}"complete"===document.readyState||"interactive"===document.readyState?setTimeout(init,1):document.addEventListener("DOMContentLoaded",init),window.kaneshop=window.kaneshop||{},window.kaneshop.themer={init:init,toggleTheme:toggleTheme}}(window,document);</script>
+<script src="/assets/js/core/themer.min.js" async></script>
 
 <?php /* css injector */ ?>
 <?php
@@ -50,16 +50,15 @@ if (navigator && navigator.serviceWorker) { navigator.serviceWorker.register('/w
     
     echo '<style id="critical-injector">' . $css_output . '</style>';
 ?>
+
 <?php /* css files */ ?>
 <link rel="stylesheet" href="/assets/css/build/kaneism-base-layout.min.css" media="screen">
 <link rel="stylesheet" href="/assets/css/build/01-theme-clean.min.css" media="screen">
 <link rel="stylesheet" href="/assets/css/build/kaneism-global-layout.min.css" as="style" onload="this.rel='stylesheet'">
 
-<!-- merge -->
-<!-- <link rel="stylesheet" href="/assets/css/dev/bits.min.css" media="screen"> -->
-<?php //if ( is_singular('work') ) : ?>
+<?php if ( is_singular('work') || is_tax('work_category') ) : ?>
 <link rel="stylesheet" href="/assets/css/build/swiper.min.css" media="screen">
-<?php //endif; ?>
+<?php endif; ?>
 <noscript><link rel="stylesheet" href="/assets/css/dev/kaneism-global-layout.min.css" media="screen"></noscript>
 
 <link rel="manifest" href="/kaneism.json">

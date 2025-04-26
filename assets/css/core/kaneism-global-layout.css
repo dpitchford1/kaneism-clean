@@ -432,7 +432,7 @@
 /* Global Breadcrumb
 ---------------------------------------------- */
 .breadcrumb-global {
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
   font-size: 0.875rem;
 }
 
@@ -538,6 +538,54 @@
     border-left-style: dotted;
   }
 }
+/* Global Subnavigation and in-page navigations
+---------------------------------------------- */
+/* category navigation styles */
+.subnav--global {
+  margin-bottom: 3vh;
+  font-size: 0.9rem;
+}
+
+.subnav--menu {
+  margin: 0;
+}
+
+.subnav--menu a {
+  background-color: #f9f9f9;
+  text-decoration: none;
+  padding: 0.4rem 0.9rem;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.subnav--menu a:hover {
+  background-color: #e0e0e0;
+}
+
+.subnav--menu .nav--selected {
+  background-color: #56005b;
+  color: #fff;
+}
+
+.subnav--menu .nav--selected:hover {
+  color: #01f3d8;
+}
+
+.work-grandchild-categories {
+  list-style: none;
+  margin: 5px 0 0 0;
+  padding-left: 15px;
+}
+
+.work-grandchild-categories li {
+  margin-bottom: 5px;
+}
+
+.work-grandchild-categories a {
+  font-size: 0.8em;
+  background-color: #fdfdfd;
+}
+
 /* GLOBAL STRUCTURES & WRAPPERS
 ---------------------------------------------- */
 .general-form {
@@ -775,6 +823,12 @@
  * @version 1.0.0
  * @see https://kaneism.com/
  */
+.homepage--section {
+  padding-top: 4vh;
+  margin-top: 4vh;
+  border-top: 2px dotted #ccc;
+}
+
 /** Listing of Features 
  * @description A big feature, followed by a listing of the rest
 **/
@@ -872,8 +926,9 @@
   }
 }
 .swiper {
-  width: 98%;
-  margin: 3vh 0;
+  width: 99%;
+  background-color: #000;
+  content-visibility: auto;
 }
 
 .swiper-wrapper {
@@ -881,9 +936,20 @@
   padding: 0;
 }
 
-.work-grid {
-  display: grid;
-  content-visibility: auto;
+.swiper--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.3rem 0.6rem 0;
+  color: #fff;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  padding: 2rem;
+  top: 50%;
 }
 
 .feature-label {
@@ -891,7 +957,7 @@
 }
 
 .project--details {
-  margin: 2vh 0 3vh;
+  margin: 3vh 0 0;
 }
 
 /* Project Details Table
@@ -900,95 +966,6 @@
   line-height: 1.1;
 }
 
-/* category navigation styles */
-.work-category-navigation {
-  margin-bottom: 5vh;
-  font-size: 0.9rem;
-}
-
-.work-category-menu a {
-  text-decoration: none;
-  padding: 0.4rem 0.9rem;
-  background-color: #f5f5f5;
-  color: #333;
-}
-
-.work-category-menu a:hover {
-  background-color: #e0e0e0;
-}
-
-.work-category-menu .current-cat > a,
-.work-category-menu .current-parent-cat > a {
-  background-color: #333;
-  color: #fff;
-}
-
-.work-subcategories {
-  list-style: none;
-  margin: 5px 0 0 0;
-  padding-left: 15px;
-}
-
-.work-subcategories li {
-  margin-bottom: 5px;
-}
-
-.work-subcategories a {
-  font-size: 0.9em;
-  background-color: #f9f9f9;
-}
-
-.work-grandchild-categories {
-  list-style: none;
-  margin: 5px 0 0 0;
-  padding-left: 15px;
-}
-
-.work-grandchild-categories li {
-  margin-bottom: 5px;
-}
-
-.work-grandchild-categories a {
-  font-size: 0.8em;
-  background-color: #fdfdfd;
-}
-
-.work-category-menu li a:hover {
-  background-color: #e0e0e0;
-}
-
-.work-category-menu li.current-cat a {
-  background-color: #56005b;
-  color: #fff;
-}
-
-/* Single work styles */
-.work-categories {
-  font-size: 0.875rem;
-  color: #666;
-}
-
-.work-categories-label {
-  font-weight: bold;
-}
-
-.kane-related-works {
-  padding-top: 3vh;
-}
-
-@media (min-width: 48em) {
-  .work-category-menu {
-    flex-direction: column;
-  }
-  .work-category-menu li {
-    margin-right: 0;
-    margin-bottom: 5px;
-  }
-  .work-category-menu > li {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-}
 @media (min-width: 80em) {
   .details--wrap {
     display: grid;
@@ -1001,8 +978,7 @@
   .long-desc {
     grid-area: Desc;
   }
-  .project--details {
-    display: contents;
+  .project--table {
     grid-area: table;
   }
 }
