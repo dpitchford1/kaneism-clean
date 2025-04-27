@@ -56,13 +56,7 @@ require 'inc/img-optimization/kaneism-webp-functions.php';
 require 'inc/img-optimization/kaneism-webp-conversion.php';
 require 'inc/admin/webp-test-admin.php';
 
-if ( class_exists( 'Jetpack' ) ) {
-	$kaneism->jetpack = require 'inc/jetpack/class-kaneism-jetpack.php';
-}
-
 if ( kaneism_is_woocommerce_activated() ) {
-	//$kaneism->woocommerce            = require 'inc/woocommerce/class-kaneism-woocommerce.php';
-	//$kaneism->woocommerce_customizer = require 'inc/woocommerce/class-kaneism-woocommerce-customizer.php';
 
 	require 'inc/woocommerce/class-kaneism-woocommerce-adjacent-products.php';
 
@@ -83,9 +77,9 @@ if ( is_admin() ) {
  * https://core.trac.wordpress.org/ticket/39610?cversion=1&cnum_hist=2
  */
 if ( version_compare( get_bloginfo( 'version' ), '4.7.3', '>=' ) && ( is_admin() || is_customize_preview() ) ) {
-	require 'inc/nux/class-kaneism-nux-admin.php';
-	require 'inc/nux/class-kaneism-nux-guided-tour.php';
-	require 'inc/nux/class-kaneism-nux-starter-content.php';
+	// require 'inc/nux/class-kaneism-nux-admin.php';
+	// require 'inc/nux/class-kaneism-nux-guided-tour.php';
+	// require 'inc/nux/class-kaneism-nux-starter-content.php';
 }
 
 add_action('rest_api_init', function() {

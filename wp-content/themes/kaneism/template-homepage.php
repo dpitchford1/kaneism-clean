@@ -28,9 +28,9 @@ endwhile;
 
     <?php /* Component 1: Latest Shop Items */ ?>
     <?php if (class_exists('WooCommerce')) : ?>
-    <section class="homepage--section latest--shop">
+    <div class="region latest--shop">
         <h3 class="sizes-LG"><?php echo esc_html__('Latest from the Shop', 'kaneism'); ?></h3>
-        <div class="grid-general grid--3col tight--grid">
+        
             <?php
             // Get latest products
             $args = array(
@@ -62,11 +62,11 @@ endwhile;
                 echo '<p>' . esc_html__('No products found', 'kaneism') . '</p>';
             }
             ?>
-        </div>
+        
         <div class="view-all">
-            <a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>" class="button"><?php echo esc_html__('View All Products', 'kaneism'); ?></a>
+            <a href="<?php echo esc_url(wc_get_page_permalink('shop')); ?>"><?php echo esc_html__('View All Products', 'kaneism'); ?></a>
         </div>
-    </section>
+    </div>
     <?php endif; ?>
 
     <?php /* Component 2: Latest Projects */ ?>
@@ -113,7 +113,7 @@ endwhile;
             ?>
         </div>
         <div class="view-all">
-            <a href="<?php echo esc_url(get_post_type_archive_link('work')); ?>" class="button"><?php echo esc_html__('View All Projects', 'kaneism'); ?></a>
+            <a href="<?php echo esc_url(get_post_type_archive_link('work')); ?>"><?php echo esc_html__('View All Projects', 'kaneism'); ?></a>
         </div>
     </section>
 

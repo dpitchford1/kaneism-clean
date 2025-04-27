@@ -27,7 +27,7 @@ if ( $upsells ) : ?>
 
 		if ( $heading ) :
 			?>
-			<h2><?php echo esc_html( $heading ); ?></h2>
+			<h3><?php echo esc_html( $heading ); ?></h3>
 		<?php endif; ?>
 
 		<?php woocommerce_product_loop_start(); ?>

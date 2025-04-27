@@ -19,7 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
+
 <article <?php wc_product_cat_class( '', $category ); ?> itemscope itemtype="https://schema.org/Product">
+    <!-- <h4 class="sizes-S" itemprop="name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> -->
+	
 	<?php
 	/**
 	 * The woocommerce_before_subcategory hook.

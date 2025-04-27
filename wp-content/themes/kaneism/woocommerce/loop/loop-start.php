@@ -19,4 +19,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- <article class="products"> -->
+<section class="grid-general grid--3col">
+    <h3 class="hide-text">Product List</h3>

@@ -24,9 +24,9 @@ $totals = $order->get_order_item_totals(); // phpcs:ignore WordPress.WP.GlobalVa
 	<table class="shop_table">
 		<thead>
 			<tr>
-				<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="product-quantity"><?php esc_html_e( 'Qty', 'woocommerce' ); ?></th>
-				<th class="product-total"><?php esc_html_e( 'Totals', 'woocommerce' ); ?></th>
+				<th class="product-name">Product</th>
+				<th class="product-quantity">Qty</th>
+				<th class="product-total">Totals</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -67,15 +67,6 @@ $totals = $order->get_order_item_totals(); // phpcs:ignore WordPress.WP.GlobalVa
 		</tfoot>
 	</table>
 
-	<?php
-	/**
-	 * Triggered from within the checkout/form-pay.php template, immediately before the payment section.
-	 *
-	 * @since 8.2.0
-	 */
-	do_action( 'woocommerce_pay_order_before_payment' ); 
-	?>
-
 	<div id="payment">
 		<?php if ( $order->needs_payment() ) : ?>
 			<ul class="wc_payment_methods payment_methods methods">
@@ -85,9 +76,7 @@ $totals = $order->get_order_item_totals(); // phpcs:ignore WordPress.WP.GlobalVa
 						wc_get_template( 'checkout/payment-method.php', array( 'gateway' => $gateway ) );
 					}
 				} else {
-					echo '<li>';
-					wc_print_notice( apply_filters( 'woocommerce_no_available_payment_methods_message', esc_html__( 'Sorry, it seems that there are no available payment methods for your location. Please contact us if you require assistance or wish to make alternate arrangements.', 'woocommerce' ) ), 'notice' ); // phpcs:ignore WooCommerce.Commenting.CommentHooks.MissingHookComment
-					echo '</li>';
+					echo '<li class="notice woocommerce-notice woocommerce-notice--info woocommerce-info">' . apply_filters( 'woocommerce_no_available_payment_methods_message', esc_html__( 'Sorry, it seems that there are no available payment methods for your location. Please contact us if you require assistance or wish to make alternate arrangements.', 'woocommerce' ) ) . '</li>'; // @codingStandardsIgnoreLine
 				}
 				?>
 			</ul>

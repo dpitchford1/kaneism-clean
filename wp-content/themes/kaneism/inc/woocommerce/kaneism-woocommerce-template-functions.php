@@ -28,8 +28,7 @@ if ( ! function_exists( 'kaneism_before_content' ) ) {
 	 */
 	function kaneism_before_content() {
 		?>
-		<div id="primary" class="content-area">
-			<main id="main-content" class="site-main" role="main">
+			<main id="main" class="site-main" role="main">
 		<?php
 	}
 }
@@ -45,7 +44,6 @@ if ( ! function_exists( 'kaneism_after_content' ) ) {
 	function kaneism_after_content() {
 		?>
 			</main><!-- #main -->
-		</div><!-- #primary -->
 
 		<?php
 		do_action( 'kaneism_sidebar' );
@@ -68,8 +66,8 @@ if ( ! function_exists( 'kaneism_cart_link_fragment' ) ) {
 		$fragments['a.cart-contents'] = ob_get_clean();
 
 		ob_start();
-		kaneism_handheld_footer_bar_cart_link();
-		$fragments['a.footer-cart-contents'] = ob_get_clean();
+		// kaneism_handheld_footer_bar_cart_link();
+		// $fragments['a.footer-cart-contents'] = ob_get_clean();
 
 		return $fragments;
 	}
@@ -96,7 +94,7 @@ if ( ! function_exists( 'kaneism_cart_link' ) ) {
 	}
 }
 
-if ( ! function_exists( 'kaneism_product_search' ) ) {
+if ( ! function_exists( 'kaneism_product_search' ) ) { 
 	/**
 	 * Display Product Search
 	 *
@@ -107,7 +105,9 @@ if ( ! function_exists( 'kaneism_product_search' ) ) {
 	function kaneism_product_search() {
 		if ( kaneism_is_woocommerce_activated() ) {
 			?>
-			<?php the_widget( 'WC_Widget_Product_Search', 'title=' ); ?>
+			<div class="site-search">
+				<?php the_widget( 'WC_Widget_Product_Search', 'title=' ); ?>
+			</div>
 			<?php
 		}
 	}
@@ -142,20 +142,20 @@ if ( ! function_exists( 'kaneism_header_cart' ) ) {
 	}
 }
 
-if ( ! function_exists( 'kaneism_upsell_display' ) ) {
-	/**
-	 * Upsells
-	 * Replace the default upsell function with our own which displays the correct number product columns
-	 *
-	 * @since   1.0.0
-	 * @return  void
-	 * @uses    woocommerce_upsell_display()
-	 */
-	function kaneism_upsell_display() {
-		$columns = apply_filters( 'kaneism_upsells_columns', 3 );
-		woocommerce_upsell_display( -1, $columns );
-	}
-}
+// if ( ! function_exists( 'kaneism_upsell_display' ) ) {
+// 	/**
+// 	 * Upsells
+// 	 * Replace the default upsell function with our own which displays the correct number product columns
+// 	 *
+// 	 * @since   1.0.0
+// 	 * @return  void
+// 	 * @uses    woocommerce_upsell_display()
+// 	 */
+// 	function kaneism_upsell_display() {
+// 		$columns = apply_filters( 'kaneism_upsells_columns', 3 );
+// 		woocommerce_upsell_display( -1, $columns );
+// 	}
+// }
 
 if ( ! function_exists( 'kaneism_sorting_wrapper' ) ) {
 	/**
@@ -165,7 +165,7 @@ if ( ! function_exists( 'kaneism_sorting_wrapper' ) ) {
 	 * @return  void
 	 */
 	function kaneism_sorting_wrapper() {
-		echo '<div class="kaneism-sorting">';
+		echo '<div class="storefront-sorting">';
 	}
 }
 
@@ -319,19 +319,19 @@ if ( ! function_exists( 'kaneism_product_categories' ) ) {
 		 * Only display the section if the shortcode returns product categories
 		 */
 		if ( false !== strpos( $shortcode_content, 'product-category' ) ) {
-			echo '<section class="kaneism-product-section kaneism-product-categories" aria-label="' . esc_attr__( 'Product Categories', 'kaneism' ) . '">';
+			//echo '<section class="kaneizm-product-section kaneizm-product-categories" aria-label="' . esc_attr__( 'Product Categories', 'kaneizm' ) . '">';
 
-			do_action( 'kaneism_homepage_before_product_categories' );
+			//do_action( 'kaneizm_homepage_before_product_categories' );
 
-			echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
+			echo '<h3 class="sizes-LG has--ul">' . wp_kses_post( $args['title'] ) . '</h3>';
 
-			do_action( 'kaneism_homepage_after_product_categories_title' );
+			//do_action( 'kaneizm_homepage_after_product_categories_title' );
 
 			echo $shortcode_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-			do_action( 'kaneism_homepage_after_product_categories' );
+			//do_action( 'kaneizm_homepage_after_product_categories' );
 
-			echo '</section>';
+			//echo '</section>';
 		}
 	}
 }
@@ -374,19 +374,19 @@ if ( ! function_exists( 'kaneism_recent_products' ) ) {
 		 * Only display the section if the shortcode returns products
 		 */
 		if ( false !== strpos( $shortcode_content, 'product' ) ) {
-			echo '<section class="kaneism-product-section kaneism-recent-products" aria-label="' . esc_attr__( 'Recent Products', 'kaneism' ) . '">';
+			//echo '<section class="kaneizm-product-section kaneizm-recent-products" aria-label="' . esc_attr__( 'Recent Products', 'kaneizm' ) . '">';
 
-			do_action( 'kaneism_homepage_before_recent_products' );
+			//do_action( 'kaneizm_homepage_before_recent_products' );
 
-			echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
+			echo '<h3 class="sizes-LG has--ul">' . wp_kses_post( $args['title'] ) . '</h3>';
 
 			do_action( 'kaneism_homepage_after_recent_products_title' );
 
 			echo $shortcode_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-			do_action( 'kaneism_homepage_after_recent_products' );
+			//do_action( 'kaneizm_homepage_after_recent_products' );
 
-			echo '</section>';
+			//echo '</section>';
 		}
 	}
 }
@@ -431,19 +431,19 @@ if ( ! function_exists( 'kaneism_featured_products' ) ) {
 		 * Only display the section if the shortcode returns products
 		 */
 		if ( false !== strpos( $shortcode_content, 'product' ) ) {
-			echo '<section class="kaneism-product-section kaneism-featured-products" aria-label="' . esc_attr__( 'Featured Products', 'kaneism' ) . '">';
+			//echo '<section class="kaneizm-product-section kaneizm-featured-products" aria-label="' . esc_attr__( 'Featured Products', 'kaneizm' ) . '">';
 
-			do_action( 'kaneism_homepage_before_featured_products' );
+			//do_action( 'kaneizm_homepage_before_featured_products' );
 
-			echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
+			echo '<h3 class="sizes-LG has--ul">' . wp_kses_post( $args['title'] ) . '</h3>';
 
 			do_action( 'kaneism_homepage_after_featured_products_title' );
 
 			echo $shortcode_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-			do_action( 'kaneism_homepage_after_featured_products' );
+			//do_action( 'kaneizm_homepage_after_featured_products' );
 
-			echo '</section>';
+			//echo '</section>';
 		}
 	}
 }
@@ -486,19 +486,19 @@ if ( ! function_exists( 'kaneism_popular_products' ) ) {
 		 * Only display the section if the shortcode returns products
 		 */
 		if ( false !== strpos( $shortcode_content, 'product' ) ) {
-			echo '<section class="kaneism-product-section kaneism-popular-products" aria-label="' . esc_attr__( 'Popular Products', 'kaneism' ) . '">';
+			//echo '<section class="kaneizm-product-section kaneizm-popular-products" aria-label="' . esc_attr__( 'Popular Products', 'kaneizm' ) . '">';
 
-			do_action( 'kaneism_homepage_before_popular_products' );
+			//do_action( 'kaneizm_homepage_before_popular_products' );
 
-			echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
+			echo '<h3 class="sizes-LG has--ul">' . wp_kses_post( $args['title'] ) . '</h3>';
 
 			do_action( 'kaneism_homepage_after_popular_products_title' );
 
 			echo $shortcode_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-			do_action( 'kaneism_homepage_after_popular_products' );
+			//do_action( 'kaneizm_homepage_after_popular_products' );
 
-			echo '</section>';
+			//echo '</section>';
 		}
 	}
 }
@@ -543,19 +543,19 @@ if ( ! function_exists( 'kaneism_on_sale_products' ) ) {
 		 * Only display the section if the shortcode returns products
 		 */
 		if ( false !== strpos( $shortcode_content, 'product' ) ) {
-			echo '<section class="kaneism-product-section kaneism-on-sale-products" aria-label="' . esc_attr__( 'On Sale Products', 'kaneism' ) . '">';
+			//echo '<section class="kaneizm-product-section kaneizm-on-sale-products" aria-label="' . esc_attr__( 'On Sale Products', 'kaneizm' ) . '">';
 
-			do_action( 'kaneism_homepage_before_on_sale_products' );
+			//do_action( 'kaneizm_homepage_before_on_sale_products' );
 
-			echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
+			echo '<h3 class="sizes-LG has--ul">' . wp_kses_post( $args['title'] ) . '</h3>';
 
 			do_action( 'kaneism_homepage_after_on_sale_products_title' );
 
 			echo $shortcode_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-			do_action( 'kaneism_homepage_after_on_sale_products' );
+			//do_action( 'kaneizm_homepage_after_on_sale_products' );
 
-			echo '</section>';
+			//echo '</section>';
 		}
 	}
 }
@@ -598,19 +598,19 @@ if ( ! function_exists( 'kaneism_best_selling_products' ) ) {
 		 * Only display the section if the shortcode returns products
 		 */
 		if ( false !== strpos( $shortcode_content, 'product' ) ) {
-			echo '<section class="kaneism-product-section kaneism-best-selling-products" aria-label="' . esc_attr__( 'Best Selling Products', 'kaneism' ) . '">';
+			//echo '<section class="kaneizm-product-section kaneizm-best-selling-products" aria-label="' . esc_attr__( 'Best Selling Products', 'kaneizm' ) . '">';
 
-			do_action( 'kaneism_homepage_before_best_selling_products' );
+			//do_action( 'kaneizm_homepage_before_best_selling_products' );
 
-			echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
+			echo '<h3 class="sizes-LG has--ul">' . wp_kses_post( $args['title'] ) . '</h3>';
 
 			do_action( 'kaneism_homepage_after_best_selling_products_title' );
 
 			echo $shortcode_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-			do_action( 'kaneism_homepage_after_best_selling_products' );
+			//do_action( 'kaneizm_homepage_after_best_selling_products' );
 
-			echo '</section>';
+			//echo '</section>';
 		}
 	}
 }
@@ -636,7 +636,7 @@ if ( ! function_exists( 'kaneism_promoted_products' ) ) {
 
 			if ( wc_get_featured_product_ids() ) {
 
-				echo '<h2>' . esc_html__( 'Featured Products', 'kaneism' ) . '</h2>';
+				echo '<h3 class="sizes-LG has--ul">' . esc_html__( 'Featured Products', 'kaneism' ) . '</h3>';
 
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo kaneism_do_shortcode(
@@ -649,7 +649,7 @@ if ( ! function_exists( 'kaneism_promoted_products' ) ) {
 				// phpcs:enable
 			} elseif ( wc_get_product_ids_on_sale() ) {
 
-				echo '<h2>' . esc_html__( 'On Sale Now', 'kaneism' ) . '</h2>';
+				echo '<h3 class="sizes-LG has--ul">' . esc_html__( 'On Sale Now', 'kaneism' ) . '</h3>';
 
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo kaneism_do_shortcode(
@@ -662,7 +662,7 @@ if ( ! function_exists( 'kaneism_promoted_products' ) ) {
 				// phpcs:enable
 			} elseif ( $recent_fallback ) {
 
-				echo '<h2>' . esc_html__( 'New In Store', 'kaneism' ) . '</h2>';
+				echo '<h3 class="sizes-LG has--ul">' . esc_html__( 'New In Store', 'kaneism' ) . '</h3>';
 
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				echo kaneism_do_shortcode(
@@ -678,99 +678,6 @@ if ( ! function_exists( 'kaneism_promoted_products' ) ) {
 	}
 }
 
-if ( ! function_exists( 'kaneism_handheld_footer_bar' ) ) {
-	/**
-	 * Display a menu intended for use on handheld devices
-	 *
-	 * @since 2.0.0
-	 */
-	function kaneism_handheld_footer_bar() {
-		$links = array(
-			'my-account' => array(
-				'priority' => 10,
-				'callback' => 'kaneism_handheld_footer_bar_account_link',
-			),
-			'search'     => array(
-				'priority' => 20,
-				'callback' => 'kaneism_handheld_footer_bar_search',
-			),
-			'cart'       => array(
-				'priority' => 30,
-				'callback' => 'kaneism_handheld_footer_bar_cart_link',
-			),
-		);
-
-		if ( did_action( 'woocommerce_blocks_enqueue_cart_block_scripts_after' ) || did_action( 'woocommerce_blocks_enqueue_checkout_block_scripts_after' ) ) {
-			return;
-		}
-
-		if ( wc_get_page_id( 'myaccount' ) === -1 ) {
-			unset( $links['my-account'] );
-		}
-
-		if ( wc_get_page_id( 'cart' ) === -1 ) {
-			unset( $links['cart'] );
-		}
-
-		$links = apply_filters( 'kaneism_handheld_footer_bar_links', $links );
-		?>
-		<div class="kaneism-handheld-footer-bar">
-			<ul class="columns-<?php echo count( $links ); ?>">
-				<?php foreach ( $links as $key => $link ) : ?>
-					<li class="<?php echo esc_attr( $key ); ?>">
-						<?php
-						if ( $link['callback'] ) {
-							call_user_func( $link['callback'], $key, $link );
-						}
-						?>
-					</li>
-				<?php endforeach; ?>
-			</ul>
-		</div>
-		<?php
-	}
-}
-
-if ( ! function_exists( 'kaneism_handheld_footer_bar_search' ) ) {
-	/**
-	 * The search callback function for the handheld footer bar
-	 *
-	 * @since 2.0.0
-	 */
-	function kaneism_handheld_footer_bar_search() {
-		echo '<a href="">' . esc_attr__( 'Search', 'kaneism' ) . '</a>';
-		kaneism_product_search();
-	}
-}
-
-if ( ! function_exists( 'kaneism_handheld_footer_bar_cart_link' ) ) {
-	/**
-	 * The cart callback function for the handheld footer bar
-	 *
-	 * @since 2.0.0
-	 */
-	function kaneism_handheld_footer_bar_cart_link() {
-		if ( ! kaneism_woo_cart_available() ) {
-			return;
-		}
-		?>
-			<a class="footer-cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>"><?php esc_html_e( 'Cart', 'kaneism' ); ?>
-				<span class="count"><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ); ?></span>
-			</a>
-		<?php
-	}
-}
-
-if ( ! function_exists( 'kaneism_handheld_footer_bar_account_link' ) ) {
-	/**
-	 * The account callback function for the handheld footer bar
-	 *
-	 * @since 2.0.0
-	 */
-	function kaneism_handheld_footer_bar_account_link() {
-		echo '<a href="' . esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ) . '">' . esc_attr__( 'My Account', 'kaneism' ) . '</a>';
-	}
-}
 
 if ( ! function_exists( 'kaneism_single_product_pagination' ) ) {
 	/**
@@ -798,21 +705,21 @@ if ( ! function_exists( 'kaneism_single_product_pagination' ) ) {
 		}
 
 		?>
-		<nav class="kaneism-product-pagination" aria-label="<?php esc_attr_e( 'More products', 'kaneism' ); ?>">
+		<nav class="storefront-product-pagination" aria-label="<?php esc_attr_e( 'More products', 'kaneism' ); ?>">
 			<?php if ( $previous_product ) : ?>
 				<a href="<?php echo esc_url( $previous_product->get_permalink() ); ?>" rel="prev">
 					<?php echo wp_kses_post( $previous_product->get_image() ); ?>
-					<span class="kaneism-product-pagination__title"><?php echo wp_kses_post( $previous_product->get_name() ); ?></span>
+					<span class="storefront-product-pagination__title"><?php echo wp_kses_post( $previous_product->get_name() ); ?></span>
 				</a>
 			<?php endif; ?>
 
 			<?php if ( $next_product ) : ?>
 				<a href="<?php echo esc_url( $next_product->get_permalink() ); ?>" rel="next">
 					<?php echo wp_kses_post( $next_product->get_image() ); ?>
-					<span class="kaneism-product-pagination__title"><?php echo wp_kses_post( $next_product->get_name() ); ?></span>
+					<span class="storefront-product-pagination__title"><?php echo wp_kses_post( $next_product->get_name() ); ?></span>
 				</a>
 			<?php endif; ?>
-		</nav><!-- .kaneism-product-pagination -->
+		</nav><!-- .Kaneism-product-pagination -->
 		<?php
 	}
 }
@@ -857,16 +764,16 @@ if ( ! function_exists( 'kaneism_sticky_single_add_to_cart' ) ) {
 
 		wp_enqueue_script( 'kaneism-sticky-add-to-cart' );
 		?>
-			<section class="kaneism-sticky-add-to-cart">
+			<section class="storefront-sticky-add-to-cart">
 				<div class="col-full">
-					<div class="kaneism-sticky-add-to-cart__content">
+					<div class="storefront-sticky-add-to-cart__content">
 						<?php echo wp_kses_post( woocommerce_get_product_thumbnail() ); ?>
-						<div class="kaneism-sticky-add-to-cart__content-product-info">
-							<span class="kaneism-sticky-add-to-cart__content-title"><?php esc_html_e( 'You\'re viewing:', 'kaneism' ); ?> <strong><?php the_title(); ?></strong></span>
-							<span class="kaneism-sticky-add-to-cart__content-price"><?php echo wp_kses_post( $product->get_price_html() ); ?></span>
+						<div class="storefront-sticky-add-to-cart__content-product-info">
+							<span class="storefront-sticky-add-to-cart__content-title"><?php esc_html_e( 'You\'re viewing:', 'kaneism' ); ?> <strong><?php the_title(); ?></strong></span>
+							<span class="storefront-sticky-add-to-cart__content-price"><?php echo wp_kses_post( $product->get_price_html() ); ?></span>
 							<?php echo wp_kses_post( wc_get_rating_html( $product->get_average_rating() ) ); ?>
 						</div>
-						<a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" class="kaneism-sticky-add-to-cart__content-button button alt" rel="nofollow">
+						<a href="<?php echo esc_url( $product->add_to_cart_url() ); ?>" class="storefront-sticky-add-to-cart__content-button button alt" rel="nofollow">
 							<?php echo esc_attr( $product->add_to_cart_text() ); ?>
 						</a>
 					</div>
@@ -876,108 +783,33 @@ if ( ! function_exists( 'kaneism_sticky_single_add_to_cart' ) ) {
 	}
 }
 
-if ( ! function_exists( 'kaneism_woocommerce_brands_homepage_section' ) ) {
+if ( ! function_exists( 'woocommerce_template_loop_product_title' ) ) {
+
 	/**
-	 * Display WooCommerce Brands
-	 * Hooked into the `homepage` action in the homepage template.
-	 * Requires WooCommerce Brands.
-	 *
-	 * @since  2.3.0
-	 * @link   https://woocommerce.com/products/brands/
-	 * @uses   apply_filters()
-	 * @uses   kaneism_do_shortcode()
-	 * @uses   wp_kses_post()
-	 * @uses   do_action()
-	 * @return void
+	 * Show the product title in the product loop. By default this is an H3.
 	 */
-	function kaneism_woocommerce_brands_homepage_section() {
-		$args = apply_filters(
-			'kaneism_woocommerce_brands_args',
-			array(
-				'number'     => 6,
-				'columns'    => 4,
-				'orderby'    => 'name',
-				'show_empty' => false,
-				'title'      => __( 'Shop by Brand', 'kaneism' ),
-			)
-		);
-
-		$shortcode_content = kaneism_do_shortcode(
-			'product_brand_thumbnails',
-			apply_filters(
-				'kaneism_woocommerce_brands_shortcode_args',
-				array(
-					'number'     => absint( $args['number'] ),
-					'columns'    => absint( $args['columns'] ),
-					'orderby'    => esc_attr( $args['orderby'] ),
-					'show_empty' => (bool) $args['show_empty'],
-				)
-			)
-		);
-
-		echo '<section class="kaneism-product-section kaneism-woocommerce-brands" aria-label="' . esc_attr__( 'Product Brands', 'kaneism' ) . '">';
-
-		do_action( 'kaneism_homepage_before_woocommerce_brands' );
-
-		echo '<h2 class="section-title">' . wp_kses_post( $args['title'] ) . '</h2>';
-
-		do_action( 'kaneism_homepage_after_woocommerce_brands_title' );
-
-		echo $shortcode_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-		do_action( 'kaneism_homepage_after_woocommerce_brands' );
-
-		echo '</section>';
+	function woocommerce_template_loop_product_title() {
+		echo '<h4 class="sizes-M" itemscope itemtype="https://schema.org/Product">' . get_the_title() . '</h4>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
-if ( ! function_exists( 'kaneism_woocommerce_brands_archive' ) ) {
-	/**
-	 * Display brand image on brand archives
-	 * Requires WooCommerce Brands.
-	 *
-	 * @since  2.3.0
-	 * @link   https://woocommerce.com/products/brands/
-	 * @uses   is_tax()
-	 * @uses   wp_kses_post()
-	 * @uses   get_brand_thumbnail_image()
-	 * @uses   get_queried_object()
-	 * @return void
-	 */
-	function kaneism_woocommerce_brands_archive() {
-		if ( is_tax( 'product_brand' ) ) {
-			echo wp_kses_post( get_brand_thumbnail_image( get_queried_object() ) );
-		}
-	}
+add_filter('woocommerce_format_sale_price', 'ss_format_sale_price', 100, 3);
+function ss_format_sale_price( $price, $regular_price, $sale_price ) {
+    $output_ss_price = '<del id="priceBefore" class="old-price" title="Old Price">' . ( is_numeric( $regular_price ) ? wc_price( $regular_price ) : $regular_price ) . '</del> <span id="priceAfter" class="new-price" title="Sale Price">' . ( is_numeric( $sale_price ) ? wc_price( $sale_price ) : $sale_price ) . '</span>';
+    return $output_ss_price;
 }
 
-if ( ! function_exists( 'kaneism_woocommerce_brands_single' ) ) {
-	/**
-	 * Output product brand image for use on single product pages
-	 * Requires WooCommerce Brands.
-	 *
-	 * @since  2.3.0
-	 * @link   https://woocommerce.com/products/brands/
-	 * @uses   kaneism_do_shortcode()
-	 * @uses   wp_kses_post()
-	 * @return void
-	 */
-	function kaneism_woocommerce_brands_single() {
-		$brand = kaneism_do_shortcode(
-			'product_brand',
-			array(
-				'class' => '',
-			)
-		);
-
-		if ( empty( $brand ) ) {
-			return;
-		}
-
-		?>
-		<div class="kaneism-wc-brands-single-product">
-			<?php echo wp_kses_post( $brand ); ?>
-		</div>
-		<?php
-	}
+if ( ! function_exists( 'kaneism_woocommerce_breadcrumb' ) ) {
+    /**
+     * Output the WooCommerce Breadcrumb, but exclude on work CPT
+     */
+    function kaneism_woocommerce_breadcrumb() {
+        // Don't display breadcrumb on work custom post type pages
+        if (is_singular('work') || is_post_type_archive('work') || is_tax('work_category')) {
+            return;
+        }
+        
+        // Display the breadcrumb on all other pages
+        woocommerce_breadcrumb();
+    }
 }

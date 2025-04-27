@@ -38,7 +38,7 @@ $notes = $order->get_customer_order_notes();
 </p>
 
 <?php if ( $notes ) : ?>
-	<h2><?php esc_html_e( 'Order updates', 'woocommerce' ); ?></h2>
+	<h3 class="sizes-LG">Order updates</h3>
 	<ol class="commentlist notes">
 		<?php foreach ( $notes as $note ) : ?>
 		<li class="comment note">

@@ -22,13 +22,13 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
-	<h2><?php esc_html_e( 'Cart totals', 'woocommerce' ); ?></h2>
+	<h3 class="sizes-LG">Cart totals</h3>
 
-	<table cellspacing="0" class="shop_table shop_table_responsive">
+	<table cellspacing="0" class="table--general cart--totals">
 
 		<tr class="cart-subtotal">
-			<th><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
-			<td data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>"><?php wc_cart_totals_subtotal_html(); ?></td>
+			<th>Subtotal</th>
+			<td data-title="Subtotal"><?php wc_cart_totals_subtotal_html(); ?></td>
 		</tr>
 
 		<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
@@ -49,8 +49,8 @@ defined( 'ABSPATH' ) || exit;
 		<?php elseif ( WC()->cart->needs_shipping() && 'yes' === get_option( 'woocommerce_enable_shipping_calc' ) ) : ?>
 
 			<tr class="shipping">
-				<th><?php esc_html_e( 'Shipping', 'woocommerce' ); ?></th>
-				<td data-title="<?php esc_attr_e( 'Shipping', 'woocommerce' ); ?>"><?php woocommerce_shipping_calculator(); ?></td>
+				<th>Shipping</th>
+				<td data-title="Shipping"><?php woocommerce_shipping_calculator(); ?></td>
 			</tr>
 
 		<?php endif; ?>
@@ -95,8 +95,8 @@ defined( 'ABSPATH' ) || exit;
 		<?php do_action( 'woocommerce_cart_totals_before_order_total' ); ?>
 
 		<tr class="order-total">
-			<th><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
-			<td data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>"><?php wc_cart_totals_order_total_html(); ?></td>
+			<th>Total</th>
+			<td data-title="Total"><?php wc_cart_totals_order_total_html(); ?></td>
 		</tr>
 
 		<?php do_action( 'woocommerce_cart_totals_after_order_total' ); ?>

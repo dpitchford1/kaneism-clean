@@ -28,7 +28,7 @@ $calculator_text          = '';
 	<th><?php echo wp_kses_post( $package_name ); ?></th>
 	<td data-title="<?php echo esc_attr( $package_name ); ?>">
 		<?php if ( ! empty( $available_methods ) && is_array( $available_methods ) ) : ?>
-			<ul id="shipping_method" class="woocommerce-shipping-methods">
+			<ul id="shipping_method" class="woocommerce-shipping-methods cf">
 				<?php foreach ( $available_methods as $method ) : ?>
 					<li>
 						<?php
@@ -44,7 +44,7 @@ $calculator_text          = '';
 				<?php endforeach; ?>
 			</ul>
 			<?php if ( is_cart() ) : ?>
-				<p class="woocommerce-shipping-destination">
+				<p class="woocommerce-shipping-destination cf">
 					<?php
 					if ( $formatted_destination ) {
 						// Translators: $s shipping destination.

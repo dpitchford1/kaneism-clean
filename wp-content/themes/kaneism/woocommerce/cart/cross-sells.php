@@ -25,7 +25,7 @@ if ( $cross_sells ) : ?>
 
 		if ( $heading ) :
 			?>
-			<h2><?php echo esc_html( $heading ); ?></h2>
+			<h3 class="sizes-LG"><?php echo esc_html( $heading ); ?></h3>
 		<?php endif; ?>
 
 		<?php woocommerce_product_loop_start(); ?>

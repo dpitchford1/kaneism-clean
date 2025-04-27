@@ -6,9 +6,8 @@
  */
 
 ?>
-<h2 class="sizes-XLG"><?php the_title(); ?></h2>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-class="test-shop">
 	<?php
 	/**
 	 * Functions hooked in to kaneism_page add_action
@@ -18,4 +17,4 @@
 	 */
 	do_action( 'kaneism_page' );
 	?>
-</article><?php /* #post-## */ ?><!-- #post-## -->
+</article><!-- #post-## -->

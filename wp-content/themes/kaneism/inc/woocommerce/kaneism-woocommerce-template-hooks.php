@@ -18,9 +18,9 @@
 add_action( 'homepage', 'kaneism_product_categories', 20 );
 add_action( 'homepage', 'kaneism_recent_products', 30 );
 add_action( 'homepage', 'kaneism_featured_products', 40 );
-add_action( 'homepage', 'kaneism_popular_products', 50 );
+//add_action( 'homepage', 'kaneism_popular_products', 50 );
 add_action( 'homepage', 'kaneism_on_sale_products', 60 );
-add_action( 'homepage', 'kaneism_best_selling_products', 70 );
+//add_action( 'homepage', 'kaneism_best_selling_products', 70 );
 
 /**
  * Layout
@@ -40,40 +40,20 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 add_action( 'woocommerce_before_main_content', 'kaneism_before_content', 10 );
 add_action( 'woocommerce_after_main_content', 'kaneism_after_content', 10 );
 add_action( 'kaneism_content_top', 'kaneism_shop_messages', 15 );
-add_action( 'kaneism_before_content', 'woocommerce_breadcrumb', 10 );
-
-add_action( 'woocommerce_after_shop_loop', 'kaneism_sorting_wrapper', 9 );
-add_action( 'woocommerce_after_shop_loop', 'woocommerce_catalog_ordering', 10 );
-add_action( 'woocommerce_after_shop_loop', 'woocommerce_result_count', 20 );
-add_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 30 );
-add_action( 'woocommerce_after_shop_loop', 'kaneism_sorting_wrapper_close', 31 );
-
-add_action( 'woocommerce_before_shop_loop', 'kaneism_sorting_wrapper', 9 );
-add_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 10 );
-add_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
-add_action( 'woocommerce_before_shop_loop', 'kaneism_woocommerce_pagination', 30 );
-add_action( 'woocommerce_before_shop_loop', 'kaneism_sorting_wrapper_close', 31 );
-
-add_action( 'kaneism_footer', 'kaneism_handheld_footer_bar', 999 );
+add_action( 'kaneism_before_content', 'kaneism_woocommerce_breadcrumb', 10 );
 
 /**
  * Products
  *
- * @see kaneism_edit_post_link()
- * @see kaneism_upsell_display()
  * @see kaneism_single_product_pagination()
  * @see kaneism_sticky_single_add_to_cart()
  */
-add_action( 'woocommerce_single_product_summary', 'kaneism_edit_post_link', 60 );
 
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
-add_action( 'woocommerce_after_single_product_summary', 'kaneism_upsell_display', 15 );
-
-remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
-add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 6 );
-
-add_action( 'woocommerce_after_single_product_summary', 'kaneism_single_product_pagination', 30 );
-add_action( 'kaneism_after_footer', 'kaneism_sticky_single_add_to_cart', 999 );
+ remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+ add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 6 );
+ 
+ add_action( 'woocommerce_after_single_product_summary', 'kaneism_single_product_pagination', 30 );
+ add_action( 'kaneism_after_footer', 'kaneism_sticky_single_add_to_cart', 999 );
 
 /**
  * Header
@@ -84,22 +64,29 @@ add_action( 'kaneism_after_footer', 'kaneism_sticky_single_add_to_cart', 999 );
 add_action( 'kaneism_header', 'kaneism_product_search', 40 );
 add_action( 'kaneism_header', 'kaneism_header_cart', 60 );
 
-/**
- * Cart fragment
- *
- * @see kaneism_cart_link_fragment()
- */
-add_filter( 'woocommerce_add_to_cart_fragments', 'kaneism_cart_link_fragment' );
 
 /**
- * Integrations
+ * Products
  *
- * @see kaneism_woocommerce_brands_archive()
- * @see kaneism_woocommerce_brands_single()
- * @see kaneism_woocommerce_brands_homepage_section()
+ * @see kaneizm_edit_post_link()
+ * @see kaneizm_upsell_display()
+ * @see kaneizm_single_product_pagination()
+ * @see kaneizm_sticky_single_add_to_cart()
  */
-if ( class_exists( 'WC_Brands' ) ) {
-	add_action( 'woocommerce_archive_description', 'kaneism_woocommerce_brands_archive', 5 );
-	add_action( 'woocommerce_single_product_summary', 'kaneism_woocommerce_brands_single', 4 );
-	add_action( 'homepage', 'kaneism_woocommerce_brands_homepage_section', 80 );
-}
+
+ //remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+
+ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+ add_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 10 );
+ 
+ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
+ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+
+/**
+ * Breadcrumbs
+ *
+ * @see kaneism_woocommerce_breadcrumb()
+ */
+// Original breadcrumb hook - modify to exclude work CPT
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+// We'll use our custom breadcrumb function that checks for Work CPT

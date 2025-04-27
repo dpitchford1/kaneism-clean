@@ -24,7 +24,6 @@ endif;
 ?>
 
 </main><?php /* #main */ ?>
-
 <?php
-do_action( 'kaneism_sidebar' );
+//do_action( 'kaneism_sidebar' );
 get_footer();

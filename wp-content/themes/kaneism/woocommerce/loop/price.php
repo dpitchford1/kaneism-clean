@@ -23,5 +23,5 @@ global $product;
 ?>
 
 <?php if ( $price_html = $product->get_price_html() ) : ?>
-	<span class="price"><?php echo $price_html; ?></span>
+	<p class="price"><?php echo $price_html; ?> <abbr title="Canadian Dollars">CAD</abbr></p>
 <?php endif; ?>

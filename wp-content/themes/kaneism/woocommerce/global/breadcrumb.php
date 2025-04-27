@@ -29,9 +29,9 @@ if ( ! empty( $breadcrumb ) ) {
 		echo $before;
 
 		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
-			echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
+			echo '<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="item" class="crumb-link" href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a></span>';
 		} else {
-			echo esc_html( $crumb[0] );
+			echo '<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">' . esc_html( $crumb[0] ) . '</span>';
 		}
 
 		echo $after;
@@ -41,6 +41,6 @@ if ( ! empty( $breadcrumb ) ) {
 		}
 	}
 
-	echo $wrap_after;
+	echo $wrap_after; 
 
 }

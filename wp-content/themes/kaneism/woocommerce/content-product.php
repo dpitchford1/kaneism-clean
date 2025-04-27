@@ -24,8 +24,10 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<article <?php wc_product_class( 'test', $product ); ?> itemscope itemtype="https://schema.org/Product">
+<article <?php wc_product_class( 'test', $product ); ?>>
+    <!-- <h4 class="sizes-S" itemprop="name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4> -->
 	<?php
+    
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.
 	 *
@@ -39,6 +41,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 	 * @hooked woocommerce_show_product_loop_sale_flash - 10
 	 * @hooked woocommerce_template_loop_product_thumbnail - 10
 	 */
+    
 	do_action( 'woocommerce_before_shop_loop_item_title' );
 
 	/**

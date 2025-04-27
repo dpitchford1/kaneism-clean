@@ -19,18 +19,18 @@ defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_cart' ); ?>
 
-<form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
+<form class="woocommerce-cart-form cart--main" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
+	<table class="table--general summary--table cart woocommerce-cart-form__contents" cellspacing="0">
 		<thead>
 			<tr>
-				<th class="product-remove"><span class="screen-reader-text"><?php esc_html_e( 'Remove item', 'woocommerce' ); ?></span></th>
-				<th class="product-thumbnail"><span class="screen-reader-text"><?php esc_html_e( 'Thumbnail image', 'woocommerce' ); ?></span></th>
-				<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="product-price"><?php esc_html_e( 'Price', 'woocommerce' ); ?></th>
-				<th class="product-quantity"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
-				<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
+				<th class="product-remove"><span class="hide-text">Remove item</span></th>
+				<th class="product-thumbnail"><span class="hide-text">Thumbnail image</span></th>
+				<th class="product-name">Product</th>
+				<th class="product-price">Price</th>
+				<th class="product-quantity">Quantity</th>
+				<th class="product-subtotal">Subtotal</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -60,7 +60,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									'woocommerce_cart_item_remove_link',
 									sprintf(
-										'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+										'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">Remove</a>',
 										esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
 										/* translators: %s is the product name */
 										esc_attr( sprintf( __( 'Remove %s from cart', 'woocommerce' ), wp_strip_all_tags( $product_name ) ) ),
@@ -74,30 +74,17 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 						<td class="product-thumbnail">
 						<?php
-						/**
-						 * Filter the product thumbnail displayed in the WooCommerce cart.
-						 *
-						 * This filter allows developers to customize the HTML output of the product
-						 * thumbnail. It passes the product image along with cart item data
-						 * for potential modifications before being displayed in the cart.
-						 *
-						 * @param string $thumbnail     The HTML for the product image.
-						 * @param array  $cart_item     The cart item data.
-						 * @param string $cart_item_key Unique key for the cart item.
-						 *
-						 * @since 2.1.0
-						 */
 						$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
 						if ( ! $product_permalink ) {
 							echo $thumbnail; // PHPCS: XSS ok.
 						} else {
-							printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
+							printf( '<a href="%s" class="is--block">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
 						}
 						?>
 						</td>
 
-						<td class="product-name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
+						<td class="product-name" data-title="Product">
 						<?php
 						if ( ! $product_permalink ) {
 							echo wp_kses_post( $product_name . '&nbsp;' );
@@ -122,13 +109,13 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 						</td>
 
-						<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
+						<td class="product-price" data-title="Price">
 							<?php
 								echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 							?>
 						</td>
 
-						<td class="product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
+						<td class="product-quantity" data-title="Quantity">
 						<?php
 						if ( $_product->is_sold_individually() ) {
 							$min_quantity = 1;
@@ -154,7 +141,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 						</td>
 
-						<td class="product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
+						<td class="product-subtotal" data-title="Subtotal">
 							<?php
 								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 							?>
@@ -172,12 +159,14 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<?php if ( wc_coupons_enabled() ) { ?>
 						<div class="coupon">
-							<label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_html_e( 'Apply coupon', 'woocommerce' ); ?></button>
+							<label for="coupon_code" class="hide-text">Coupon Code?:</label> 
+                            <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon Code" /> 
+                            <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="Apply coupon">Apply coupon</button>
 							<?php do_action( 'woocommerce_cart_coupon' ); ?>
 						</div>
 					<?php } ?>
 
-					<button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
+					<button type="submit" class="update--cart button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="Update cart">Update cart</button>
 
 					<?php do_action( 'woocommerce_cart_actions' ); ?>
 

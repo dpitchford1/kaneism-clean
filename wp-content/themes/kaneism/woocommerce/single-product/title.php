@@ -19,4 +19,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-the_title( '<h3 class="sizes-LG">', '</h3>' );
+the_title( '<h3 class="sizes-LG" itemprop="name">', '</h3>' );

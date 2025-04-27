@@ -34,10 +34,10 @@ if ( ! class_exists( 'Kaneism_Admin' ) ) :
 		 * @since  1.4.4
 		 */
 		public function welcome_style( $hook_suffix ) {
-			global $storefront_version;
+			global $kaneism_version;
 
-			if ( 'appearance_page_storefront-welcome' === $hook_suffix ) {
-				wp_enqueue_style( 'kaneism-welcome-screen', get_template_directory_uri() . '/assets/css/admin/welcome-screen/welcome.css', array(), $storefront_version );
+			if ( 'appearance_page_kaneism-welcome' === $hook_suffix ) {
+				wp_enqueue_style( 'kaneism-welcome-screen', get_template_directory_uri() . '/assets/css/admin/welcome-screen/welcome.css', array(), $kaneism_version );
 				wp_style_add_data( 'kaneism-welcome-screen', 'rtl', 'replace' );
 			}
 		}

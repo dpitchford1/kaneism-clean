@@ -25,14 +25,16 @@ global $product;
  * @hooked woocommerce_output_all_notices - 10
  */
 do_action( 'woocommerce_before_single_product' );
-
+?>
+<section class="product--single">
+<?php
 if ( post_password_required() ) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
+<article id="product-<?php the_ID(); ?>" <?php wc_product_class( 'test', $product ); ?>> 
 	<?php
 	/**
 	 * Hook: woocommerce_before_single_product_summary.
@@ -71,6 +73,6 @@ if ( post_password_required() ) {
 	 */
 	do_action( 'woocommerce_after_single_product_summary' );
 	?>
-</div>
-
+</article>
+</section>
 <?php do_action( 'woocommerce_after_single_product' ); ?>

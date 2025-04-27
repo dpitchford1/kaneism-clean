@@ -6,12 +6,7 @@
  */
 
 ?>
-<?php
-$featured_image = get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' );
-?>
-
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-featured-image="<?php echo esc_url( $featured_image ); ?>">
-	<div class="col-full">
+<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php
 		/**
 		 * Functions hooked in to kaneism_page add_action
@@ -21,5 +16,4 @@ $featured_image = get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' );
 		 */
 		do_action( 'kaneism_homepage' );
 		?>
-	</div>
-</div><!-- #post-## -->
+</div><?php /* #post-## */ ?>

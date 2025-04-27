@@ -12,7 +12,6 @@ if ( apply_filters( 'woocommerce_checkout_show_terms', true ) && function_exists
 	do_action( 'woocommerce_checkout_before_terms_and_conditions' );
 
 	?>
-	<div class="woocommerce-terms-and-conditions-wrapper">
 		<?php
 		/**
 		 * Terms and conditions hook used to inject content.
@@ -33,7 +32,6 @@ if ( apply_filters( 'woocommerce_checkout_show_terms', true ) && function_exists
 				<input type="hidden" name="terms-field" value="1" />
 			</p>
 		<?php endif; ?>
-	</div>
 	<?php
 
 	do_action( 'woocommerce_checkout_after_terms_and_conditions' );
